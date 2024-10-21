@@ -1,0 +1,84 @@
+theme:
+  name: material
+  favicon: favicon.ico
+  #logo: images/archer2_white_transparent.png
+  palette:
+    primary: custom
+  features:
+    - tabs
+  icon:
+    repo: fontawesome/brands/github
+
+site_name: IKKEM HPC User Documentation
+repo_url: https://git.xmu.edu.cn/hpc-ops/hpc-manual
+repo_name: hpc-ops/hpc-manual
+edit_uri: edit/main/docs/
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: http://ai4ec.ikkem.com
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - 首页: index.md
+  - 简介:
+    - 平台资源: introduction/platform.md
+    - 使用流程: introduction/usage.md
+  - 用户登录与文件传输: login-ftp/login-ftp.md
+  - 分区（队列）管理: partition/partition.md
+  - Slurm作业调度系统:
+    - slurm/slurm.md
+    - slurm/basic.md
+    - slurm/sinfo.md
+    - slurm/squeue.md
+    - slurm/partition.md
+    - slurm/node.md
+    - slurm/job.md
+    - slurm/qos.md
+    - slurm/submission.md
+    - slurm/srun.md
+    - slurm/sbatch.md
+    - slurm/salloc.md
+    - slurm/sbcast.md
+    - slurm/sattach.md
+    - slurm/sacct.md
+    - slurm/others.md
+  - 应用软件及脚本: app/app.md
+  - 注意事项: notes/notes.md
