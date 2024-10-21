@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -301,7 +301,7 @@
         
   
   <span class="md-ellipsis">
-    使用流程
+    开户流程
   </span>
   
 
@@ -852,39 +852,39 @@
 <p>高性能计算平台采用slurm作业调度系统，整个队列中可能有需要占用多节点的高优先级任务正在等待资源，调度器会一定程度上为这些作业保留资源，以确保它们能够运行。</p>
 </li>
 <li>
-<p>error: Job submit/allocate failed: Invalid partition name specified</p>
-<p>错误原因：未指定正确的partition，可通过以下指令获取可用的分区
+<p><code>error: Job submit/allocate failed: Invalid partition name specified</code></p>
+<p>错误原因：未指定正确的partition，可通过以下指令获取可用的分区</p>
 <div class="highlight"><pre><span></span><code>sacctmgr<span class="w"> </span>show<span class="w"> </span>ass<span class="w"> </span><span class="nv">user</span><span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span><span class="w"> </span><span class="nv">format</span><span class="o">=</span>part<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
-<p>error: Job submit/allocate failed: Invalid account or account/partition combination specified</p>
-<p>错误原因：通常是因为没有指定正确的账户，可通过以下指令获取可用账户。
+<p><code>error: Job submit/allocate failed: Invalid account or account/partition combination specified</code></p>
+<p>错误原因：通常是因为没有指定正确的账户，可通过以下指令获取可用账户。</p>
 <div class="highlight"><pre><span></span><code>sacctmgr<span class="w"> </span>show<span class="w"> </span>ass<span class="w"> </span><span class="nv">user</span><span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span><span class="w"> </span><span class="nv">format</span><span class="o">=</span>account%15<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
-<p>(QOSMaxWallDurationPerJobLimit)</p>
-<p>错误原因：指定 <code>-t</code>, <code>--time=</code> 参数时，时间超过qos允许的时长，通过以下命令可以查看相应qos允许运行的最大时长。
+<p><code>(QOSMaxWallDurationPerJobLimit)</code></p>
+<p>错误原因：指定 <code>-t</code>, <code>--time=</code> 参数时，时间超过qos允许的时长，通过以下命令可以查看相应qos允许运行的最大时长。</p>
 <div class="highlight"><pre><span></span><code>sacctmgr<span class="w"> </span>show<span class="w"> </span>qos<span class="w"> </span><span class="nv">format</span><span class="o">=</span>name,MaxWall
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
-<p>batch job submission failed: Requested node configuration is not available</p>
+<p><code>batch job submission failed: Requested node configuration is not available</code></p>
 <p>错误原因：申请资源的节点配置不匹配，如partCU的每个节点只有64个核心，但用户申请申请该节点的核心数超过64，就会报错</p>
 </li>
 <li>
-<p>(QOSNotAllowed)</p>
-<p>没有指定正确的qos，以下命令可以查看不同分区下可用的qos。
+<p><code>(QOSNotAllowed)</code></p>
+<p>没有指定正确的qos，以下命令可以查看不同分区下可用的qos。</p>
 <div class="highlight"><pre><span></span><code>sacctmgr<span class="w"> </span>show<span class="w"> </span>ass<span class="w"> </span><span class="nv">user</span><span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span><span class="w"> </span><span class="nv">format</span><span class="o">=</span>user,part,qos
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
-<p>QOSGrpSubmitJobsLimit</p>
+<p><code>QOSGrpSubmitJobsLimit</code></p>
 <p>出现该错误的原因通常为账户没有余额，或者账户封锁了</p>
 </li>
 <li>
-<p>Invalid qos specification</p>
+<p><code>Invalid qos specification</code></p>
 <p>目前服务器暂不支持指定 QoS，请勿添加 <code>-q</code> 参数</p>
 </li>
 <li>
@@ -956,7 +956,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
