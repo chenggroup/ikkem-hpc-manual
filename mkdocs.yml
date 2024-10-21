@@ -61,6 +61,7 @@ nav:
   - 简介:
     - 平台资源: introduction/platform.md
     - 使用流程: introduction/usage.md
+  - SCOW: scow/scow.md
   - 用户登录与文件传输: login-ftp/login-ftp.md
   - 分区（队列）管理: partition/partition.md
   - Slurm作业调度系统:

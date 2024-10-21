@@ -13,4 +13,7 @@
 </video>
 
 - [培训PPT点击下载](../_files/peixun.pptx)
+
+<!--
 - [用户指南下载](../_files/userguide.zip)
+-->

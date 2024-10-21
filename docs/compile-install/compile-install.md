@@ -2,9 +2,9 @@
 
 应用程序一般有两种方式发布：
 
-- 二进制方式：用户无需编译，只要解压缩后设置相关环境变量等即可。如Gaussian [1]，国内用户只能购买到已经编译好的二进制可执行文件，有些国家和地区能购买到源代码。
+- 二进制方式：用户无需编译，只要解压缩后设置相关环境变量等即可。如Gaussian [^1]，国内用户只能购买到已经编译好的二进制可执行文件，有些国家和地区能购买到源代码。
 - 源代码方式：
-  - 用户需要自己编译，并且可以按照需要修改编译参数以编译成最适合自己的可执行程序，之后再设置环境变量等使用，如VASP [2]。
+  - 用户需要自己编译，并且可以按照需要修改编译参数以编译成最适合自己的可执行程序，之后再设置环境变量等使用，如VASP [^2]。
   - 源代码编译时经常用到的编译命令为`make`，编译配置文件为，请查看`make`命令用法及文件说明。
 
 应用程序一般都有官方的安装说明，建议在安装前，首先仔细查看一下，比如到其主页或者查看解压缩后的目录中的类似：install*、readme*等文件。
@@ -14,7 +14,7 @@
 以二进制方式发布的程序，安装相对简单，一般只要解压缩后设置好环境变量即可，以Gaussian09为例：
 
 - 将压缩包复制到某个地方，如
-- 解压缩：`tar xvf gaussian09.tar.gz` [3]
+- 解压缩：`tar xvf gaussian09.tar.gz` [^3]
 - 设置环境变量：修改 `~/.bashrc` ，添加：
 
   ```bash
@@ -49,31 +49,31 @@
 
     其中：
 
-    - F77：编译Fortran77源文件的编译器命令
-    - FC：编译Fortran90源文件的编译器命令
-    - CC：编译C源文件的编译器命令
-    - CXX：编译C++源文件的编译器命令
-    - –prefix：安装到的目录前缀
+    - `F77`：编译Fortran77源文件的编译器命令
+    - `FC`：编译Fortran90源文件的编译器命令
+    - `CC`：编译C源文件的编译器命令
+    - `CXX`：编译C++源文件的编译器命令
+    - `-–prefix`：安装到的目录前缀
 
     另外一些在Makefile中常见变量为：
 
-    - CPP：预处理参数
-    - CLAGS：C程序编译参数
-    - CXXFLAGS：C程序编译参数
-    - F90：编译Fortran90及以后源文件的编译器命令
-    - FFLAGS：Fortran编译参数
-    - OFLAG：优化参数
-    - INCLUDE：头文件参数
-    - LIB：库文件参数
-    - LINK：链接参数
+    - `CPP`：预处理参数
+    - `CLAGS`：C程序编译参数
+    - `CXXFLAGS`：C程序编译参数
+    - `F90`：编译Fortran90及以后源文件的编译器命令
+    - `FFLAGS`：Fortran编译参数
+    - `OFLAG`：优化参数
+    - `INCLUDE`：头文件参数
+    - `LIB`：库文件参数
+    - `LINK`：链接参数
 
 - 修改文件配置，设定编译环境等：
   - 对做如下修改：
-    - 设定编译Fortran的编译器命令为Intel Fortran编译器命令：FC=ifort
+    - 设定编译Fortran的编译器命令为Intel Fortran编译器命令：`FC=ifort`
   - 对做如下修改：
-    - 设定BLAS库使用Intel MKL中的BLAS：BLAS=-mkl [4]
-    - 打开FFT3D支持：去掉FFT3D = fft3dfurth.o fft3dlib.o前的# [5]
-    - 设定MPI Fortran编译器为Intel MPI编译器：FC=mpiifort
+    - 设定BLAS库使用Intel MKL中的BLAS：`BLAS=-mkl` [^4]
+    - 打开FFT3D支持：去掉 `FFT3D = fft3dfurth.o fft3dlib.o` 前的 `#` [^5]
+    - 设定MPI Fortran编译器为Intel MPI编译器：`FC=mpiifort`
 
 - 编译：`make`
   - 先在目录中执行`make`
@@ -88,8 +88,8 @@
 
 ## 参考文献
 
-1. Gaussian主页：[http://www.gaussian.com/](http://www.gaussian.com/)
-2. VASP主页：[http://www.vasp.at/](http://www.vasp.at/)
-3. 当前主流Linux系统，`tar`命令已经能自动识别.gz和.bz压缩，无需再明确添加z或j参数来指定。
-4. 因为2013版本的Intel编译器支持-mkl选项自动Intel MKL库，因此可以这么设置。
-5. 在Makefile中#表示注释
+[^1]: Gaussian主页：[http://www.gaussian.com/](http://www.gaussian.com/)
+[^2]: VASP主页：[http://www.vasp.at/](http://www.vasp.at/)
+[^3]: 当前主流Linux系统，`tar`命令已经能自动识别.gz和.bz压缩，无需再明确添加z或j参数来指定。
+[^4]: 因为2013版本的Intel编译器支持-mkl选项自动Intel MKL库，因此可以这么设置。
+[^5]: 在Makefile中#表示注释
