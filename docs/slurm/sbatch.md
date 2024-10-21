@@ -127,8 +127,6 @@ sbatch: Submitted batch job 65541
 - `SLURM_EXIT_ERROR`：设定Slurm出错时的退出码。
 - `SLURM_STEP_KILLED_MSG_NODE_ID=ID`：如果设置，当作业或作业步被信号终止时，只有指定ID的节点记录。
 
-(target-7)=
-
 ## sbatch主要输出环境变量
 
 Slurm将在作业脚本中输出以下变量，作业脚本可以使用这些变量：

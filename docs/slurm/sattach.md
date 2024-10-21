@@ -16,8 +16,6 @@
 - -V, --version：显示版本信息。
 - -v, --verbose：显示冗余信息。
 
-(target-13)=
-
 ## sattach主要输入环境变量
 
 - SLURM_CONF：Slurm配置文件。

@@ -6,12 +6,11 @@
 
 command可以是任何是用户想要用的程序，典型的为xterm或包含`srun`命令的shell。如果后面没有跟命令，那么将执行Slurm系统slurm.conf配置文件中通过SallocDefaultCommand设定的命令。如果SallocDefaultCommand没有设定，那么将执行用户的默认shell。
 
-注意：`salloc`逻辑上包括支持保存和存储终端行设置，并且设计为采用前台方式执行。如果需要后台执行`salloc`，可以设定标准输入为某个文件，如：`salloc -n16 a.out </dev/null &`。
+注意：`salloc`逻辑上包括支持保存和存储终端行设置，并且设计为采用前台方式执行。如果需要后台执行`salloc`，可以设定标准输入为某个文件，如：`salloc -n 16 a.out </dev/null &`。
 
 ## salloc主要选项
 
-常见主要选项参见[10.1](#slurmoption)。
-
+常见主要选项参见[提交作业命令共同说明](./submission.md)。
 
 ## salloc主要输入环境变量
 

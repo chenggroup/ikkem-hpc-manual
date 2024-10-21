@@ -8,8 +8,6 @@ JOBID PARTITION      NAME     USER ST       TIME  NODES NODELIST(REASON)
  76    GPU-V100 gpu.slurm     hmli PD       0:00      5 (Resources)
 ```
 
-(target-1)=
-
 ## squeue主要输出项
 
 - JOBID：作业号。
@@ -80,8 +78,6 @@ JOBID PARTITION      NAME     USER ST       TIME  NODES NODELIST(REASON)
   - TimeLimit：作业超过去时间限制。
   - QOSUsageThreshold：所需的QoS阈值被违反。
   - WaitingForScheduling：等待被调度中。
-
-(target-2)=
 
 ## squeue主要参数
 
