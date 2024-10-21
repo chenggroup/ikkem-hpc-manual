@@ -1,0 +1,1301 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../submission/">
+      
+      
+        <link rel="next" href="../sbatch/">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>交互式提交并行作业：srun - IKKEM HPC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#srun" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IKKEM HPC User Documentation" class="md-header__button md-logo" aria-label="IKKEM HPC User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IKKEM HPC User Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              交互式提交并行作业：srun
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://git.xmu.edu.cn/hpc-ops/hpc-manual" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hpc-ops/hpc-manual
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IKKEM HPC User Documentation" class="md-nav__button md-logo" aria-label="IKKEM HPC User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IKKEM HPC User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://git.xmu.edu.cn/hpc-ops/hpc-manual" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hpc-ops/hpc-manual
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    平台资源
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用流程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scow/scow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCOW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login-ftp/login-ftp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用户登录与文件传输
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../partition/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分区（队列）管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Slurm作业调度系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Slurm作业调度系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    显示队列、节点信息：sinfo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../squeue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看队列中的作业信息：squeue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细队列信息：scontrol show partition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细节点信息：scontrol show node
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细作业信息：scontrol show job
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看服务质量(QoS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提交作业命令共同说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    交互式提交并行作业：srun
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    交互式提交并行作业：srun
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要输入环境变量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要输出环境变量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      多程序运行配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见例子
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    批处理方式提交作业：sbatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../salloc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分配式提交作业：salloc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbcast/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    将文件同步到各节点：sbcast
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sattach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    吸附到作业步：sattach
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sacct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看记账信息：sacct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其它常用作业管理命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用软件及脚本
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注意事项
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要输入环境变量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要输出环境变量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      多程序运行配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见例子
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="srun">交互式提交并行作业：srun<a class="headerlink" href="#srun" title="Permanent link">&para;</a></h1>
+<p><code>srun</code>可以交互式提交运行并行作业，提交后，作业等待运行，等运行完毕后，才返回终端。语法为：<code>srun [OPTIONS...] executable [args...]</code></p>
+<h2 id="_1">主要输入环境变量<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>一些提交选项可通过环境变量来设置，命令行的选项优先级高于设置的环境变量，将覆盖掉环境变量的设置。环境变量与对应的参数如下：</p>
+<ul>
+<li><code>SLURM_ACCOUNT</code>：类似-A, --account。</li>
+<li><code>SLURM_ACCTG_FREQ</code>：类似--acctg-freq。</li>
+<li><code>SLURM_BCAST</code>：类似--bcast。</li>
+<li><code>SLURM_COMPRESS</code>：类似--compress。</li>
+<li><code>SLURM_CORE_SPEC</code>：类似--core-spec。</li>
+<li><code>SLURM_CPU_BIND</code>：类似--cpu-bind。</li>
+<li><code>SLURM_CPUS_PER_GPU</code>：类似-c, --cpus-per-gpu。</li>
+<li><code>SLURM_CPUS_PER_TASK</code>：类似-c, --cpus-per-task。</li>
+<li><code>SLURM_DEBUG</code>：类似-v, --verbose。</li>
+<li><code>SLURM_DEPENDENCY</code>：类似-P, --dependency=\<jobid>。</li>
+<li><code>SLURM_DISABLE_STATUS</code>：类似-X, --disable-status。</li>
+<li><code>SLURM_DIST_PLANESIZE</code>：类似-m plane。</li>
+<li><code>SLURM_DISTRIBUTION</code>：类似-m, --distribution。</li>
+<li><code>SLURM_EPILOG</code>：类似--epilog。</li>
+<li><code>SLURM_EXCLUSIVE</code>：类似--exclusive。</li>
+<li><code>SLURM_EXIT_ERROR</code>：Slurm出错时的退出码。</li>
+<li><code>SLURM_EXIT_IMMEDIATE</code>：当--immediate使用时且资源当前无效时的Slurm退出码。</li>
+<li><code>SLURM_GEOMETRY</code>：类似-g, --geometry。</li>
+<li><code>SLURM_GPUS</code>：类似-G, --gpus。</li>
+<li><code>SLURM_GPU_BIND</code>：类似--gpu-bind。</li>
+<li><code>SLURM_GPU_FREQ</code>：类似--gpu-freq。</li>
+<li><code>SLURM_GPUS_PER_NODE</code>：类似--gpus-per-node。</li>
+<li><code>SLURM_GPUS_PER_TASK</code>：类似--gpus-per-task。</li>
+<li><code>SLURM_GRES</code>：类似--gres，参见<code>SLURM_STEP_GRES</code>。</li>
+<li><code>SLURM_HINT</code>：类似--hint。</li>
+<li><code>SLURM_IMMEDIATE</code>：类似-I, --immediate。</li>
+<li><code>SLURM_JOB_ID</code>：类似--jobid。</li>
+<li><code>SLURM_JOB_NAME</code>：类似-J, --job-name。</li>
+<li><code>SLURM_JOB_NODELIST</code>：类似-w, –nodelist=\<host1,host2,... or filename>，格式类似node[1-10,11,13-28]。</li>
+<li><code>SLURM_JOB_NUM_NODES</code>：分配的总节点数。</li>
+<li><code>SLURM_KILL_BAD_EXIT</code>：类似-K, --kill-on-bad-exit。</li>
+<li><code>SLURM_LABELIO</code>：类似-l, --label。</li>
+<li><code>SLURM_LINUX_IMAGE</code>：类似--linux-image。</li>
+<li><code>SLURM_MEM_BIND</code>：类似--mem-bind。</li>
+<li><code>SLURM_MEM_PER_CPU</code>：类似--mem-per-cpu。</li>
+<li><code>SLURM_MEM_PER_NODE</code>：类似--mem。</li>
+<li><code>SLURM_MPI_TYPE</code>：类似--mpi。</li>
+<li><code>SLURM_NETWORK</code>：类似--network。</li>
+<li><code>SLURM_NNODES</code>：类似-N, --nodes，即将废弃。</li>
+<li><code>SLURM_NO_KILL</code>：类似-k, --no-kill。</li>
+<li><code>SLURM_NTASKS</code>：类似-n, --ntasks。</li>
+<li><code>SLURM_NTASKS_PER_CORE</code>：类似--ntasks-per-core。</li>
+<li><code>SLURM_NTASKS_PER_SOCKET</code>：类似--ntasks-per-socket。</li>
+<li><code>SLURM_NTASKS_PER_NODE</code>：类似--ntasks-per-node。</li>
+<li><code>SLURM_OPEN_MODE</code>：类似--open-mode。</li>
+<li><code>SLURM_OVERCOMMIT</code>：类似-O, --overcommit。</li>
+<li><code>SLURM_PARTITION</code>：类似-p, --partition。</li>
+<li><code>SLURM_PROFILE</code>：类似--profile。</li>
+<li><code>SLURM_PROLOG</code>：类似--prolog，<code>仅限srun</code>。</li>
+<li><code>SLURM_QOS</code>：类似--qos。</li>
+<li><code>SLURM_REMOTE_CWD</code>：类似-D, --chdir=。</li>
+<li><code>SLURM_RESERVATION</code>：类似--reservation。</li>
+<li><code>SLURM_RESV_PORTS</code>：类似--resv-ports。</li>
+<li><code>SLURM_SIGNAL</code>：类似--signal。</li>
+<li><code>SLURM_STDERRMODE</code>：类似-e, --error。</li>
+<li><code>SLURM_STDINMODE</code>：类似-i, --input。</li>
+<li><code>SLURM_SRUN_REDUCE_TASK_EXIT_MSG</code>：如被设置，并且非0,那么具有相同退出码的连续的任务退出消息只显示一次。</li>
+<li><code>SLURM_STEP_GRES</code>：类似--gres（仅对作业步有效，不影响作业分配），参见<code>SLURM_GRES</code>。</li>
+<li><code>SLURM_STEP_KILLED_MSG_NODE_ID=ID</code>：如被设置，当作业或作业步被信号终止时只特定ID的节点下显示信息。</li>
+<li><code>SLURM_STDOUTMODE</code>：类似-o, --output。</li>
+<li><code>SLURM_TASK_EPILOG</code>：类似--task-epilog。</li>
+<li><code>SLURM_TASK_PROLOG</code>：类似--task-prolog。</li>
+<li><code>SLURM_TEST_EXEC</code>：如被定义，在计算节点执行之前先在本地节点上测试可执行程序。</li>
+<li><code>SLURM_THREAD_SPEC</code>：类似--thread-spec。</li>
+<li><code>SLURM_THREADS</code>：类似-T, --threads。</li>
+<li><code>SLURM_TIMELIMIT</code>：类似-t, --time。</li>
+<li><code>SLURM_UNBUFFEREDIO</code>：类似-u, --unbuffered。</li>
+<li><code>SLURM_USE_MIN_NODES</code>：类似--use-min-nodes。</li>
+<li><code>SLURM_WAIT</code>：类似-W, --wait。</li>
+<li><code>SLURM_WORKING_DIR</code>：类似-D, --chdir。</li>
+<li><code>SRUN_EXPORT_ENV</code>：类似--export，将覆盖掉<code>SLURM_EXPORT_ENV</code>。</li>
+</ul>
+<h2 id="_2">主要输出环境变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>srun</code>会在执行的节点上设置如下环境变量：</p>
+<ul>
+<li><code>SLURM_CLUSTER_NAME</code>：集群名。</li>
+<li><code>SLURM_CPU_BIND_VERBOSE</code>：--cpu-bind详细情况(quiet、verbose)。</li>
+<li><code>SLURM_CPU_BIND_TYPE</code>：--cpu-bind类型(none、rank、map-cpu:、mask-cpu:)。</li>
+<li><code>SLURM_CPU_BIND_LIST</code>：--cpu-bind映射或掩码列表。</li>
+<li><code>SLURM_CPU_FREQ_REQ</code>：需要的CPU频率资源，参见--cpu-freq和输入环境变量<code>SLURM_CPU_FREQ_REQ</code>。</li>
+<li><code>SLURM_CPUS_ON_NODE</code>：节点上的CPU颗数。</li>
+<li><code>SLURM_CPUS_PER_GPU</code>：每颗GPU对应的CPU颗数，参见--cpus-per-gpu选项指定。</li>
+<li><code>SLURM_CPUS_PER_TASK</code>：每作业的CPU颗数，参见--cpus-per-task选项指定。</li>
+<li><code>SLURM_DISTRIBUTION</code>：分配的作业的分布类型，参见-m, --distribution。</li>
+<li><code>SLURM_GPUS</code>：需要的GPU颗数，仅提交时有-G, --gpus时。</li>
+<li><code>SLURM_GPU_BIND</code>：指定绑定任务到GPU，仅提交时具有--gpu-bind参数时。</li>
+<li><code>SLURM_GPU_FREQ</code>：需求的GPU频率，仅提交时具有--gpu-freq参数时。</li>
+<li><code>SLURM_GPUS_PER_NODE</code>：需要的每个节点的GPU颗数，仅提交时具有--gpus-per-node参数时。</li>
+<li><code>SLURM_GPUS_PER_SOCKET</code>：需要的每个socket的GPU颗数，仅提交时具有--gpus-per-socket参数时。</li>
+<li><code>SLURM_GPUS_PER_TASK</code>：需要的每个任务的GPU颗数，仅提交时具有--gpus-per-task参数时。</li>
+<li><code>SLURM_GTIDS</code>：此节点上分布的全局任务号，从0开始，以,分隔。</li>
+<li><code>SLURM_JOB_ACCOUNT</code>：作业的记账名。</li>
+<li><code>SLURM_JOB_CPUS_PER_NODE</code>：每个节点的CPU颗数，格式类似40(x3),3，顺序对应<code>SLURM_JOB_NODELIST</code>节点名顺序。</li>
+<li><code>SLURM_JOB_DEPENDENCY</code>：依赖关系，参见--dependency选项。</li>
+<li><code>SLURM_JOB_ID</code>：作业号。</li>
+<li><code>SLURM_JOB_NAME</code>：作业名，参见--job-name选项或srun启动的命令名。</li>
+<li><code>SLURM_JOB_PARTITION</code>：作业使用的队列名。</li>
+<li><code>SLURM_JOB_QOS</code>：作业的服务质量QOS。</li>
+<li><code>SLURM_JOB_RESERVATION</code>：作业的高级资源预留。</li>
+<li><code>SLURM_LAUNCH_NODE_IPADDR</code>：任务初始启动节点的IP地址。</li>
+<li><code>SLURM_LOCALID</code>：节点本地任务号。</li>
+<li><code>SLURM_MEM_BIND_LIST</code>：--mem-bind映射或掩码列表（\<list of IDs or masks for this node>）。</li>
+<li><code>SLURM_MEM_BIND_PREFER</code>：--mem-bin prefer优先权。</li>
+<li><code>SLURM_MEM_BIND_TYPE</code>：--mem-bind类型（none、rank、map-mem:、mask-mem:）。</li>
+<li><code>SLURM_MEM_BIND_VERBOSE</code>：内存绑定详细情况，参见--mem-bind verbosity（quiet、verbose）。</li>
+<li><code>SLURM_MEM_PER_GPU</code>：每颗GPU需求的内存，参见--mem-per-gpu。</li>
+<li><code>SLURM_NODE_ALIASES</code>：分配的节点名、通信IP地址和节点名，每组内采用:分隔，组间通过,分隔，如：<code>SLURM_NODE_ALIASES</code>=0:1.2.3.4:foo,ec1:1.2.3.5:bar。</li>
+<li><code>SLURM_NODEID</code>：当前节点的相对节点号。</li>
+<li><code>SLURM_NODELIST</code>：分配的节点列表，格式类似node[1-10,11,13-28]。</li>
+<li><code>SLURM_NTASKS</code>：任务总数。</li>
+<li><code>SLURM_PRIO_PROCESS</code>：作业提交时的调度优先级值（nice值）。</li>
+<li><code>SLURM_PROCID</code>：当前MPI秩号。</li>
+<li><code>SLURM_SRUN_COMM_HOST</code>：节点的通信IP。</li>
+<li><code>SLURM_SRUN_COMM_PORT</code>：srun的通信端口。</li>
+<li><code>SLURM_STEP_LAUNCHER_PORT</code>：作业步启动端口。</li>
+<li><code>SLURM_STEP_NODELIST</code>：作业步节点列表，格式类似node[1-10,11,13-28]。</li>
+<li><code>SLURM_STEP_NUM_NODES</code>：作业步的节点总数。</li>
+<li><code>SLURM_STEP_NUM_TASKS</code>：作业步的任务总数。</li>
+<li><code>SLURM_STEP_TASKS_PER_NODE</code>：作业步在每个节点上的任务总数，格式类似40(x3),3，顺序对应<code>SLURM_JOB_NODELIST</code>节点名顺序。</li>
+<li><code>SLURM_STEP_ID</code>：当前作业的作业步号。</li>
+<li><code>SLURM_SUBMIT_DIR</code>：提交作业的目录，或有可能由-D,–chdir参数指定。</li>
+<li><code>SLURM_SUBMIT_HOST</code>：提交作业的节点名。</li>
+<li><code>SLURM_TASK_PID</code>：任务启动的进程号。</li>
+<li><code>SLURM_TASKS_PER_NODE</code>：每个节点上启动的任务数，以<code>SLURM_NODELIST</code>中的节点顺序显示，以,分隔。如果两个或多个连续节点上的任务数相同，数后跟着(x#)，其中#是对应的节点数，如<code>SLURM_TASKS_PER_NODE</code>=2(x3),1"表示，前三个节点上的作业数为3，第四个节点上的任务数为1。</li>
+<li><code>SLURM_UMASK</code>：作业提交时的umask掩码。</li>
+<li><code>SLURMD_NODENAME</code>：任务运行的节点名。</li>
+<li><code>SRUN_DEBUG</code>：srun命令的调试详细信息级别，默认为3（info级）。</li>
+</ul>
+<h2 id="_3">多程序运行配置<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Slurm支持一次申请多个节点，在不同节点上同时启动执行不同任务。为实现次功能，需要生成一个配置文件，在配置文件中做相应设置。</p>
+<p>配置文件中的注释必需第一列为#，配置文件包含以空格分隔的以下域（字段）：</p>
+<ul>
+<li>任务范围(Task rank)：一个或多个任务秩，多个值的话可以用逗号,分隔。范围可以用两个用-分隔的整数表示，小数在前，大数在后。如果最后一行为*，则表示全部其余未在前面声明的秩。如没有指明可执行程序，则会显示错误信息：“No executable program specified for this task”。</li>
+<li>需要执行的可执行程序(Executable)：也许需要绝对路径指明。</li>
+<li>可执行程序的参数(Arguments)：“%t”将被替换为任务号；“%o”将被替换为任务号偏移（如配置的秩为“1-5”，则偏移值为“0-4”）。单引号可以防止内部的字符被解释。此域为可选项，任何在命令行中需要添加的程序参数都将加在配置文件中的此部分。</li>
+</ul>
+<p>例如，配置文件silly.conf内容为：</p>
+<div class="highlight"><pre><span></span><code>###################################################################
+# srun multiple program configuration file
+#
+# srun -n8 -l --multi-prog silly.conf
+###################################################################
+4-6       hostname
+1,7       echo  task:%t
+0,2-3     echo  offset:%o
+</code></pre></div>
+<p>运行：<code>srun -n8 -l --multi-prog silly.conf</code></p>
+<p>输出结果：</p>
+<div class="highlight"><pre><span></span><code>0: offset:0
+1: task:1
+2: offset:1
+3: offset:2
+4: node1
+5: node2
+6: node4
+7: task:7
+</code></pre></div>
+<h2 id="_4">常见例子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>使用8个CPU核(-n8)运行作业，并在标准输出上显示任务号(-l)：</li>
+</ul>
+<p><code>srun -n8 -l hostname</code></p>
+<p>输出结果：</p>
+<div class="highlight"><pre><span></span><code>0: node0
+1: node0
+2: node1
+3: node1
+4: node2
+5: node2
+6: node3
+7: node3
+</code></pre></div>
+<ul>
+<li>在脚本中使用-r2参数使其在第2号（分配的节点号从0开始）开始的两个节点上运行，并采用实时分配模式而不是批处理模式运行：</li>
+</ul>
+<p>脚本<code>test.sh</code>内容：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_NODELIST</span>
+srun<span class="w"> </span>-lN2<span class="w"> </span>-r2<span class="w"> </span>hostname
+srun<span class="w"> </span>-lN2<span class="w"> </span>hostname
+</code></pre></div>
+<p>运行： <code>salloc -N4 test.sh</code></p>
+<p>输出结果：</p>
+<div class="highlight"><pre><span></span><code>dev[7-10]
+0: node9
+1: node10
+0: node7
+1: node8
+</code></pre></div>
+<ul>
+<li>在分配的节点上并行运行两个作业步：</li>
+</ul>
+<p>脚本<code>test.sh</code>内容：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+srun<span class="w"> </span>-lN2<span class="w"> </span>-n4<span class="w"> </span>-r<span class="w"> </span><span class="m">2</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">&amp;</span>
+srun<span class="w"> </span>-lN2<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">&amp;</span>
+sleep<span class="w"> </span><span class="m">1</span>
+squeue
+squeue<span class="w"> </span>-s
+</code></pre></div>
+<p>运行： <code>salloc -N4 test.sh</code></p>
+<p>输出结果：</p>
+<div class="highlight"><pre><span></span><code>JOBID PARTITION     NAME     USER  ST      TIME  NODES NODELIST
+65641     batch  test.sh   grondo   R      0:01      4 dev[7-10]
+
+STEPID     PARTITION     USER      TIME NODELIST
+65641.0        batch   grondo      0:01 dev[7-8]
+65641.1        batch   grondo      0:01 dev[9-10]
+</code></pre></div>
+<ul>
+<li>运行MPICH作业：</li>
+</ul>
+<p>脚本<code>test.sh</code>内容：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="nv">MACHINEFILE</span><span class="o">=</span><span class="s2">&quot;nodes.</span><span class="nv">$SLURM_JOB_ID</span><span class="s2">&quot;</span>
+
+<span class="c1"># 生成MPICH所需的包含节点名的machinfile文件</span>
+srun<span class="w"> </span>-l<span class="w"> </span>/bin/hostname<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>’<span class="o">{</span>print<span class="w"> </span><span class="nv">$2</span><span class="o">}</span>’<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$MACHINEFILE</span>
+
+<span class="c1"># 运行MPICH作业</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>-machinefile<span class="w"> </span><span class="nv">$MACHINEFILE</span><span class="w"> </span>mpi-app
+
+rm<span class="w"> </span><span class="nv">$MACHINEFILE</span>
+</code></pre></div>
+<p>采用2个节点（-N2）共4个CPU核（-n4）运行：<code>salloc -N2 -n4 test.sh</code></p>
+<ul>
+<li>利用不同节点号（<code>SLURM_NODEID</code>）运行不同作业，节点号从0开始：</li>
+</ul>
+<p>脚本<code>test.sh</code>内容：</p>
+<div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="nv">$SLURM_NODEID</span><span class="w"> </span><span class="k">in</span>
+<span class="w">     </span><span class="m">0</span><span class="o">)</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;I am running on &quot;</span>
+<span class="w">        </span>hostname
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">     </span><span class="m">1</span><span class="o">)</span>
+<span class="w">        </span>hostname
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;is where I am running&quot;</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w"> </span><span class="k">esac</span>
+</code></pre></div>
+<p>运行： <code>srun -N2 test.sh</code></p>
+<blockquote>
+<p>输出：</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>dev0 is where I am running I am running on ev1
+</code></pre></div>
+<ul>
+<li>利用多核选项控制任务执行：</li>
+</ul>
+<p>采用2个节点（-N2），每节点4颗CPU每颗CPU 2颗CPU核（-B 4-4:2-2），运行作业：</p>
+<p><code>srun -N2 -B 4-4:2-2 a.out</code></p>
+<ul>
+<li>运行GPU作业： 脚本<code>gpu.sh</code>内容：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+srun<span class="w"> </span>-n1<span class="w"> </span>-p<span class="w"> </span>GPU-V100<span class="w"> </span>--gres<span class="o">=</span>gpu:v100:2<span class="w"> </span>prog1
+</code></pre></div>
+<p>-p GPU-V100指定采用GPU队列GPU-V100，--gres=gpu:v100:2指明每个节点使用2块NVIDIA V100 GPU卡。</p>
+<ul>
+<li>排它性独占运行作业：</li>
+</ul>
+<p>脚本<code>my.sh</code>内容：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+srun<span class="w"> </span>--exclusive<span class="w"> </span>-n4<span class="w"> </span>prog1<span class="w"> </span><span class="p">&amp;</span>
+srun<span class="w"> </span>--exclusive<span class="w"> </span>-n3<span class="w"> </span>prog2<span class="w"> </span><span class="p">&amp;</span>
+srun<span class="w"> </span>--exclusive<span class="w"> </span>-n1<span class="w"> </span>prog3<span class="w"> </span><span class="p">&amp;</span>
+srun<span class="w"> </span>--exclusive<span class="w"> </span>-n1<span class="w"> </span>prog4<span class="w"> </span><span class="p">&amp;</span>
+<span class="nb">wait</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="http://ai4ec.ikkem.com" target="_blank" rel="noopener" title="ai4ec.ikkem.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>

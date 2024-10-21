@@ -1,0 +1,1657 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../sinfo/">
+      
+      
+        <link rel="next" href="../partition/">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>查看队列中的作业信息：squeue - IKKEM HPC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#squeue" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IKKEM HPC User Documentation" class="md-header__button md-logo" aria-label="IKKEM HPC User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IKKEM HPC User Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              查看队列中的作业信息：squeue
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://git.xmu.edu.cn/hpc-ops/hpc-manual" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hpc-ops/hpc-manual
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IKKEM HPC User Documentation" class="md-nav__button md-logo" aria-label="IKKEM HPC User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IKKEM HPC User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://git.xmu.edu.cn/hpc-ops/hpc-manual" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hpc-ops/hpc-manual
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    平台资源
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用流程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scow/scow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCOW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login-ftp/login-ftp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用户登录与文件传输
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../partition/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分区（队列）管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Slurm作业调度系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Slurm作业调度系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    显示队列、节点信息：sinfo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    查看队列中的作业信息：squeue
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    查看队列中的作业信息：squeue
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#squeue_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      squeue主要输出项
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squeue_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      squeue主要参数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细队列信息：scontrol show partition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细节点信息：scontrol show node
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细作业信息：scontrol show job
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看服务质量(QoS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提交作业命令共同说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../srun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    交互式提交并行作业：srun
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    批处理方式提交作业：sbatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../salloc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分配式提交作业：salloc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbcast/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    将文件同步到各节点：sbcast
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sattach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    吸附到作业步：sattach
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sacct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看记账信息：sacct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其它常用作业管理命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用软件及脚本
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注意事项
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#squeue_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      squeue主要输出项
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squeue_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      squeue主要参数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="squeue">查看队列中的作业信息：squeue<a class="headerlink" href="#squeue" title="Permanent link">&para;</a></h1>
+<p>显示队列中的作业信息。如<code>squeue</code>显示：</p>
+<div class="highlight"><pre><span></span><code>JOBID PARTITION      NAME     USER ST       TIME  NODES NODELIST(REASON)
+ 75     ARM-CPU   arm_job     hmli  R       2:27      2 rnode[02-03]
+ 76    GPU-V100 gpu.slurm     hmli PD       0:00      5 (Resources)
+</code></pre></div>
+<p>(target-1)=</p>
+<h2 id="squeue_1">squeue主要输出项<a class="headerlink" href="#squeue_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>JOBID：作业号。</p>
+</li>
+<li>
+<p>PARTITION：队列名（分区名）。</p>
+</li>
+<li>
+<p>NAME：作业名。</p>
+</li>
+<li>
+<p>USER：用户名。</p>
+</li>
+<li>
+<p>ST：状态。</p>
+</li>
+<li>
+<p>PD：排队中，PENDING。</p>
+</li>
+<li>R：运行中，RUNNING。</li>
+<li>CA：已取消，CANCELLED。</li>
+<li>CF：配置中，CONFIGURING。</li>
+<li>CG：完成中，COMPLETING</li>
+<li>CD：已完成，COMPLETED。</li>
+<li>F：已失败，FAILED。</li>
+<li>TO：超时，TIMEOUT。</li>
+<li>NF：节点失效，NODE FAILURE。</li>
+<li>
+<p>SE：特殊退出状态，SPECIAL EXIT STATE。</p>
+</li>
+<li>
+<p>TIME：已运行时间。</p>
+</li>
+<li>
+<p>NODELIST(REASON)：分配给的节点名列表（原因）：</p>
+</li>
+<li>
+<p>AssociationCpuLimit： 作业指定的关联CPU已在用，作业最终会运行。</p>
+</li>
+<li>AssociationMaxJobsLimit：作业关联的最大作业数已到，作业最终会运行。</li>
+<li>AssociationNodeLimit：作业指定的关联节点已在用，作业最终会运行。</li>
+<li>AssociationJobLimit：作业达到其最大允许的作业数限制。</li>
+<li>AssociationResourceLimit：作业达到其最大允许的资源限制。</li>
+<li>AssociationTimeLimit：作业达到时间限制。</li>
+<li>BadConstraints：作业含有无法满足的约束。</li>
+<li>BeginTime：作业最早开始时间尚未达到。</li>
+<li>Cleaning：作业被重新排入队列，并且仍旧在执行之前运行的清理工作。</li>
+<li>Dependency：作业等待一个依赖的作业结束后才能运行。</li>
+<li>FrontEndDown：没有前端节点可用于执行此作业。</li>
+<li>InactiveLimit：作业达到系统非激活限制。</li>
+<li>InvalidAccount：作业用户无效，建议取消该作业重新采用正确账户提交。</li>
+<li>InvalidQOS：作业QOS无效，建议取消该作业重新采用正确QoS提交。</li>
+<li>JobHeldAdmin：作业被系统管理员挂起。</li>
+<li>JobHeldUser：作业被用户自己挂起。</li>
+<li>JobLaunchFailure：作业无法被启动，有可能因为文件系统故障、无效程序名等。</li>
+<li>Licenses：作业等待相应的授权。</li>
+<li>NodeDown：作业所需的节点宕机。</li>
+<li>NonZeroExitCode：作业停止时退出代码非零。</li>
+<li>PartitionDown：作业所需的队列出于DOWN状态。</li>
+<li>PartitionInactive：作业所需的队列处于Inactive状态。</li>
+<li>PartitionNodeLimit：作业所需的节点超过所用队列当前限制。</li>
+<li>PartitionTimeLimit：作业所需的队列达到时间限制。</li>
+<li>PartitionCpuLimit：该作业使用的队列对应的CPU已经被使用，作业最终会运行。</li>
+<li>PartitionMaxJobsLimit：该作业使用的队列的最大作业数已到，作业最终会运行。</li>
+<li>PartitionNodeLimit：该作业使用的队列对指定的节点都已在用，作业最终会运行。</li>
+<li>Priority：作业所需的队列存在高等级作业或预留。</li>
+<li>Prolog：作业的PrologSlurmctld前处理程序仍旧在运行。</li>
+<li>QOSJobLimit：作业的QOS达到其最大作业数限制。</li>
+<li>QOSResourceLimit：作业的QOS达到其最大资源限制。</li>
+<li>QOSGrpCpuLimit： 作业的QoS的指定所有CPU已被占用，作业最终会运行。</li>
+<li>QOSGrpMaxJobsLimit：作业的QoS的最大作业数已到，作业最终会运行。</li>
+<li>QOSGrpNodeLimit：作业的QoS指定的节点都已经被占用，作业最终会运行。</li>
+<li>QOSTimeLimit：作业的QOS达到其时间限制。</li>
+<li>QOSUsageThreshold：所需的QOS阈值被违反。</li>
+<li>ReqNodeNotAvail：作业所需的节点无效，如节点宕机。</li>
+<li>Reservation：作业等待其预留的资源可用。</li>
+<li>Resources：作业将要等待所需要的资源满足后才运行。</li>
+<li>SystemFailure：Slurm系统失效，如文件系统、网络失效等。</li>
+<li>TimeLimit：作业超过去时间限制。</li>
+<li>QOSUsageThreshold：所需的QoS阈值被违反。</li>
+<li>WaitingForScheduling：等待被调度中。</li>
+</ul>
+<p>(target-2)=</p>
+<h2 id="squeue_2">squeue主要参数<a class="headerlink" href="#squeue_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>-A \<account_list>, --account=\<account_list>：显示用户\<account_list>的作业信息，用户以,分隔。</p>
+</li>
+<li>
+<p>-a, --all：显示所有队列中的作业及作业步信息，也显示被配置为对用户组隐藏队列的信息。</p>
+</li>
+<li>
+<p>-r, --array：以每行一个作业元素方式显示。</p>
+</li>
+<li>
+<p>-h, --noheader：不显示头信息，即不显示第一行“PARTITION AVAIL TIMELIMIT NODES STATE NODELIST”。</p>
+</li>
+<li>
+<p>--help：显示帮助信息。</p>
+</li>
+<li>
+<p>--hide：不显示隐藏队列中的作业和作业步信息。此为默认行为，不显示配置为对用户组隐藏队列的信息。</p>
+</li>
+<li>
+<p>-i \<seconds>, --iterate=\<seconds>：以间隔\<seconds>秒方式循环显示信息。</p>
+</li>
+<li>
+<p>-j \<job_id_list>, --jobs=\<job_id_list>：显示作业号\<job_id_list>的作业，作业号以,分隔。--jobs=\<job_id_list>可与--steps选项结合显示特定作业的步信息。作业号格式为“job_id[_array_id]”，默认为64字节，可以用环境变量SLURM_BITSTR_LEN设定更大的字段大小。</p>
+</li>
+<li>
+<p>-l, --long：显示更多的作业信息。</p>
+</li>
+<li>
+<p>-L, --licenses=\<license_list>：指定使用授权文件\<license_list>，以,分隔。</p>
+</li>
+<li>
+<p>-n, --name=\<name_list>：显示具有特定\<name_list>名字的作业，以,分隔。</p>
+</li>
+<li>
+<p>--noconvert：不对原始单位做转换，如2048M不转换为2G。</p>
+</li>
+<li>
+<p>-p \<part_list>, --partition=\<part_list>：显示特定队列\<part_list>信息，\<part_list>以,分隔。</p>
+</li>
+<li>
+<p>-P, --priority：对于提交到多个队列的作业，按照各队列显示其信息。如果作业要按照优先级排序时，需考虑队列和作业优先级。</p>
+</li>
+<li>
+<p>-q \<qos_list>, --qos=\<qos_list>：显示特定qos的作业和作业步，\<qos_list>以,分隔。</p>
+</li>
+<li>
+<p>-R, --reservation=reservation_name：显示特定预留信息作业。</p>
+</li>
+<li>
+<p>-s, --steps：显示特定作业步。作业步格式为“job_id[_array_id].step_id”。</p>
+</li>
+<li>
+<p>-S \<sort_list>, --sort=\<sort_list>：按照显示特定字段排序显示，\<sort_list>以,分隔。如-S P,U。</p>
+</li>
+<li>
+<p>--start：显示排队中的作业的预期执行时间。</p>
+</li>
+<li>
+<p>-t \<state_list>, --states=\<state_list>：显示特定状态\<state_list>的作业信息。\<state_list>以,分隔，有效的可为：PENDING(PD)、RUNNING(R)、SUSPENDED(S)、STOPPED(ST)、COMPLETING(CG)、COMPLETED(CD)、CONFIGURING(CF)、CANCELLED(CA)、FAILED(F)、TIMEOUT(TO)、PREEMPTED(PR)、BOOT_FAIL(BF)、NODE_FAIL(NF)和SPECIAL_EXIT(SE)，注意是不区分大小写的，如“pd”和“PD”是等效的。</p>
+</li>
+<li>
+<p>-u \<user_list>, --user=\<user_list>：显示特定用户\<user_list>的作业信息，\<user_list>以,分隔。</p>
+</li>
+<li>
+<p>--usage：显示帮助信息。</p>
+</li>
+<li>
+<p>-v, --verbose：显示squeue命令详细动作信息。</p>
+</li>
+<li>
+<p>-V, --version：显示版本信息。</p>
+</li>
+<li>
+<p>-w \<hostlist>, --nodelist=\<hostlist>：显示特定节点\<hostlist>信息，\<hostlist>以,分隔。</p>
+</li>
+<li>
+<p>-o \<output_format>, --format=\<output_format>：以特定格式\<output_format>显示信息。参见 -O \<output_format>, --Format=\<output_format>，采用不同参数的默认格式为：</p>
+</li>
+<li>
+<p>default：“%.18i %.9P %.8j %.8u %.2t %.10M %.6D %R”</p>
+</li>
+<li>-l, --long： “%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %R”</li>
+<li>-s, --steps：“%.15i %.8j %.9P %.8u %.9M %N”</li>
+</ul>
+<p>每个字段的格式为“%[[.]size]type”：</p>
+<ul>
+<li>
+<p>size：字段最小尺寸，如果没有指定size，则按照所需长度显示。</p>
+</li>
+<li>
+<p>.：右对齐显示，默认为左对齐。</p>
+</li>
+<li>
+<p>type：类型，一些类型仅对作业有效，而有些仅对作业步有效，有效的类型为：</p>
+<ul>
+<li>
+<p>\%all：显示所有字段。</p>
+</li>
+<li>
+<p>\%a：显示记帐信息（仅对作业有效）。</p>
+</li>
+<li>
+<p>\%A：作业步生成的任务数（仅适用于作业步）。</p>
+</li>
+<li>
+<p>\%A：作业号（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%b：作业或作业步所需的普通资源（gres）。</p>
+</li>
+<li>
+<p>\%B：执行作业的节点。</p>
+</li>
+<li>
+<p>\%c：作业每个节点所需的最小CPU数（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%C：如果作业还在运行，显示作业所需的CPU数；如果作业正在完成，显示当前分配给此作业的CPU数（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%d：作业所需的最小临时磁盘空间，单位MB（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%D：作业所需的节点（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%e：作业结束或预期结束时间（基于其时间限制）（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%E：作业依赖剩余情况。作业只有依赖的作业完成才运行，如显示NULL，则无依赖（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%f：作业所需的特性（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%F：作业组作业号（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%g：作业用户组（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%G：作业用户组ID（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%h：分配给此作业的计算资源能否被其它作业预约（仅适用于作业）。可被预约的资源包含节点、CPU颗、CPU核或超线程。值可以为：</p>
+</li>
+<li>
+<p>YES：如果作业提交时含有oversubscribe选项或队列被配置含有OverSubscribe=Force。</p>
+</li>
+<li>NO：如果作业所需排他性运行。</li>
+<li>USER：如果分配的计算节点设定为单个用户。</li>
+<li>MCS：如果分配的计算节点设定为单个安全类（参看MCSPlugin和MCSParameters配置参数，Multi-Category Security）。</li>
+<li>
+<p>OK：其它（典型的分配给专用的CPU）（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%H：作业所需的单节点CPU数，显示srun --sockets-per-node提交选项，如--sockets-per-node未设定，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%i：作业或作业步号，在作业组中，作业号格式为“\<base_job_id>_\<index>”，默认作业组索引字段限制到64字节，可以用环境变量<code>SLURM_BITSTR_LEN</code>设定为更大的字段大小。</p>
+</li>
+<li>
+<p>\%I：作业所需的每颗CPU的CPU核数，显示的是srun --cores-per-socket设定的值，如--cores-per-socket未设定，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%j：作业或作业步名。</p>
+</li>
+<li>
+<p>\%J：作业所需的每个CPU核的线程数，显示的是srun --threads-per-core设定的值，如--threads-per-core未被设置则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%k：作业说明（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%K：作业组索引默认作业组索引字段限制到64字节，可以用环境变量<code>SLURM_BITSTR_LEN</code>设定为更大的字段大小（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%l：作业或作业步时间限制，格式为“days-hours:minutes:seconds”：NOT_SET表示没有建立；UNLIMITED表示没有限制。</p>
+</li>
+<li>
+<p>\%L：作业剩余时间，格式为“days-hours:minutes:seconds”，此值由作业的时间限制减去已用时间得到：NOT_SET表示没有建立；UNLIMITED表示没有限制（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%m：作业所需的最小内存，单位为MB（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%M：作业或作业步已经使用的时间，格式为“days-hours:minutes:seconds”。</p>
+</li>
+<li>
+<p>\%n：作业所需的节点名（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%N：作业或作业步分配的节点名，对于正在完成的作业，仅显示尚未释放资源回归服务的节点。</p>
+</li>
+<li>
+<p>\%o：执行的命令。</p>
+</li>
+<li>
+<p>\%O：作业是否需连续节点（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%p：作业的优先级（0.0到1.0之间），参见%Q（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%P：作业或作业步的队列。</p>
+</li>
+<li>
+<p>\%q：作业关联服务的品质（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%Q：作业优先级（通常为非常大的一个无符号整数），参见%p（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%r：作业在当前状态的原因，参见JOB REASON CODES（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%R：参见JOB REASON CODES（仅适用于作业）：</p>
+</li>
+<li>
+<p>对于排队中的作业：作业没有执行的原因。</p>
+</li>
+<li>对于出错终止的作业：作业出错的解释。</li>
+<li>
+<p>对于其他作业状态：分配的节点。</p>
+</li>
+<li>
+<p>\%S：作业或作业步实际或预期的开始时间。</p>
+</li>
+<li>
+<p>\%t：作业状态，以紧凑格式显示：PD（排队pending）、R（运行running）、CA（取消cancelled）、CF(配置中configuring）、CG（完成中completing）、CD（已完成completed）、F（失败failed）、TO（超时timeout）、NF（节点失效node failure)和SE（特殊退出状态special exit state），参见JOB STATE CODES（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%T：作业状态，以扩展格式显示：PENDING、RUNNING、SUSPENDED、CANCELLED、COMPLETING、COMPLETED、CONFIGURING、FAILED、TIMEOUT、PREEMPTED、NODE_FAIL和SPECIAL_EXIT，参见JOB STATE CODES（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%u：作业或作业步的用户名。</p>
+</li>
+<li>
+<p>\%U：作业或作业步的用户ID。</p>
+</li>
+<li>
+<p>\%v：作业的预留资源（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%V：作业的提交时间。</p>
+</li>
+<li>
+<p>\%w：工程量特性关键Workload Characterization Key（wckey）（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%W：作业预留的授权（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%x：作业排他性节点名（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%X：系统使用需每个节点预留的CPU核数（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%y：Nice值（调整作业调动优先级）（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%Y：对于排队中作业，显示其开始运行时期望的节点名。</p>
+</li>
+<li>
+<p>\%z：作业所需的每个节点的CPU颗数、CPU核数和线程数（S:C:T），如（S:C:T）未设置，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>\%Z：作业的工作目录。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-O \<output_format>, --Format=\<output_format>：以特定格式\<output_format>显示信息，参见-o \<output_format>, --format=\<output_format> 每个字段的格式为“%[[.]size]type”：</p>
+</li>
+<li>
+<p>size：字段最小尺寸，如果没有指定size，则最长显示20个字符。</p>
+</li>
+<li>
+<p>.：右对齐显示，默认为左对齐。</p>
+</li>
+<li>
+<p>type：类型，一些类型仅对作业有效，而有些仅对作业步有效，有效的类型为：</p>
+<ul>
+<li>
+<p>account：作业记账信息（仅适用于作业）。</p>
+</li>
+<li>
+<p>allocnodes：作业分配的节点（仅适用于作业）。</p>
+</li>
+<li>
+<p>allocsid：用于提交作业的会话ID（仅适用于作业）。</p>
+</li>
+<li>
+<p>arrayjobid：作业组中的作业ID。</p>
+</li>
+<li>
+<p>arraytaskid：作业组中的任务ID。</p>
+</li>
+<li>
+<p>associd：作业关联ID（仅适用于作业）。</p>
+</li>
+<li>
+<p>batchflag：是否批处理设定了标记（仅适用于作业）。</p>
+</li>
+<li>
+<p>batchhost：执行节点（仅适用于作业）：</p>
+</li>
+<li>
+<p>对于分配的会话：显示的是会话执行的节点（如，<code>srun</code>或<code>salloc</code>命令执行的节点）。</p>
+</li>
+<li>
+<p>对于批处理作业：显示的执行批处理的节点。</p>
+</li>
+<li>
+<p>chptdir：作业checkpoint的写目录（仅适用于作业步）。</p>
+</li>
+<li>
+<p>chptinter：作业checkpoint时间间隔（仅适用于作业步）。</p>
+</li>
+<li>
+<p>command：作业执行的命令（仅适用于作业）。</p>
+</li>
+<li>
+<p>comment：作业关联的说明（仅适用于作业）。</p>
+</li>
+<li>
+<p>contiguous：作业是否要求连续节点（仅适用于作业）。</p>
+</li>
+<li>
+<p>cores：作业所需的每颗CPU的CPU核数，显示的是srun --cores-per-socket设定的值，如--cores-per-socket未设定，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>corespec：为了系统使用所预留的CPU核数（仅适用于作业）。</p>
+</li>
+<li>
+<p>cpufreq：分配的CPU主频（仅适用于作业步）。</p>
+</li>
+<li>
+<p>cpuspertask：作业分配的每个任务的CPU颗数（仅适用于作业）。</p>
+</li>
+<li>
+<p>deadline：作业的截止时间（仅适用于作业）。</p>
+</li>
+<li>
+<p>dependency：作业依赖剩余。作业只有依赖的作业完成才运行，如显示NULL，则无依赖（仅适用于作业）。</p>
+</li>
+<li>
+<p>derivedec：作业的起源退出码，对任意作业步是最高退出码（仅适用于作业）。</p>
+</li>
+<li>
+<p>eligibletime：预计作业开始运行时间（仅适用于作业）。</p>
+</li>
+<li>
+<p>endtime：作业实际或预期的终止时间（仅适用于作业）。</p>
+</li>
+<li>
+<p>exit_code：作业退出码（仅适用于作业）。</p>
+</li>
+<li>
+<p>feature：作业所需的特性（仅适用于作业）。</p>
+</li>
+<li>
+<p>gres：作业或作业步需的通用资源（gres）。</p>
+</li>
+<li>
+<p>groupid：作业用户组ID（仅适用于作业）。</p>
+</li>
+<li>
+<p>groupname：作业用户组名（仅适用于作业）。</p>
+</li>
+<li>
+<p>jobarrayid：作业组作业ID（仅适用于作业）。</p>
+</li>
+<li>
+<p>jobid：作业号（仅适用于作业）。</p>
+</li>
+<li>
+<p>licenses：作业预留的授权（仅适用于作业）。</p>
+</li>
+<li>
+<p>maxcpus：分配给作业的最大CPU颗数（仅适用于作业）。</p>
+</li>
+<li>
+<p>maxnodes：分配给作业的最大节点数（仅适用于作业）。</p>
+</li>
+<li>
+<p>mcslabel：作业的MCS_label（仅适用于作业）。</p>
+</li>
+<li>
+<p>minmemory：作业所需的最小内存大小，单位MB（仅适用于作业）。</p>
+</li>
+<li>
+<p>mintime：作业的最小时间限制（仅适用于作业）。</p>
+</li>
+<li>
+<p>mintmpdisk：作业所需的临时磁盘空间，单位MB（仅适用于作业）。</p>
+</li>
+<li>
+<p>mincpus：作业所需的各节点最小CPU颗数，显示的是<code>srun --mincpus</code>设定的值（仅适用于作业）。</p>
+</li>
+<li>
+<p>name：作业或作业步名。</p>
+</li>
+<li>
+<p>network：作业运行的网络。</p>
+</li>
+<li>
+<p>nice Nice值(调整作业调度优先值)（仅适用于作业）。</p>
+</li>
+<li>
+<p>nodes：作业或作业步分配的节点名，对于正在完成的作业，仅显示尚未释放资源回归服务的节点。</p>
+</li>
+<li>
+<p>nodelist：作业或作业步分配的节点，对于正在完成的作业，仅显示尚未释放资源回归服务的节点，格式类似node[1-10,11,13-28]。</p>
+</li>
+<li>
+<p>ntpercore：作业每个CPU核分配的任务数（仅适用于作业）。</p>
+</li>
+<li>
+<p>ntpernode：作业每个节点分配的任务数（仅适用于作业）。</p>
+</li>
+<li>
+<p>ntpersocket：作业每颗CPU分配的任务数（仅适用于作业）。</p>
+</li>
+<li>
+<p>numcpus：作业所需的或分配的CPU颗数。</p>
+</li>
+<li>
+<p>numnodes：作业所需的或分配的最小节点数（仅适用于作业）。</p>
+</li>
+<li>
+<p>numtask：作业或作业号需的任务数，显示的--ntasks设定的。</p>
+</li>
+<li>
+<p>oversubscribe：分配给此作业的计算资源能否被其它作业预约（仅适用于作业）。可被预约的资源包含节点、CPU颗、CPU核或超线程。值可以为：</p>
+</li>
+<li>
+<p>YES：如果作业提交时含有oversubscribe选项或队列被配置含有OverSubscribe=Force。</p>
+</li>
+<li>NO：如果作业所需排他性运行。</li>
+<li>USER：如果分配的计算节点设定为单个用户。</li>
+<li>MCS：如果分配的计算节点设定为单个安全类（参看MCSPlugin和MCSParameters配置参数）。</li>
+<li>
+<p>OK：其它(典型分配给指定CPU)。</p>
+</li>
+<li>
+<p>partition：作业或作业步的队列。</p>
+</li>
+<li>
+<p>priority：作业的优先级（0.0到1.0之间），参见%Q（仅适用于作业）。</p>
+</li>
+<li>
+<p>prioritylong：作业优先级（通常为非常大的一个无符号整数），参见%p（仅适用于作业）。</p>
+</li>
+<li>
+<p>profile：作业特征（仅适用于作业）。</p>
+</li>
+<li>
+<p>preemptime：作业抢占时间（仅适用于作业）。</p>
+</li>
+<li>
+<p>qos：作业的服务质量（仅适用于作业）。</p>
+</li>
+<li>
+<p>reason：作业在当前的原因，参见JOB REASON CODES（仅适用于作业）。</p>
+</li>
+<li>
+<p>reasonlist：参见JOB REASON CODES（仅适用于作业）。</p>
+</li>
+<li>
+<p>对于排队中的作业：作业没有执行的原因。</p>
+</li>
+<li>对于出错终止的作业：作业出错的解释。</li>
+<li>
+<p>对于其他作业状态：分配的节点。</p>
+</li>
+<li>
+<p>reqnodes：作业所需的节点名（仅适用于作业）。</p>
+</li>
+<li>
+<p>requeue：作业失败时是否需重新排队运行（仅适用于作业）。</p>
+</li>
+<li>
+<p>reservation：预留资源（仅适用于作业）。</p>
+</li>
+<li>
+<p>resizetime：运行作业的变化时间总和（仅适用于作业）。</p>
+</li>
+<li>
+<p>restartcnt：作业的重启checkpoint数（仅适用于作业）。</p>
+</li>
+<li>
+<p>resvport：作业的预留端口（仅适用于作业步）。</p>
+</li>
+<li>
+<p>schednodes：排队中的作业开始运行时预期将被用的节点列表（仅适用于作业）。</p>
+</li>
+<li>
+<p>sct：各节点作业所需的CPU数、CPU核数和线程数（S:C:T），如（S:C:T）未设置，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>selectjobinfo：节点选择插件针对作业指定的数据，可能的数据包含：资源分配的几何维度（X、Y、Z维度）、连接类型（TORUS、MESH或NAV == torus else mesh），是否允许几何旋转（yes或no），节点使用（VIRTUAL或COPROCESSOR）等（仅适用于作业）。</p>
+</li>
+<li>
+<p>sockets：作业每个节点需的CPU数，显示srun时的--sockets-per-node选项，如--sockets-per-node未设置，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>sperboard：每个主板分配给作业的CPU数（仅适用于作业）。</p>
+</li>
+<li>
+<p>starttime：作业或作业布实际或预期开始时间。</p>
+</li>
+<li>
+<p>state：扩展格式作业状态：排队中PENDING、运行中RUNNING、已停止STOPPED、被挂起SUSPENDED、被取消CANCELLED、完成中COMPLETING、已完成COMPLETED、配置中CONFIGURING、已失败FAILED、超时TIMEOUT、预取PREEMPTED、节点失效NODE_FAIL、特定退出SPECIAL_EXIT，参见JOB STATE CODES部分（仅适用于作业）。</p>
+</li>
+<li>
+<p>statecompact：紧凑格式作业状态：PD（排队中pending）、R（运行中running）、CA（已取消cancelled）、CF(配置中configuring）、CG（完成中completing）、CD（已完成completed）、F（已失败failed）、TO（超时timeout）、NF（节点失效node failure）和SE（特定退出状态special exit state），参见JOB STATE CODES部分（仅适用于作业）。</p>
+</li>
+<li>
+<p>stderr：标准出错输出目录（仅适用于作业）。</p>
+</li>
+<li>
+<p>stdin：标准输入目录（仅适用于作业）。</p>
+</li>
+<li>
+<p>stdout：标准输出目录（仅适用于作业）。</p>
+</li>
+<li>
+<p>stepid：作业或作业步号。在作业组中，作业号格式为“\<base_job_id>_\<index>”（仅适用于作业步）。</p>
+</li>
+<li>
+<p>stepname：作业步名（仅适用于作业步）。</p>
+</li>
+<li>
+<p>stepstate：作业步状态（仅适用于作业步）。</p>
+</li>
+<li>
+<p>submittime：作业提交时间（仅适用于作业）。</p>
+</li>
+<li>
+<p>threads：作业所需的每颗CPU核的线程数，显示srun的--threads-per-core参数，如--threads-per-core未设置，则显示*（仅适用于作业）。</p>
+</li>
+<li>
+<p>timeleft：作业剩余时间，格式为“days-hours:minutes:seconds”，此值是通过其时间限制减去已运行时间得出的：如未建立则显示“NOT_SET”；如无限制则显示“UNLIMITED”（仅适用于作业）。</p>
+</li>
+<li>
+<p>timelimit：作业或作业步的时间限制。</p>
+</li>
+<li>
+<p>timeused：作业或作业步以使用时间，格式为“days-hours:minutes:seconds”，days和hours只有需要时才显示。对于作业步，显示从执行开始经过的时间，因此对于被曾挂起的作业并不准确。节点间的时间差也会导致时间不准确。如时间不对（如，负值），将显示“INVALID”。</p>
+</li>
+<li>
+<p>tres：显示分配给作业的可被追踪的资源。</p>
+</li>
+<li>
+<p>userid：作业或作业步的用户ID。</p>
+</li>
+<li>
+<p>username：作业或作业步的用户名。</p>
+</li>
+<li>
+<p>wait4switch：需满足转轨器数目的总等待时间（仅适用于作业）。</p>
+</li>
+<li>
+<p>wckey：工作负荷特征关键（wckey）（仅适用于作业）。</p>
+</li>
+<li>
+<p>workdir：作业工作目录（仅适用于作业）。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="http://ai4ec.ikkem.com" target="_blank" rel="noopener" title="ai4ec.ikkem.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
