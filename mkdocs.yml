@@ -83,3 +83,4 @@ nav:
     - slurm/others.md
   - 应用软件及脚本: app/app.md
   - 注意事项: notes/notes.md
+  - 故障排查: notes/troubleshooting.md
