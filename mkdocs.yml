@@ -10,7 +10,7 @@ theme:
     repo: fontawesome/brands/github
 
 site_name: IKKEM HPC User Documentation
-repo_url: https://git.xmu.edu.cn/hpc-ops/hpc-manual
+repo_url: https://github.com/chenggroup/ikkem-hpc-manual
 repo_name: hpc-ops/hpc-manual
 edit_uri: edit/main/docs/
 extra:
