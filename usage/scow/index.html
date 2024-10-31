@@ -8,11 +8,13 @@
       
       
       
+        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/scow/">
       
-        <link rel="prev" href="../../partition/partition/">
+      
+        <link rel="prev" href="../partition/">
       
       
-        <link rel="next" href="../basic/">
+        <link rel="next" href="../compile-install/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -20,7 +22,7 @@
     
     
       
-        <title>简介 - IKKEM HPC User Documentation</title>
+        <title>SCOW 算力平台 - 嘉庚智算用户手册</title>
       
     
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#scow" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="IKKEM HPC User Documentation" class="md-header__button md-logo" aria-label="IKKEM HPC User Documentation" data-md-component="logo">
+    <a href="../.." title="嘉庚智算用户手册" class="md-header__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,13 +102,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IKKEM HPC User Documentation
+            嘉庚智算用户手册
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              简介
+              SCOW 算力平台
             
           </span>
         </div>
@@ -193,13 +195,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="IKKEM HPC User Documentation" class="md-nav__button md-logo" aria-label="IKKEM HPC User Documentation" data-md-component="logo">
+    <a href="../.." title="嘉庚智算用户手册" class="md-nav__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    IKKEM HPC User Documentation
+    嘉庚智算用户手册
   </label>
   
     <div class="md-nav__source">
@@ -244,6 +246,16 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -253,16 +265,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../introduction/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     简介
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
@@ -272,17 +292,19 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/platform/" class="md-nav__link">
+      <a href="../../introduction/updates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    平台资源
+    重大更新
   </span>
   
 
@@ -299,7 +321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/usage/" class="md-nav__link">
+      <a href="../../introduction/register/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,30 +346,59 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../scow/scow/" class="md-nav__link">
+  
+    
+    
+      
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    SCOW
+    使用指南
   </span>
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            使用指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../login-ftp/login-ftp/" class="md-nav__link">
+      <a href="../login/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -359,93 +410,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../partition/partition/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    分区（队列）管理
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Slurm作业调度系统
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            Slurm作业调度系统
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    简介
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
               
             
               
@@ -455,53 +419,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic/" class="md-nav__link">
+      <a href="../app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    基本概念
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sinfo/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    显示队列、节点信息：sinfo
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../squeue/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    查看队列中的作业信息：squeue
+    应用软件使用及作业提交
   </span>
   
 
@@ -522,6 +444,335 @@
         
   
   <span class="md-ellipsis">
+    分区规则和收费标准
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SCOW 算力平台
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SCOW 算力平台
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      平台概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户操作指南
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用户操作指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      注册和登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      主界面介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      账户信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="账户信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户空间模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      账户管理模块
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compile-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用程序的编译与安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../slurm/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Slurm作业调度系统
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Slurm作业调度系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slurm/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slurm/sinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    显示队列、节点信息：sinfo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slurm/squeue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看队列中的作业信息：squeue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slurm/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     查看详细队列信息：scontrol show partition
   </span>
   
@@ -539,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../node/" class="md-nav__link">
+      <a href="../../slurm/node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -560,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../job/" class="md-nav__link">
+      <a href="../../slurm/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qos/" class="md-nav__link">
+      <a href="../../slurm/qos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -602,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../submission/" class="md-nav__link">
+      <a href="../../slurm/submission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -623,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../srun/" class="md-nav__link">
+      <a href="../../slurm/srun/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -644,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sbatch/" class="md-nav__link">
+      <a href="../../slurm/sbatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -665,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../salloc/" class="md-nav__link">
+      <a href="../../slurm/salloc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -686,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sbcast/" class="md-nav__link">
+      <a href="../../slurm/sbcast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sattach/" class="md-nav__link">
+      <a href="../../slurm/sattach/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sacct/" class="md-nav__link">
+      <a href="../../slurm/sacct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../others/" class="md-nav__link">
+      <a href="../../slurm/others/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -777,27 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../app/app/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    应用软件及脚本
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notes/notes/" class="md-nav__link">
+      <a href="../../information/notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,11 +1048,31 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notes/troubleshooting/" class="md-nav__link">
+      <a href="../../information/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     故障排查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常见问题
   </span>
   
 
@@ -850,6 +1101,89 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      平台概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户操作指南
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用户操作指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      注册和登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      主界面介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      账户信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="账户信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户空间模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      账户管理模块
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -866,10 +1200,135 @@
   
 
 
-<h1 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Slurm(Simple Linux Utility for Resource Management，<a href="http://slurm.schedmd.com/">http://slurm.schedmd.com/</a>)是开源的、具有容错性和高度可扩展大型和小型Linux集群资源管理和作业调度系统。超级计算系统可利用Slurm进行资源和作业管理，以避免相互干扰，提高运行效率。所有需运行的作业无论是用于程序调试还是业务计算均必须通过交互式并行<code>srun</code>、批处理式<code>sbatch</code>或分配式<code>salloc</code>等命令提交，提交后可以利用相关命令查询作业状态等。请不要在登录节点直接运行作业（编译除外），以免影响其余用户的正常使用。</p>
-<p>该文档的针对的Slurm版本为19.05（平台资源使用）、22.05（平台资源使用）。</p>
-<p>更多信息请参见左侧目录索引。</p>
+<h1 id="scow">SCOW 算力平台<a class="headerlink" href="#scow" title="Permanent link">&para;</a></h1>
+<h2 id="_1">平台概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>SCOW是一个算力平台系统，旨在解决算力中心在建设和运营中的运营管理难、用户使用难、资源融合难等痛点。它能够纳管各类异构算力资源，提供算力资源管理和使用功能，为算力中心提供更开放、更便捷、更灵活、更高效的运营平台解决方案。</p>
+<h2 id="_2">用户操作指南<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">注册和登录<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>注册：用户需要通过邮箱发送申请表，申请表需用户ID、用户名（、用户邮箱、登录密码（统一设定，后续用户自行修改）；用户可主动联系平台管理员注销账号。管理账号欠费后，账号被封锁，管理账号及其所属上机账号可以继续登录系统，但不可以提交作业，3个月后不可以登录系统，6个月后数据将被删除，管理账号及所属上机账号将被全部注销。</p>
+</li>
+<li>
+<p>登录地址：<a href="http://10.26.14.63:8080/">http://10.26.14.63:8080/</a>，用户名和密码与集群LDAP以及之前的 CE 一致，如无法登录可联系系统管理员。
+    <img alt="登录界面" src="../../_images/scow/image1.png" /></p>
+</li>
+<li>
+<p>密码修改：请联系管理员进行修改</p>
+</li>
+</ul>
+<h3 id="_4">主界面介绍<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>仪表盘：分为两个部分，快捷入口和平台概览</li>
+<li>
+<p>快捷入口点击后面的+号可以自定义需要导入的模块</p>
+<p><img alt="快捷入口" src="../../_images/scow/image4.png" /></p>
+</li>
+<li>
+<p>网页端可提交作业至集群</p>
+</li>
+<li>
+<p>进入scow平台后，点击提交作业</p>
+<p><img alt="提交作业" src="../../_images/scow/image5.png" /></p>
+</li>
+<li>
+<p>需填写命令、分区、qos、节点数、单节点核心数、最长运行时间，确认无误后可点击下面提交按钮（也可以提交时选择保存为模板，方便同类型作业提交）</p>
+<p><img alt="作业参数" src="../../_images/scow/image6.png" /></p>
+</li>
+<li>
+<p>如没有报错，提交后会跳转到未结束的作业模块（可以同时选上作业模板，方便同类型作业提交），提交成功和作业ID</p>
+<p><img alt="作业管理" src="../../_images/scow/image7.png" /></p>
+</li>
+<li>
+<p>点击作业中的进入目录，可以看到作业标准/错误输出文件，支持下载、重命名、删除、提交</p>
+<p><img alt="作业详情" src="../../_images/scow/image8.png" /></p>
+</li>
+<li>
+<p>集群命令行界面登录：从shell模块中可进入到命令行界面</p>
+<p><img alt="命令行入口" src="../../_images/scow/image9.png" /></p>
+<p><img alt="命令行界面" src="../../_images/scow/image10.png" /></p>
+</li>
+<li>
+<p>作业模板：可保存之前提交过的作业脚本</p>
+<p><img alt="作业模板" src="../../_images/scow/image11.png" /></p>
+</li>
+<li>
+<p>支持查看本用户所有历史作业，可按批量搜索（按集群）、精确搜索（按集群+作业ID）
+    <img alt="历史作业" src="../../_images/scow/image12.png" /></p>
+</li>
+<li>
+<p>平台概览：包括集群CPU、GPU空闲可用节点，作业排队情况等
+    <img alt="平台概览" src="../../_images/scow/image13.png" /></p>
+</li>
+<li>
+<p>交互式应用模块</p>
+</li>
+<li>
+<p>用户可以在此使用平台提供的交互式应用，并提交到集群作业管理系统上，如 Jupyter、 VS Code 等。</p>
+<p><img alt="交互式应用" src="../../_images/scow/image14.png" /></p>
+</li>
+<li>
+<p>文件管理模块：在网页端可以对自己目录下的文件进行增删改</p>
+<p><img alt="文件管理" src="../../_images/scow/image15.png" /></p>
+</li>
+</ul>
+<h3 id="_5">账户信息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>点击右上角的"管理系统"，可以跳转到"超算平台"页面</p>
+<p><img alt="管理系统" src="../../_images/scow/image16.png" /></p>
+</li>
+<li>
+<p>仪表盘：账户可用额度，未结束作业列表</p>
+<p><img alt="仪表盘" src="../../_images/scow/image17.png" /></p>
+</li>
+</ul>
+<h4 id="_6">用户空间模块<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>本用户未结束的作业：按批量搜索（按集群）、精确搜索（按集群+作业ID）</p>
+<p><img alt="未结束作业" src="../../_images/scow/image18.png" /></p>
+</li>
+<li>
+<p>已结束的作业：按批量搜索（按集群）、精确搜索（按集群+作业ID）</p>
+<p><img alt="已结束作业" src="../../_images/scow/image19.png" /></p>
+</li>
+<li>
+<p>集群和分区信息：含分区名、分区节点、单节点核心数、单节点GPU数、单节点内存、QOS、单价、计量方式</p>
+<p><img alt="集群和分区" src="../../_images/scow/image20.png" /></p>
+</li>
+<li>
+<p>操作日志：支持按行为/结果/时间进行搜索，其日志内容主要记录的是在超算平台界面的操作，如shell登录、作业提交等</p>
+<p><img alt="操作日志" src="../../_images/scow/image21.png" /></p>
+</li>
+</ul>
+<h4 id="_7">账户管理模块<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<div class="admonition info 注意">
+<p class="admonition-title">Info</p>
+<p>本部分仅账户管理员可见。用户如需要了解账户的相关信息，请联系组内账户的所有者或管理员。</p>
+</div>
+<ul>
+<li>
+<p>账户信息：包含了账户信息、用户管理、充值记录、消费记录、操作日志模块</p>
+<p><img alt="账户信息" src="../../_images/scow/image22.png" /></p>
+</li>
+<li>
+<p>未结束的作业：按批量搜索（按集群）、精确搜索（按集群+作业ID）</p>
+<p><img alt="未结束" src="../../_images/scow/image23.png" /></p>
+</li>
+<li>
+<p>已结束的作业：按批量搜索（按集群）、精确搜索（按集群+作业ID）</p>
+<p><img alt="已结束" src="../../_images/scow/image24.png" /></p>
+</li>
+<li>
+<p>充值记录：支持按时间/类型搜索，可导出</p>
+<p><img alt="充值记录" src="../../_images/scow/image26.png" /></p>
+</li>
+<li>
+<p>消费记录：支持按用户ID或用户名/时间/类型搜索，可导出</p>
+<p><img alt="消费记录" src="../../_images/scow/image27.png" /></p>
+</li>
+</ul>
 
 
 
@@ -931,7 +1390,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
