@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/app/">
+        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/abaqus/">
       
       
-        <link rel="prev" href="../login/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../partition/">
+        <link rel="next" href="../amber/">
       
       
-      <link rel="icon" href="../../favicon.ico">
+      <link rel="icon" href="../../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>应用软件使用及作业提交 - 嘉庚智算用户手册</title>
+        <title>Abaqus - 嘉庚智算用户手册</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#abaqus" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="嘉庚智算用户手册" class="md-header__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
+    <a href="../../.." title="嘉庚智算用户手册" class="md-header__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              应用软件使用及作业提交
+              Abaqus
             
           </span>
         </div>
@@ -195,7 +195,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="嘉庚智算用户手册" class="md-nav__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
+    <a href="../../.." title="嘉庚智算用户手册" class="md-nav__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -225,7 +225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -267,11 +267,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../introduction/" class="md-nav__link ">
+            <a href="../../../introduction/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    简介
+    平台概况
   </span>
   
 
@@ -287,7 +287,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            简介
+            平台概况
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -300,11 +300,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/updates/" class="md-nav__link">
+      <a href="../../../introduction/register/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    重大更新公告
+    开户流程
   </span>
   
 
@@ -321,11 +321,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/register/" class="md-nav__link">
+      <a href="../../../introduction/updates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    开户流程
+    重大更新公告
   </span>
   
 
@@ -352,6 +352,8 @@
   
     
     
+      
+        
       
         
       
@@ -398,7 +400,28 @@
   
   
     <li class="md-nav__item">
-      <a href="../login/" class="md-nav__link">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快速上手
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -420,6 +443,81 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    应用软件
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            应用软件
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -428,186 +526,15 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    应用软件使用及作业提交
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    应用软件使用及作业提交
+    Abaqus
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#module" class="md-nav__link">
-    <span class="md-ellipsis">
-      module基本使用
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#singularity" class="md-nav__link">
-    <span class="md-ellipsis">
-      singularity
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      脚本
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="脚本">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abaqus" class="md-nav__link">
-    <span class="md-ellipsis">
-      abaqus
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#amber" class="md-nav__link">
-    <span class="md-ellipsis">
-      amber
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lammps" class="md-nav__link">
-    <span class="md-ellipsis">
-      lammps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lammps-intel" class="md-nav__link">
-    <span class="md-ellipsis">
-      lammps-intel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#orca" class="md-nav__link">
-    <span class="md-ellipsis">
-      orca
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gromacs-gpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      gromacs-gpu
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gromacs-cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      gromacs-cpu
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matlab" class="md-nav__link">
-    <span class="md-ellipsis">
-      matlab
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comsol" class="md-nav__link">
-    <span class="md-ellipsis">
-      comsol
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cp2k-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      cp2k-2022
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vasp" class="md-nav__link">
-    <span class="md-ellipsis">
-      vasp
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#g16" class="md-nav__link">
-    <span class="md-ellipsis">
-      g16
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -621,7 +548,225 @@
   
   
     <li class="md-nav__item">
-      <a href="../partition/" class="md-nav__link">
+      <a href="../amber/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    amber
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comsol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COMSOL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cp2k/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CP2K
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gromacs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gaussian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LAMMPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matlab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ORCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vasp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VASP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -642,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scow/" class="md-nav__link">
+      <a href="../../scow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -663,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../compile-install/" class="md-nav__link">
+      <a href="../../compile-install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -739,7 +884,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../slurm/" class="md-nav__link ">
+            <a href="../../../slurm/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -772,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/basic/" class="md-nav__link">
+      <a href="../../../slurm/basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -793,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/sinfo/" class="md-nav__link">
+      <a href="../../../slurm/sinfo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -814,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/squeue/" class="md-nav__link">
+      <a href="../../../slurm/squeue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -835,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/partition/" class="md-nav__link">
+      <a href="../../../slurm/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/node/" class="md-nav__link">
+      <a href="../../../slurm/node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -877,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/job/" class="md-nav__link">
+      <a href="../../../slurm/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -898,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/qos/" class="md-nav__link">
+      <a href="../../../slurm/qos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/submission/" class="md-nav__link">
+      <a href="../../../slurm/submission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -940,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/srun/" class="md-nav__link">
+      <a href="../../../slurm/srun/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -961,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/sbatch/" class="md-nav__link">
+      <a href="../../../slurm/sbatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -982,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/salloc/" class="md-nav__link">
+      <a href="../../../slurm/salloc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1003,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/sbcast/" class="md-nav__link">
+      <a href="../../../slurm/sbcast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1024,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/sattach/" class="md-nav__link">
+      <a href="../../../slurm/sattach/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1045,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/sacct/" class="md-nav__link">
+      <a href="../../../slurm/sacct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1066,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slurm/others/" class="md-nav__link">
+      <a href="../../../slurm/others/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1094,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/notes/" class="md-nav__link">
+      <a href="../../../information/notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1114,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/troubleshooting/" class="md-nav__link">
+      <a href="../../../information/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1134,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/faq/" class="md-nav__link">
+      <a href="../../../information/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1167,155 +1312,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#module" class="md-nav__link">
-    <span class="md-ellipsis">
-      module基本使用
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#singularity" class="md-nav__link">
-    <span class="md-ellipsis">
-      singularity
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      脚本
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="脚本">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abaqus" class="md-nav__link">
-    <span class="md-ellipsis">
-      abaqus
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#amber" class="md-nav__link">
-    <span class="md-ellipsis">
-      amber
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lammps" class="md-nav__link">
-    <span class="md-ellipsis">
-      lammps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lammps-intel" class="md-nav__link">
-    <span class="md-ellipsis">
-      lammps-intel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#orca" class="md-nav__link">
-    <span class="md-ellipsis">
-      orca
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gromacs-gpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      gromacs-gpu
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gromacs-cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      gromacs-cpu
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matlab" class="md-nav__link">
-    <span class="md-ellipsis">
-      matlab
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comsol" class="md-nav__link">
-    <span class="md-ellipsis">
-      comsol
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cp2k-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      cp2k-2022
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vasp" class="md-nav__link">
-    <span class="md-ellipsis">
-      vasp
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#g16" class="md-nav__link">
-    <span class="md-ellipsis">
-      g16
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1332,105 +1328,74 @@
   
 
 
-<h1 id="_1">应用软件使用及作业提交<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="module">module基本使用<a class="headerlink" href="#module" title="Permanent link">&para;</a></h2>
-<p>Module中一个比较重要的文件modulefile文件，每个软件都需要有对应的modulefile文件，里面定义了该软件所需要的所有环境变量、软件说明、依赖的其他软件和库文件等，需要使用该软件时，我们用相关命令载入该modulefile文件，即可载入该软件的所有环境变量、依赖软件和库文件等。下面是module常用的一些命令：</p>
-<ol>
-<li>
-<p><code>module available</code>
-  列出所有可使用的软件。可以用<code>module av</code>简写来代替，同时<code>module av</code>支持模糊搜索，例如<code>module av m</code>会列出所有以m开头的软件</p>
-</li>
-<li>
-<p><code>module load modulefile</code>
-  加载某个软件</p>
-</li>
-<li>
-<p><code>module unload modulefile</code>
-  卸载某个软件</p>
-</li>
-<li>
-<p><code>module purge</code>
-  清除所有已经加载的软件</p>
-</li>
-<li>
-<p><code>module list</code>
-  列出目前已经加载的软件</p>
-</li>
-<li>
-<p><code>module show modulefile</code>
-  列出某个软件modulefile里的内容</p>
-</li>
-<li>
-<p><code>module switch|swap [modulefile_old][modulefile_new]</code>
-  在不同的软件版本之间切换</p>
-</li>
-</ol>
-<h2 id="singularity">singularity<a class="headerlink" href="#singularity" title="Permanent link">&para;</a></h2>
-<p>容器作为轻量级的虚拟机，可在主机之外提供多种系统环境选择，如某些软件可能只在某个linux发行版本上运行；另外，在容器中一次打包好软件及相关依赖环境之后，即可将复杂的软件环境在各种平台上无缝运行，无需重复多次配置，大大减轻相关工作人员的工作量；因为可以利用容器技术在一台物理机器上部署大量不同的系统（一台物理机支持的容器远多于传统虚拟机），提高了资源利用率，因此在近几年变得非常流行。目前主流的容器为docker，其最初被用于软件产品需要快速迭代的互联网行业，极大地简化了系统部署、提高了硬件资源的利用率，近来也在各种特定领域的应用系统中被使用。</p>
-<p>singularity 调用</p>
-<p>singularity有许多命令，常用的命令有，pull、run、exec、shell、build</p>
-<ol>
-<li>
-<p><code>pull</code>: 从给定的URL下载容器镜像，常用的有URL有Docker Hub(docker://user/image:tag) 和 Singularity Hub(shub://user/image:tag)，如</p>
-<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>tensorflow.sif<span class="w"> </span>docker://tensorflow/tensorflow:latest
-</code></pre></div>
-</li>
-<li>
-<p><code>run</code>: 执行预定义的命令</p>
-</li>
-<li>
-<p><code>exec</code>: 在容器中执行某个命令</p>
-<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker://tensorflow/tensorflow:latest<span class="w"> </span>python<span class="w"> </span>example.py
-</code></pre></div>
-<p>或</p>
-<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>tensorflow.sif<span class="w"> </span>python<span class="w"> </span>example.py
-</code></pre></div>
-</li>
-<li>
-<p><code>shell</code>: 进入容器中的shell</p>
-<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>docker://tensorflow/tensorflow:latest
-</code></pre></div>
-<p>或</p>
-<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>tensorflow.sif
-</code></pre></div>
-<p>然后可在容器的shell中运行自己的程序</p>
-</li>
-<li>
-<p><code>build</code>: 创建容器镜像</p>
-</li>
-</ol>
-<h2 id="_2">脚本<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>脚本文件放于/public/slurmscript_demo中，手册中列出部分常见的脚本</p>
-<h3 id="abaqus">abaqus<a class="headerlink" href="#abaqus" title="Permanent link">&para;</a></h3>
-<p><img alt="abaqus" src="../../_images/app1.png" />
-<img alt="abaqus" src="../../_images/app2.png" /></p>
-<h3 id="amber">amber<a class="headerlink" href="#amber" title="Permanent link">&para;</a></h3>
-<p><img alt="amber" src="../../_images/app3.png" /></p>
-<h3 id="lammps">lammps<a class="headerlink" href="#lammps" title="Permanent link">&para;</a></h3>
-<p><img alt="lammps" src="../../_images/app4.png" /></p>
-<h3 id="lammps-intel">lammps-intel<a class="headerlink" href="#lammps-intel" title="Permanent link">&para;</a></h3>
-<p><img alt="lammps-intel" src="../../_images/app5.png" /></p>
-<h3 id="orca">orca<a class="headerlink" href="#orca" title="Permanent link">&para;</a></h3>
-<p><img alt="orca" src="../../_images/app6.png" /></p>
-<!--
-### jdftx
+<h1 id="abaqus">Abaqus<a class="headerlink" href="#abaqus" title="Permanent link">&para;</a></h1>
+<p>ABAQUS是一种有限元素法软件，用于机械、土木、电子等行业的结构和场分析。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Abaqus 是商业授权软件，需要申请权限后使用。</p>
+</div>
+<div class="highlight"><span class="filename">/public/slurmscript_demo/abaqus.slurm</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=2                 #节点数量</span>
+<span class="c1">#SBATCH --ntasks-per-node=8       #每个节点使用的核心数量</span>
+<span class="c1">#SBATCH --error=%j.err</span>
+<span class="c1">#SBATCH --output=%j.out</span>
+<span class="c1">#SBATCH --account=[budget]        # Account name</span>
+<span class="c1">#SBATCH --partition=cpu           # Partition name</span>
+<span class="c1">#SBATCH --qos=[qos]               # QOS name</span>
 
-### pytorch
--->
-<h3 id="gromacs-gpu">gromacs-gpu<a class="headerlink" href="#gromacs-gpu" title="Permanent link">&para;</a></h3>
-<p><img alt="gromacs-gpu" src="../../_images/app9.png" /></p>
-<h3 id="gromacs-cpu">gromacs-cpu<a class="headerlink" href="#gromacs-cpu" title="Permanent link">&para;</a></h3>
-<p><img alt="gromacs-cpu" src="../../_images/app11.png" /></p>
-<h3 id="matlab">matlab<a class="headerlink" href="#matlab" title="Permanent link">&para;</a></h3>
-<p><img alt="matlab" src="../../_images/app10.png" /></p>
-<h3 id="comsol">comsol<a class="headerlink" href="#comsol" title="Permanent link">&para;</a></h3>
-<p><img alt="comsol" src="../../_images/app12.png" /></p>
-<h3 id="cp2k-2022">cp2k-2022<a class="headerlink" href="#cp2k-2022" title="Permanent link">&para;</a></h3>
-<p><img alt="cp2k-2022" src="../../_images/app13.png" /></p>
-<h3 id="vasp">vasp<a class="headerlink" href="#vasp" title="Permanent link">&para;</a></h3>
-<p><img alt="vasp" src="../../_images/app15.png" /></p>
-<h3 id="g16">g16<a class="headerlink" href="#g16" title="Permanent link">&para;</a></h3>
-<p><img alt="g16" src="../../_images/app14.png" /></p>
+<span class="nv">CURDIR</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$CURDIR</span>/nodelist.<span class="nv">$SLURM_JOB_ID</span>
+<span class="nv">NODES</span><span class="o">=</span><span class="sb">`</span>scontrol<span class="w"> </span>show<span class="w"> </span>hostnames<span class="w"> </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="sb">`</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$NODES</span>
+<span class="k">do</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">:</span><span class="nv">$SLURM_NTASKS_PER_NODE</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$CURDIR</span>/nodelist.<span class="nv">$SLURM_JOB_ID</span>
+<span class="k">done</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_NPROCS</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;process will start at : &quot;</span>
+date
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;++++++++++++++++++++++++++++++++++++++++&quot;</span>
+
+<span class="c1">##setting environment for abaqus-2019</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/public/software/abaqus/abaqus-2019/DassaultSystemes/SIMULIA/Commands/:<span class="nv">$PATH</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$CURDIR</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>*.lck*
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$CURDIR</span>/nodefile
+<span class="nv">np</span><span class="o">=</span><span class="nv">$SLURM_NPROCS</span>
+<span class="nv">nu</span><span class="o">=</span><span class="nv">$SLURM_NNODES</span>
+<span class="nv">cpuspernode</span><span class="o">=</span><span class="nv">$SLURM_NTASKS_PER_NODE</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$cpuspernode</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$nu</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$np</span>
+
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$NODES</span>
+<span class="k">do</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$CURDIR</span>/nodefile
+<span class="k">done</span>
+
+<span class="nv">pie</span><span class="o">=</span><span class="s2">&quot;&#39;&quot;</span>
+<span class="nv">machinelist</span><span class="o">=</span><span class="k">$(</span>awk<span class="w"> </span><span class="s1">&#39;{if( NR != &#39;</span><span class="nv">$nu</span><span class="s1">&#39; ) printf &quot;[&#39;</span><span class="nv">$pie</span><span class="s1">&#39;&quot;$0&quot;&#39;</span><span class="nv">$pie</span><span class="s1">&#39;,&quot;&#39;</span><span class="nv">$cpuspernode</span><span class="s1">&#39;&quot;],&quot;}     {if(NR==&#39;</span><span class="nv">$nu</span><span class="s1">&#39;) printf &quot;[&#39;</span><span class="nv">$pie</span><span class="s1">&#39;&quot;$0&quot;&#39;</span><span class="nv">$pie</span><span class="s1">&#39;,    &quot;&#39;</span><span class="nv">$cpuspernode</span><span class="s1">&#39;&quot;]&quot;}&#39;</span><span class="w"> </span>nodefile<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mp_host_list=[</span><span class="nv">$machinelist</span><span class="s2">]&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mp_rsh_command=&#39;ssh -n -l %U %H %C&#39;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>abaqus_v6.env
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mp_host_list=[</span><span class="nv">$machinelist</span><span class="s2">]&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>abaqus_v6.env
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">MPI_IB_STRINGS</span><span class="o">=</span>mlx5_0:1
+<span class="nb">export</span><span class="w"> </span><span class="nv">MPIRUN_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-prot&quot;</span>
+
+
+<span class="nb">unset</span><span class="w"> </span>SLURM_GTIDS
+<span class="nv">inputfile</span><span class="o">=</span>abaqus_suanli.inp
+abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span>ABAQUS<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="nv">$SLURM_NPROCS</span><span class="w"> </span><span class="nv">input</span><span class="o">=</span><span class="nv">$inputfile</span><span class="w"> </span>interactive<span class="w"> </span><span class="nv">ask_delete</span><span class="o">=</span>off<span class="w"> </span>&gt;<span class="w"> </span>./log
+
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;++++++++++++++++++++++++++++++++++++++++&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;processs will sleep 30s&quot;</span>
+sleep<span class="w"> </span><span class="m">30</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;process end at : &quot;</span>
+date
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$CURDIR</span>/nodelist.<span class="nv">$SLURM_JOB_ID</span>
+</code></pre></div>
 
 
 
@@ -1492,10 +1457,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.path", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

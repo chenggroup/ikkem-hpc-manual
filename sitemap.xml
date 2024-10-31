@@ -93,10 +93,6 @@
          <lastmod>2024-10-31</lastmod>
     </url>
     <url>
-         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/app/</loc>
-         <lastmod>2024-10-31</lastmod>
-    </url>
-    <url>
          <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/compile-install/</loc>
          <lastmod>2024-10-31</lastmod>
     </url>
@@ -109,7 +105,59 @@
          <lastmod>2024-10-31</lastmod>
     </url>
     <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/quick-start/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
          <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/scow/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/abaqus/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/amber/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/comsol/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/cp2k/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/gaussian/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/gromacs/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/lammps/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/matlab/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/orca/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/pytorch/</loc>
+         <lastmod>2024-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/apps/vasp/</loc>
          <lastmod>2024-10-31</lastmod>
     </url>
 </urlset>

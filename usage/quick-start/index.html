@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/slurm/sinfo/">
+        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/usage/quick-start/">
       
       
-        <link rel="prev" href="../basic/">
+        <link rel="prev" href="../../introduction/updates/">
       
       
-        <link rel="next" href="../squeue/">
+        <link rel="next" href="../login/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>显示队列、节点信息：sinfo - 嘉庚智算用户手册</title>
+        <title>快速上手 - 嘉庚智算用户手册</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sinfo" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              显示队列、节点信息：sinfo
+              快速上手
             
           </span>
         </div>
@@ -346,8 +346,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -366,11 +368,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -384,7 +386,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             使用指南
@@ -395,10 +397,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../usage/quick-start/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    快速上手
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -407,6 +429,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      智算用户开户
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      登录到嘉庚智算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="登录到嘉庚智算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置免密登录
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件系统和数据操作
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用智算上的软件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建作业提交脚本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建作业提交脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      作业的内存限制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交作业到队列
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      监控您的作业
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查作业输出
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      致谢嘉庚智算
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -419,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/login/" class="md-nav__link">
+      <a href="../login/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,7 +633,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../usage/apps/" class="md-nav__link ">
+            <a href="../apps/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -513,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/abaqus/" class="md-nav__link">
+      <a href="../apps/abaqus/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/amber/" class="md-nav__link">
+      <a href="../apps/amber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -555,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/comsol/" class="md-nav__link">
+      <a href="../apps/comsol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -576,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/cp2k/" class="md-nav__link">
+      <a href="../apps/cp2k/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -597,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/gromacs/" class="md-nav__link">
+      <a href="../apps/gromacs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -618,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/gaussian/" class="md-nav__link">
+      <a href="../apps/gaussian/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -639,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/lammps/" class="md-nav__link">
+      <a href="../apps/lammps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -660,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/matlab/" class="md-nav__link">
+      <a href="../apps/matlab/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -681,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/orca/" class="md-nav__link">
+      <a href="../apps/orca/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/pytorch/" class="md-nav__link">
+      <a href="../apps/pytorch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -723,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/vasp/" class="md-nav__link">
+      <a href="../apps/vasp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -752,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/partition/" class="md-nav__link">
+      <a href="../partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -773,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/scow/" class="md-nav__link">
+      <a href="../scow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/compile-install/" class="md-nav__link">
+      <a href="../compile-install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -819,8 +972,6 @@
       
   
   
-    
-  
   
   
     
@@ -863,16 +1014,16 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../slurm/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -889,7 +1040,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Slurm作业调度系统
@@ -905,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic/" class="md-nav__link">
+      <a href="../../slurm/basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -923,30 +1074,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    显示队列、节点信息：sinfo
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../slurm/sinfo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -955,44 +1086,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sinfo_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      sinfo主要输出项
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sinfo_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      sinfo主要参数
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1005,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../squeue/" class="md-nav__link">
+      <a href="../../slurm/squeue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1026,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../partition/" class="md-nav__link">
+      <a href="../../slurm/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../node/" class="md-nav__link">
+      <a href="../../slurm/node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1068,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../job/" class="md-nav__link">
+      <a href="../../slurm/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qos/" class="md-nav__link">
+      <a href="../../slurm/qos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../submission/" class="md-nav__link">
+      <a href="../../slurm/submission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1131,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../srun/" class="md-nav__link">
+      <a href="../../slurm/srun/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1152,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sbatch/" class="md-nav__link">
+      <a href="../../slurm/sbatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1173,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../salloc/" class="md-nav__link">
+      <a href="../../slurm/salloc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1194,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sbcast/" class="md-nav__link">
+      <a href="../../slurm/sbcast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1215,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sattach/" class="md-nav__link">
+      <a href="../../slurm/sattach/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1236,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sacct/" class="md-nav__link">
+      <a href="../../slurm/sacct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1257,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../others/" class="md-nav__link">
+      <a href="../../slurm/others/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1365,18 +1458,111 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sinfo_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      sinfo主要输出项
+      智算用户开户
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sinfo_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      sinfo主要参数
+      登录到嘉庚智算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="登录到嘉庚智算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置免密登录
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件系统和数据操作
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用智算上的软件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建作业提交脚本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建作业提交脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      作业的内存限制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交作业到队列
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      监控您的作业
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查作业输出
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      致谢嘉庚智算
     </span>
   </a>
   
@@ -1400,261 +1586,209 @@
   
 
 
-<h1 id="sinfo">显示队列、节点信息：sinfo<a class="headerlink" href="#sinfo" title="Permanent link">&para;</a></h1>
-<p><code>sinfo</code>可以查看系统存在什么队列、节点及其状态。如<code>sinfo -l</code>：</p>
-<div class="highlight"><pre><span></span><code>PARTITION   AVAIL  TIMELIMIT   JOB_SIZE ROOT OVERSUBS     GROUPS  NODES       STATE NODELIST
-CPU-Large*     up   infinite 1-infinite   no       NO        all    720        idle cnode[001-720]
-GPU-V100       up   infinite 1-infinite   no       NO        all     10        idle gnode[01-10]
-2TB-AEP-Mem    up   infinite 1-infinite   no       NO        all      8       mixed anode[01-08]
-ARM-CPU        up   infinite 1-infinite   no       NO        all      2       down* rnode[01,09]
-ARM-CPU        up   infinite 1-infinite   no       NO        all      2   allocated rnode[02-03]
-ARM-CPU        up   infinite 1-infinite   no       NO        all      5        idle rnode[04-08]
+<h1 id="_1">快速上手<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>本指南旨在快速帮助新用户在嘉庚智算上启动并运行应用。它涵盖了开户、登录和运行第一个作业的过程。</p>
+<h2 id="_2">智算用户开户<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>请参考<a href="../../introduction/register/">开户流程</a>或联系智算运营和管理人员协助完成开户流程。</p>
+<p>在用户的开户请求被批准后，会收到一封来自 ikkemhpc@xmu.edu.cn 的邮件，包含了用户登录的用户名、初始随机密码。
+若用户申请了校外访问，还包括 ATrust 零信任终端的安装包、用户名、密码和使用说明。</p>
+<h2 id="_3">登录到嘉庚智算<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>要登录到嘉庚智算，您应该使用以下地址：</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span><span class="o">[</span>userID<span class="o">]</span>@10.26.14.64
 </code></pre></div>
-<h2 id="sinfo_1">sinfo主要输出项<a class="headerlink" href="#sinfo_1" title="Permanent link">&para;</a></h2>
+<p>登录流程请参考<a href="../login/">用户登录与文件传输</a>。</p>
+<h3 id="_4">配置免密登录<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>要配置免密登录，您需要在本地生成一个 SSH 密钥对，并将公钥复制到远程服务器。以下是详细步骤：</p>
+<ol>
+<li>
+<p><strong>在本地生成 SSH 密钥对</strong></p>
+<p>打开终端并运行以下命令：</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+</code></pre></div>
+<p>按提示操作，您可以选择密钥默认的存放路径（通常是 <code>~/.ssh/id_ed25519</code>），并可为此密钥设置一个密语口令（可选）。</p>
+</li>
+<li>
+<p><strong>将公钥复制到远程服务器</strong></p>
+<p>使用 <code>ssh-copy-id</code> 命令将公钥复制到远程服务器：</p>
+<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span><span class="o">[</span>userID<span class="o">]</span>@10.26.14.64
+</code></pre></div>
+<p>输入您的远程服务器密码以完成公钥复制。</p>
+</li>
+<li>
+<p><strong>测试免密登录</strong></p>
+<p>现在，您可以尝试使用 SSH 登录到远程服务器而无需输入密码：</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span><span class="o">[</span>userID<span class="o">]</span>@10.26.14.64
+</code></pre></div>
+<p>如果一切配置正确，您应该能够直接登录到远程服务器。</p>
+</li>
+</ol>
+<div class="admonition info 提示">
+<p class="admonition-title">Info</p>
+<p>如果您在生成密钥对时选择了非默认路径，请确保在登录时使用 <code>-i</code> 选项指定私钥路径。例如：</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/path/to/your/private_key<span class="w"> </span><span class="o">[</span>userID<span class="o">]</span>@10.26.14.64
+</code></pre></div>
+</div>
+<h2 id="_5">文件系统和数据操作<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>所有用户在 <code>/public</code> 文件系统上都有一个目录。目录位置如下：</p>
 <ul>
-<li>
-<p>AVAIL：up表示可用，down表示不可用。</p>
-</li>
-<li>
-<p>CPUS：各节点上的CPU数。</p>
-</li>
-<li>
-<p>S:C:T：各节点上的CPU插口sockets(S)数（CPU颗数，一颗CPU含有多颗CPU核，以下类似）、CPU核cores(C)数和线程threads(T)数。</p>
-</li>
-<li>
-<p>SOCKETS：各节点CPU插口数，CPU颗数。</p>
-</li>
-<li>
-<p>CORES：各节点CPU核数。</p>
-</li>
-<li>
-<p>THREADS：各节点线程数。</p>
-</li>
-<li>
-<p>GROUPS：可使用的用户组，all表示所有组都可以用。</p>
-</li>
-<li>
-<p>JOB_SIZE：可供用户作业使用的最小和最大节点数，如果只有1个值，则表示最大和最小一样，infinite表示无限制。</p>
-</li>
-<li>
-<p>TIMELIMIT：作业运行墙上时间（walltime，指的是用计时器，如手表或挂钟，度量的实际时间）限制，infinite表示没限制，如有限制的话，其格式为“days-hours:minutes:seconds”。</p>
-</li>
-<li>
-<p>MEMORY：实际内存大小，单位为MB。</p>
-</li>
-<li>
-<p>NODELIST：节点名列表，格式类似node[1-10,11,13-28]。</p>
-</li>
-<li>
-<p>NODES：节点数。</p>
-</li>
-<li>
-<p>NODES(A/I)：节点数，状态格式为“available/idle”。</p>
-</li>
-<li>
-<p>NODES(A/I/O/T)：节点数，状态格式为“available/idle/other/total”。</p>
-</li>
-<li>
-<p>PARTITION：队列名，后面带有*的，表示此队列为默认队列。</p>
-</li>
-<li>
-<p>ROOT：是否限制资源只能分配给root账户。</p>
-</li>
-<li>
-<p>OVERSUBSCRIBE：是否允许作业分配的资源超过计算资源（如CPU数）：</p>
-</li>
-<li>
-<p>no：不允许超额。</p>
-</li>
-<li>exclusive：排他的，只能给这些作业用（等价于<code>srun --exclusive</code>）。</li>
-<li>force：资源总被超额。</li>
-<li>
-<p>yes：资源可以被超额。</p>
-</li>
-<li>
-<p>STATE：节点状态，可能的状态包括：</p>
-</li>
-<li>
-<p>allocated、alloc：已分配。</p>
-</li>
-<li>completing、comp：完成中。</li>
-<li>down：宕机。</li>
-<li>drained、drain：已失去活力。</li>
-<li>draining、drng：失去活力中。</li>
-<li>fail：失效。</li>
-<li>failing、failg：失效中。</li>
-<li>future、futr：将来可用。</li>
-<li>idle：空闲，可以接收新作业。</li>
-<li>maint：保持。</li>
-<li>mixed：混合，节点在运行作业，但有些空闲CPU核，可接受新作业。</li>
-<li>perfctrs、npc：因网络性能计数器使用中导致无法使用。</li>
-<li>power_down、pow_dn：已关机。</li>
-<li>power_up、pow_up：正在开机中。</li>
-<li>reserved、resv：预留。</li>
-<li>unknown、unk：未知原因。</li>
+<li><code>/public/home/[user ID]</code>（这也是您的 home 目录）</li>
 </ul>
-<p>注意，如果状态带有后缀*，表示节点没响应。</p>
+<p>用户可以在此目录下设立文件夹存放、归档自己的项目，并执行计算。
+每个用户拥有 <strong>10TB</strong> 的存储使用限制，可通过如下命令检查当前的存储使用情况以及文件数量：</p>
+<div class="highlight"><pre><span></span><code>lfs<span class="w"> </span>quota<span class="w"> </span>-uh<span class="w"> </span><span class="sb">`</span>whoami<span class="sb">`</span><span class="w"> </span>/public/home/<span class="sb">`</span>whoami<span class="sb">`</span>
+</code></pre></div>
+<p>输出如下：</p>
+<div class="highlight"><pre><span></span><code>Disk quotas for usr auser (uid 35005):
+     Filesystem    used   quota   limit   grace   files   quota   limit   grace
+/public/home/auser
+                 683.7G      0k      0k       -  174418       0       0       -
+uid 35005 is using default block quota setting
+uid 35005 is using default file quota setting
+</code></pre></div>
+<p>!!! info 嘉庚智算上管理数据的提示：
+    - 不要在单个目录中生成大量文件（&gt;1000）。
+    - 文件传输性能差通常是由于涉及的文件数量过多——通过使用归档工具来减少需要传输的文件数量以提高性能。
+    - 在文件系统之间移动目录或大量文件之前，先将它们归档（例如使用 <code>tar</code> 或 <code>zip</code> 命令）。
+    - 在智算上使用 <code>tar</code> 或 <code>rsync</code> 在文件系统之间传输时，避免使用压缩选项，因为这些选项可能会降低性能（通过传输较小的压缩文件节省的时间通常少于通过 即时压缩文件增加的开销）。</p>
+<h2 id="_6">使用智算上的软件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>在嘉庚智算上，软件主要通过 <em>module</em> 访问。这些模块通过 <code>module</code> 命令及其子命令加载和卸载所需的应用程序、编译器、工具和库。某些模块在登录时会默认加载，提供一个默认的工作环境；更多的模块可供使用但最初未加载，允许您根据需要设置环境。</p>
+<p>您可以随时通过运行以下命令检查已加载的模块：</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>list
+</code></pre></div>
+<p>运行以下命令将显示嘉庚智算上所有可用的环境模块，无论是否已加载：</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>avail
+</code></pre></div>
+<p>可用<code>module av</code>简写替代，同时该命令支持模糊搜索，<code>module av m</code>会列出所有以 <code>m</code> 开头的软件可以通过提供模块名称的前几个字符来缩小此命令的搜索范围。
+例如，运行以下命令可以找到所有可用版本和变体的 VASP：</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>av<span class="w"> </span>vasp
+</code></pre></div>
+<p>您会看到许多模块有不同的版本。例如，<code>vasp/5.4.4-intel</code> 和 <code>vasp/6.2.0-intel</code> 是 VASP 的两个可用版本。此外，可指定默认版本，如果用户未指定版本，则使用此版本。</p>
+<div class="admonition important 重要">
+<p class="admonition-title">Important</p>
+<p>VASP 是商业授权软件，您必须拥有有效的许可证或权限证明才能在嘉庚智算上使用这类软件。
+通常您需要向管理员提供相关软件使用的权限证明并申请开通其使用权限。</p>
+</div>
+<p><code>module load</code> 命令加载一个模块以供使用。按照上述示例，</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>vasp
+</code></pre></div>
+<p>将加载 VASP 的默认版本，而</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>vasp/6.2.0-intel
+</code></pre></div>
+<p>将特定加载版本 <code>6.2.0</code>。可以通过相同的 <code>module unload</code> 命令卸载已加载的模块，例如：</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>unload<span class="w"> </span>vasp
+</code></pre></div>
+<p>上述命令将卸载当前环境中已加载的 VASP 版本。您也可以按如下方式切换软件的版本：</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>switch<span class="w"> </span>vasp/5.4.4-intel
+</code></pre></div>
+<p>其他常用的命令包括：</p>
 <ul>
-<li>TMP_DISK：/tmp所在分区空间大小，单位为MB。</li>
+<li><code>module help &lt;modulename&gt;</code> 提供模块的简短描述</li>
+<li><code>module show &lt;modulename&gt;</code> 显示模块文件的内容</li>
+<li><code>module list</code> 显示当前已经加载的全部模块</li>
+<li><code>module purge</code> 卸载当前已经加载的全部模块</li>
+<li><code>module switch|swap [modulefile_old] [modulefile_new]</code> 在不同的模块版本之间切换</li>
 </ul>
-<h2 id="sinfo_2">sinfo主要参数<a class="headerlink" href="#sinfo_2" title="Permanent link">&para;</a></h2>
+<div class="admonition warning 注意">
+<p class="admonition-title">Warning</p>
 <ul>
-<li>
-<p>-a、--all：显示全部队列信息，如显示隐藏队列或本组没有使用权的队列。</p>
-</li>
-<li>
-<p>-d、--dead：仅显示无响应或已宕机节点。</p>
-</li>
-<li>
-<p>-e、--exact：精确而不是分组显示显示各节点。</p>
-</li>
-<li>
-<p>--help：显示帮助。</p>
-</li>
-<li>
-<p><code>-i &lt;seconds&gt;</code>、<code>--iterate=&lt;seconds&gt;</code>：以 <code>&lt;seconds&gt;</code> 秒间隔持续自动更新显示信息。</p>
-</li>
-<li>
-<p><code>-l</code>、<code>--long</code>：显示详细信息。</p>
-</li>
-<li>
-<p><code>-n &lt;nodes&gt;</code>、<code>--nodes=&lt;nodes&gt;</code>：显示\<nodes>节点信息。</p>
-</li>
-<li>
-<p><code>-N</code>, <code>--Node</code>：以每行一个节点方式显示信息，即显示各节点信息。</p>
-</li>
-<li>
-<p><code>-p &lt;partition&gt;</code>、<code>--partition=&lt;partition&gt;</code>：显示 <code>&lt;partition&gt;</code> 队列信息。</p>
-</li>
-<li>
-<p><code>-r</code>、<code>--responding</code>：仅显示响应的节点信息。</p>
-</li>
-<li>
-<p><code>-R</code>、<code>--list-reasons</code>：显示不响应（down、drained、fail或failing状态）节点的原因。</p>
-</li>
-<li>
-<p><code>-s</code>：显示摘要信息。</p>
-</li>
-<li>
-<p><code>-S &lt;sort_list&gt;</code>、<code>--sort=&lt;sort_list&gt;</code>：设定显示信息的排序方式。排序字段参见后面输出格式部分，多个排序字段采用,分隔，字段前面的+和-分表表示升序（默认）或降序。队列字段P前面如有#，表示以Slurm配置文件slurm.conf中的顺序显示。例如：<code>sinfo -S +P,-m</code>表示以队列名升序及内存大小降序排序。</p>
-</li>
-<li>
-<p><code>-t &lt;states&gt;</code>、<code>--states=&lt;states&gt;</code>：仅显示 <code>&lt;states&gt;</code> 状态的信息。<code>&lt;states&gt;</code>状态可以为（不区分大小写）：ALLOC、ALLOCATED、COMP、COMPLETING、DOWN、DRAIN、DRAINED、DRAINING、ERR、ERROR、FAIL、FUTURE、FUTR、IDLE、MAINT、MIX、MIXED、NO_RESPOND、NPC、PERFCTRS、POWER_DOWN、POWER_UP、RESV、RESERVED、UNK和UNKNOWN。</p>
-</li>
-<li>
-<p><code>-T</code>, <code>--reservation</code>：仅显示预留资源信息。</p>
-</li>
-<li>
-<p><code>--usage</code>：显示用法。</p>
-</li>
-<li>
-<p><code>-v</code>、<code>--verbose</code>：显示冗余信息，即详细信息。</p>
-</li>
-<li>
-<p><code>-V</code>：显示版本信息。</p>
-</li>
-<li>
-<p><code>-o &lt;output_format&gt;</code>、<code>--format=&lt;output_format&gt;</code>：按照 <code>&lt;output_format&gt;</code> 格式输出信息，默认为“%#P %.5a %.10l %.6D %.6t %N”：</p>
-</li>
-<li>
-<p><code>%all</code>：所有字段信息。</p>
-</li>
-<li><code>%a</code>：队列的状态及是否可用。</li>
-<li><code>%A</code>：以“allocated/idle”格式显示状态对应的节点数。</li>
-<li><code>%b</code>：激活的特性，参见%f。</li>
-<li><code>%B</code>：队列中每个节点可分配给作业的CPU数。</li>
-<li><code>%c</code>：各节点CPU数。</li>
-<li><code>%C</code>：以“allocated/idle/other/total”格式状态显示CPU数。</li>
-<li><code>%d</code>：各节点临时磁盘空间大小，单位为MB。</li>
-<li><code>%D</code>：节点数。</li>
-<li><code>%e</code>：节点空闲内存。</li>
-<li><code>%E</code>：节点无效的原因（down、draine或ddraining状态）。</li>
-<li><code>%f</code>：节点可用特性，参见%b。</li>
-<li><code>%F</code>：以“allocated/idle/other/total”格式状态的节点数。</li>
-<li><code>%g</code>：可以使用此节点的用户组。</li>
-<li><code>%G</code>：与节点关联的通用资源（gres）。</li>
-<li><code>%h</code>：作业是否能超用计算资源（如CPUs），显示结果可以为yes、no、exclusive或force。</li>
-<li><code>%H</code>：节点不可用信息的时间戳。</li>
-<li><code>%I</code>：队列作业权重因子。</li>
-<li><code>%l</code>：以“days-hours:minutes:seconds”格式显示作业可最长运行时间。</li>
-<li><code>%L</code>：以“days-hours:minutes:seconds”格式显示作业默认时间。</li>
-<li><code>%m</code>：节点内存，单位MB。</li>
-<li><code>%M</code>：抢占模式，可以为no或yes。</li>
-<li><code>%n</code>：节点主机名。</li>
-<li><code>%N</code>：节点名。</li>
-<li><code>%o</code>：节点IP地址。</li>
-<li><code>%O</code>：节点负载。</li>
-<li><code>%p</code>：队列调度优先级。</li>
-<li><code>%P</code>：队列名，带有*为默认队列，参见%R。</li>
-<li><code>%R</code>：队列名，不在默认队列后附加*，参见%P。</li>
-<li><code>%s</code>：节点最大作业大小。</li>
-<li><code>%S</code>：允许分配的节点数。</li>
-<li><code>%t</code>：以紧凑格式显示节点状态。</li>
-<li><code>%T</code>：以扩展格式显示节点状态。</li>
-<li><code>%v</code>：slurmd守护进程版本。</li>
-<li><code>%w</code>：节点调度权重。</li>
-<li><code>%X</code>：单节点socket数。</li>
-<li><code>%Y</code>：单节点CPU核数。</li>
-<li><code>%Z</code>：单核进程数。</li>
-<li>
-<p><code>%z</code>：扩展方式显示单节点处理器信息：sockets、cores、threads（S:C:T）数。</p>
-</li>
-<li>
-<p>-O \<output_format>, --Format=\<output_format>：按照\<output_format>格式输出信息，类似-o \<output_format>、--format=\<output_format>。</p>
-</li>
+<li>某些模块会与其他模块冲突。一个简单的例子是尝试加载已加载模块的不同版本时产生的冲突。当发生冲突时，加载过程将失败并显示错误消息。检查消息和模块输出（通过 <code>module show</code>）应能揭示冲突的原因以及如何解决。</li>
+<li>请注意模块加载的顺序。两个不同的模块将同一变量设置为不同的值，最终值将是最后加载的模块设置的值。如果您怀疑两个模块存在相互干扰的可能性，可以使用 <code>module show</code> 检查它们的内容。</li>
 </ul>
-<p>每个字段的格式为“type[:[.]size]”：</p>
+</div>
+<h2 id="_7">创建作业提交脚本<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>要在计算节点上运行程序，您需要编写一个作业提交脚本，告诉系统您想要保留多少计算节点以及多长时间。您还需要使用 <code>srun</code> 命令来启动并行可执行文件。</p>
+<p>使用您熟悉的文本编辑器创建一个名为 <code>submit.slurm</code> 的作业提交脚本。例如，使用 <code>vim</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>auser@mu012<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>path/to/project
+<span class="o">[</span>auser@mu012<span class="w"> </span>project<span class="o">]</span>$<span class="w"> </span>vim<span class="w"> </span>submit.slurm
+</code></pre></div>
+<div class="admonition tip 提示">
+<p class="admonition-title">Tip</p>
+<p>请将上面的 <code>path/to/project</code> 替换为您计算任务所在的路径。</p>
+</div>
+<p>将以下文本粘贴到您的作业提交脚本中，并将 <code>[budget]</code> 替换为您的账户，例如 <code>ai4ecccg</code>，将 <code>[partition]</code> 替换为您希望运行的分区（例如 <code>cpu</code>），将 <code>[qos]</code> 替换为您想要的QOS（例如 <code>normal</code>）。</p>
+<div class="admonition tip 提示">
+<p class="admonition-title">Tip</p>
 <ul>
-<li>
-<p>size：最小字段大小，如没指明，则最大为20个字符。</p>
-</li>
-<li>
-<p>.：指明为右对齐，默认为左对齐。</p>
-</li>
-<li>
-<p>可用type：</p>
+<li>关于分区、QOS和对应的收费标准，请参考<a href="../partition/">说明文档</a></li>
+<li>关于不同应用对应的提交脚本示例，请参考<a href="../apps/">应用使用说明</a></li>
+</ul>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VASP 5.4.4 提交脚本示例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+
+<span class="c1">#SBATCH --job-name=test_job</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=64</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --time=00:30:00</span>
+
+<span class="c1"># Replace [budget] below with your account code (e.g. ai4ecccg)</span>
+<span class="c1"># Replace [partition] below with your partition (e.g. cpu)</span>
+<span class="c1"># Replace [qos] below with your QOS (e.g. normal)</span>
+<span class="c1">#SBATCH --account=[budget]</span>
+<span class="c1">#SBATCH --partition=[partition]</span>
+<span class="c1">#SBATCH --qos=[qos]</span>
+
+<span class="c1"># Load the vasp module to get access to the vasp program</span>
+module<span class="w"> </span>load<span class="w"> </span>intel/oneapi2021.1
+module<span class="w"> </span>load<span class="w"> </span>vasp/5.4.4-intel
+
+<span class="c1"># Recommended environment settings</span>
+<span class="c1"># Stop unintentional multi-threading within software libraries</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># srun launches the parallel program based on the SBATCH options</span>
+mpirun<span class="w"> </span>vasp_std
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_8">作业的内存限制<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>集群目前设置了默认内存限制</p>
 <ul>
-<li>all：所有字段信息。</li>
-<li>allocmem：节点上分配的内存总数，单位MB。</li>
-<li>allocnodes：允许分配的节点。</li>
-<li>available：队列的State/availability状态。</li>
-<li>cpus：各节点CPU数。</li>
-<li>cpusload：节点负载。</li>
-<li>freemem：节点可用内存，单位MB。</li>
-<li>cpusstate：以“allocated/idle/other/total”格式状态的CPU数。</li>
-<li>cores：单CPU颗CPU核数。</li>
-<li>disk：各节点临时磁盘空间大小，单位为MB。</li>
-<li>features：节点可用特性，参见features_act。</li>
-<li>features_act：激活的特性，参见features。</li>
-<li>groups：可以使用此节点的用户组。</li>
-<li>gres：与节点关联的通用资源（gres）。</li>
-<li>maxcpuspernode：队列中各节点最大可用CPU数。</li>
-<li>memory：节点内存，单位MB。</li>
-<li>nodeai：以“allocated/idle”格式显示状态对应的节点数。</li>
-<li>nodes：节点数。</li>
-<li>nodeaiot：以“allocated/idle/other/total”格式状态的节点数。</li>
-<li>nodehost：节点主机名。</li>
-<li>nodelist：节点名，格式类似node[1-10,11,13-28]。</li>
-<li>oversubscribe：作业是否能超用计算资源（如CPUs），显示结果可以为yes、no、exclusive或force。</li>
-<li>partition：队列名，带有*为默认队列，参见%R。</li>
-<li>partitionname：队列名，默认队列不附加*，参见%P。</li>
-<li>preemptmode：抢占模式，可以为no或yes。</li>
-<li>priorityjobfactor：队列作业权重因子。</li>
-<li>prioritytier或priority：队列调度优先级。</li>
-<li>reason：节点无效的原因（down、draine或ddraining状态）。</li>
-<li>size：节点最大作业数。</li>
-<li>statecompact：紧凑格式节点状态。</li>
-<li>statelong：扩展格式节点状态。</li>
-<li>sockets：各节点CPU颗数。</li>
-<li>socketcorethread：扩展方式显示单节点处理器信息：sockets、cores、threads（S:C:T）数。</li>
-<li>time：以“days-hours:minutes:seconds”格式显示作业可最长运行时间。</li>
-<li>timestamp：节点不可用信息的时间戳。</li>
-<li>threads：CPU核线程数。</li>
-<li>weight：节点调度权重。</li>
-<li>version：slurmd守护进程版本。</li>
+<li>CPU节点每个节点 64 核，默认每个核申请 1G 内存，最大可提交内存为 251G</li>
+<li>GPU节点每个节点 64 核，默认每个核申请 16G 内存，最大可提交内存为 1510G</li>
 </ul>
-</li>
-</ul>
+<p>当提交的作业出现内存不足的问题（Out Of Memory）时，需要手动在脚本中设定 <code>--mem-per-cpu</code> 或者 <code>--mem</code> 参数，以增大内存的使用量。</p>
+<p>如若要为每个 CPU 核心分配 2G 内存，提交作业时加上 <code>--mem-per-cpu=2G</code> 的选项；若要为每个任务节点分配 16G 内存，提交作业时加上 <code>--mem=16G</code> 的选项。</p>
+<p>根据您的作业实际需求，灵活地调整这些参数的值，以达到最佳的性能。</p>
+<h2 id="_9">提交作业到队列<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>您可以使用 <code>sbatch</code> 命令将作业提交到队列：</p>
+<div class="highlight"><pre><span></span><code>[auser@mu012 project]$ sbatch submit.slurm
+Submitted batch job 23996
+</code></pre></div>
+<p>返回的数字是您的作业 ID。</p>
+<h2 id="_10">监控您的作业<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>您可以使用 <code>squeue</code> 命令查看队列中的作业。要列出队列中自己的所有作业，请使用：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>auser@mu012<span class="w"> </span>project<span class="o">]</span>$<span class="w"> </span>squeue
+</code></pre></div>
+<p>智算上已经做了配置，<code>squeue</code> 仅可以查看自己的作业。</p>
+<h2 id="_11">检查作业输出<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>上述作业提交脚本将输出写入名为 <code>slurm-&lt;jobID&gt;.out</code> 的文件中（即如果作业 ID 是 23996，文件将是 <code>slurm-23996.out</code>），您可以使用 <code>cat</code> 命令检查此文件的内容。如果作业成功，您应该会看到类似以下的输出：</p>
+<p>[auser@mu012 project]$ cat slurm-23996.out
+ running on   64 total cores
+ distrk:  each k-point on   64 cores,    1 groups
+ distr:  one band on    1 cores,   64 groups
+ using from now: INCAR
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Oct 17 2022 16:14:22) complex</p>
+<p>POSCAR found :  2 types and     320 ions
+ scaLAPACK will be used
+    ... output trimmed ...</p>
+<p>如果出现问题，您可在文件中找到错误消息。请结合您的专业知识，遵循<a href="../../information/troubleshooting/">异常排查和反馈</a>的流程进行故障排除或反馈。</p>
+<h2 id="_12">致谢嘉庚智算<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>致谢模版如下。欢迎大家将已接收的高质量成果邮件分享给我们。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本论文的计算结果得到了嘉庚创新实验室智算中心的支持和帮助</p>
+</div>
+<div class="tabbed-block">
+<p>The calculation results of this paper have been supported and helped by ikkem Intelligent Computing Center</p>
+</div>
+</div>
+</div>
 
 
 
