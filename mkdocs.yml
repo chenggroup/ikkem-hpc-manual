@@ -62,7 +62,7 @@ nav:
   - 首页: index.md
   - 简介:
     - 平台资源: introduction/index.md
-    - 重大更新: introduction/updates.md
+    - 重大更新公告: introduction/updates.md
     - 开户流程: introduction/register.md
   - 使用指南:
     - 用户登录与文件传输: usage/login.md
