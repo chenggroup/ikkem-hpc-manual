@@ -7,7 +7,7 @@
 
 嘉庚智算中心支持内部用户以课题组/项目组为单位开立“用户组”账户，一个课题组/项目组的“用户组”账户下可以开立多个“用户”账户。“用户组”账户下的“用户”账户将共享“用户组”账户内的充值金额。
 
-内部用户申请开立“用户组”账户或在“用户组”账户新增“用户”账户需将以下两项材料的扫描件通过厦门大学的邮箱发送至 [hpc@xmu.edu.cn](mailto:hpc@xmu.edu.cn)，并抄送经费负责人：
+内部用户申请开立“用户组”账户或在“用户组”账户新增“用户”账户需将以下两项材料的扫描件通过厦门大学的邮箱发送至 [ikkemhpc@xmu.edu.cn](mailto:ikkemhpc@xmu.edu.cn)，并抄送经费负责人：
 
 1. **账户申请表**: 请先填写相关信息，而后请用户在“申请人”处签名，经费负责人在“单位/项目组负责人”处签名。
 2. **用户承诺书**: 请新开立“用户”账户的用户在“承诺人”处签名。
@@ -34,7 +34,7 @@ sbatch: error: Job submit/allocate failed: Invalid account or account/partition 
 
 ### 续费
 
-有续费需求的用户可发送邮箱至 [hpc@xmu.edu.cn](mailto:hpc@xmu.edu.cn) 邮箱或在微信服务群内告知，智算中心会主动联系，配合办理续费业务。
+有续费需求的用户可发送邮箱至 [ikkemhpc@xmu.edu.cn](mailto:ikkemhpc@xmu.edu.cn) 邮箱或在微信服务群内告知，智算中心会主动联系，配合办理续费业务。
 
 ## 初始密码与重置
 
@@ -47,7 +47,7 @@ sbatch: error: Job submit/allocate failed: Invalid account or account/partition 
 
 ## 销户
 
-用户可用申请时的邮箱向 [hpc@xmu.edu.cn](mailto:hpc@xmu.edu.cn) 提出用户账户注销申请。注销申请发出前建议用户做好数据备份，避免因账户注销造成损失。
+用户可用申请时的邮箱向 [ikkemhpc@xmu.edu.cn](mailto:ikkemhpc@xmu.edu.cn) 提出用户账户注销申请。注销申请发出前建议用户做好数据备份，避免因账户注销造成损失。
 
 !!! warning 特别提醒
     为提高资源的利用效率，嘉庚智算中心会对一年以内未使用的账户进行销户处理。
