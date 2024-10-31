@@ -19,8 +19,10 @@
     错误原因：通常是因为没有指定正确的账户，可通过以下指令获取可用账户。
 
     ```sh
-    sacctmgr show ass user=`whoami` format=account%15 | uniq
+    sacctmgr show ass user=`whoami` format=account%20 | uniq
     ```
+    
+    如果已经指定了正确的账户，则可能是由于账户欠费等原因被临时封禁，请联系智算管理人员进行确认。
 
 5. `(QOSMaxWallDurationPerJobLimit)`
 

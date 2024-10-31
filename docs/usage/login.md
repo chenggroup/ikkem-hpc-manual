@@ -22,6 +22,8 @@
 
 #### 通过CMD(命令提示符)直接登录
 
+> 本方法也适用于使用 Powershell 的情况。我们推荐使用 Windows Terminal 作为终端，Windows 11 用户无须额外下载，Windows 10 用户可以在 Microsoft Store 中下载。
+
 将获取到的密钥文件（id_rsa）拷贝到C:\\Users\\user1\\.ssh目录下
 
 ![useeight](../_images/useeight.png)

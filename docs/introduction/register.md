@@ -20,13 +20,17 @@
 
 ### 欠费
 
-“用户组”账户余额不足，会导致用户无法提交任务，请用户及时关注账户的余额。以下是提交任务失败时显示的欠费提示：
+账户余额不足，会导致用户无法提交任务，请用户及时关注账户的余额。
+当账户欠费时，SCOW 系统会对相关账户进行封禁，此时即使指定了正确的账户和QOS在提交任务时也出现如下提示：
 
 ```bash
 $ sbatch lammps.sbatch
-sbatch: error: QOSGrpSubmitJobsLimit
-sbatch: error: job submission failed: Job violates accouting/QOS policy (job submit limit, user's size and/or time limits)
+sbatch: error: Job submit/allocate failed: Invalid account or account/partition combination specified
 ```
+
+用户可在 SCOW 管理平台主页账户信息的仪表盘中查看当前用户可使用账户的余额情况。
+
+![余额情况](../_images/scow/image17.png)
 
 ### 续费
 
@@ -35,7 +39,7 @@ sbatch: error: job submission failed: Job violates accouting/QOS policy (job sub
 ## 初始密码与重置
 
 - 第一次开立账户时，随机初始密码和密钥会随账户开通邮件告知用户。
-- 修改密码: 如需修改密码，请联系管理员
+- 修改密码: 如需修改密码，请联系管理员。
 
 ## 账单查询
 
@@ -44,4 +48,6 @@ sbatch: error: job submission failed: Job violates accouting/QOS policy (job sub
 ## 销户
 
 用户可用申请时的邮箱向 [hpc@xmu.edu.cn](mailto:hpc@xmu.edu.cn) 提出用户账户注销申请。注销申请发出前建议用户做好数据备份，避免因账户注销造成损失。
-特别提醒，为提高资源的利用效率，嘉庚智算中心会对一年以内未使用的账户进行销户处理。
+
+!!! warning 特别提醒
+    为提高资源的利用效率，嘉庚智算中心会对一年以内未使用的账户进行销户处理。

@@ -13,3 +13,8 @@
 */10 * * * * flock -n /tmp/hpc-manual.lock /opt/hpc-manual/update.sh
 ```
 
+## 变更
+
+每次更新后请在 `index.md` 修改文档更新时间。
+
+对于每次集群面向用户发布的公告请归档在 `introduction/changelog.md` 中。
