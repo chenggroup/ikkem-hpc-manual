@@ -4,21 +4,21 @@ theme:
   #logo: images/archer2_white_transparent.png
   palette:
     primary: custom
-  features:
-    - navigation.path
-    - navigation.indexes
   icon:
     repo: fontawesome/brands/github
 
 site_name: 嘉庚智算用户手册
 site_url: https://ai4ec.ikkem.com/ikkem-hpc/doc
 repo_url: https://github.com/chenggroup/ikkem-hpc-manual
-repo_name: hpc-ops/hpc-manual
+repo_name: chenggroup/ikkem-hpc-manual
 edit_uri: edit/main/docs/
 extra:
   social:
     - icon: fontawesome/solid/globe
       link: http://ai4ec.ikkem.com
+
+#plugins:
+#  - with-pdf
 
 markdown_extensions:
   # Python Markdown
@@ -103,3 +103,5 @@ nav:
   - 注意事项: information/notes.md
   - 故障排查: information/troubleshooting.md
   - 常见问题: information/faq.md
+  - 资料下载: information/download.md
+  - 视频教程: information/tutorial.md

@@ -49,5 +49,5 @@ sbatch: error: Job submit/allocate failed: Invalid account or account/partition 
 
 用户可用申请时的邮箱向 [ikkemhpc@xmu.edu.cn](mailto:ikkemhpc@xmu.edu.cn) 提出用户账户注销申请。注销申请发出前建议用户做好数据备份，避免因账户注销造成损失。
 
-!!! warning 特别提醒
+!!! warning "特别提醒"
     为提高资源的利用效率，嘉庚智算中心会对一年以内未使用的账户进行销户处理。
