@@ -5,10 +5,10 @@ CP2K 是可用于DFT计算和分子动力学模拟的强大软件包。它支持
 ## 嘉庚智算上的CP2K
 
 !!! failure
-    目前由于升级后 OpenMPI 的已知问题，目前集群上的 CP2K 仅 `cp2k/2024.3` 和 `cp2k/2024.3-generic` 版本可用。
-    前者由于 Core Dump 等原因未能通过 Regtest（但无数值issue），后者由于17个测试任务的数值不匹配亦未能通过。
+    目前集群上的 CP2K 尚需要测试其可靠性和稳定性。
+    <!--前者由于 Core Dump 等原因未能通过 Regtest（但无数值issue），后者由于17个测试任务的数值不匹配亦未能通过。-->
 
-    因此请各位用户在使用时注意自己的结果，我们正在积极解决升级后的集群与 CP2K 的兼容性问题。
+    因此请各位用户在使用时注意自己得到的结果，我们正在积极解决升级后的集群与 CP2K 的兼容性问题。
     如对可靠性有较高要求，推荐使用 [CP2K 官方 Singularity 容器镜像](https://github.com/cp2k/cp2k-containers#apptainer-singularity)。
 
 ```bash title="/public/slurmscript_demo/cp2k-2024.3.slurm"

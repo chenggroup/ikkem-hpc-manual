@@ -4,21 +4,44 @@
 
 ## 密钥分发
 
-用户申请完账号后，管理员会将用户的密钥发送到申请账号时预留的厦大邮箱，按照邮箱指引解压缩附件即可获取到密钥。用户务必妥善保管好该密钥，不得将密钥给与他人使用。
+用户申请账号后，管理员会将用户的密钥发送到申请账号时预留的邮箱中，按照邮箱指引解压缩附件即可获取密钥。
+
+**用户务必妥善保管好该密钥，请勿泄露。**
 
 ## 登陆系统
 
+!!! info 
+    当前集群登录节点 IP 为 10.26.14.64。
+    
+    仅厦大校内网可以访问，校外用户请通过 SSLVPN 或零信任终端访问。
+
+!!! failure
+    旧登录节点IP 10.26.14.56 **已停止任务提交**，如遇到作业长久排队且计算节点均显示为 Drain 状态请检查登录节点是否正确。
+
 ### Windows用户
 
-#### 通过xshell(version 7)工具登录
+#### 通过 MobaXterm 登录
 
-![useone](../_images/useone.png)
-![usetwo](../_images/usetwo.png)
-![usethree](../_images/usethree.png)
-![usefour](../_images/usefour.png)
-![usefive](../_images/usefive.png)
-![usesix](../_images/usesix.png)
-![useseven](../_images/useseven.png)
+MobaXterm 是 Windows 下一款终端软件，支持SSH、WSL等，并且包含一个集成的 X 桌面服务，允许您远程运行图形应用程序（如 gnuplot、VMD 等）。
+
+您可以从以下链接下载 MobaXterm 家庭版（安装版）：
+
+[安装 MobaXterm](http://mobaxterm.mobatek.net/download-home-edition.html)
+
+请按下图所示步骤操作，在第④步时请导入邮件中收到的密钥，然后点击 OK 即可登录。
+
+![mobaxterm-step1](../images/mobaxterm/login.png)
+![mobaxterm-step2](../images/mobaxterm/logged-in.png)
+
+#### 通过 XShell(version 7) 工具登录
+
+![useone](../images/useone.png)
+![usetwo](../images/usetwo.png)
+![usethree](../images/usethree.png)
+![usefour](../images/usefour.png)
+![usefive](../images/usefive.png)
+![usesix](../images/usesix.png)
+![useseven](../images/useseven.png)
 
 #### 通过CMD(命令提示符)直接登录
 
@@ -26,7 +49,7 @@
 
 将获取到的密钥文件（id_rsa）拷贝到C:\\Users\\user1\\.ssh目录下
 
-![useeight](../_images/useeight.png)
+![useeight](../images/useeight.png)
 
 !!! info
     说明：
@@ -35,19 +58,19 @@
 
 通过CMD(命令提示符)登录到登录节点，命令为： `ssh account@10.26.14.64`，此处account请替换为实际申请的用户账号。如下：
 
-![usenine](../_images/usenine.png)
+![usenine](../images/usenine.png)
 
 #### 通过SecureCRT工具登录
 
 以secureCRT version 9.2.3为例：
 
-![use10](../_images/use10.png)
-![use11](../_images/use11.png)
-![use12](../_images/use12.png)
-![use13](../_images/use13.png)
-![use14](../_images/use14.png)
-![use15](../_images/use15.png)
-![use16](../_images/use16.png)
+![use10](../images/use10.png)
+![use11](../images/use11.png)
+![use12](../images/use12.png)
+![use13](../images/use13.png)
+![use14](../images/use14.png)
+![use15](../images/use15.png)
+![use16](../images/use16.png)
 
 ### MAC电脑用户
 
@@ -85,7 +108,7 @@ Windows/Linux/Unix/Mac 用户均可通过在命令行终端中使用 `scp` 命�
 scp -r D:\\data\\ user01@10.26.14.64:/public/home/user01/
 ```
 
-![use16](../_images/use16.png)
+![use16](../images/use16.png)
 
 示例2：将集群中用户user01家目录中的~/math.dat文件下载到本地电脑的D:\\data目录下（以下命令在用户本地电脑运行）
 
@@ -93,19 +116,25 @@ scp -r D:\\data\\ user01@10.26.14.64:/public/home/user01/
 scp user01@10.26.14.64:/public/home/user01/math.dat D:\\data\\
 ```
 
-![use17](../_images/use17.png)
+![use17](../images/use17.png)
+
+### MobaXterm 传输文件
+
+MobaXterm 自身即支持传输文件。登录后在左侧的 Quick connect栏即可右键选择上传文件。
+
+![MobaXterm Upload](../images/mobaxterm/upload.png)
 
 ### XFTP 传输文件
 
 如果已经装了xftp软件，也可以使用xftp软件进行文件传输：
 
-![use18](../_images/use18.png)
-![use19](../_images/use19.png)
-![use20](../_images/use20.png)
-![use21](../_images/use21.png)
-![use22](../_images/use22.png)
-![use23](../_images/use23.png)
-![use24](../_images/use24.png)
+![use18](../images/use18.png)
+![use19](../images/use19.png)
+![use20](../images/use20.png)
+![use21](../images/use21.png)
+![use22](../images/use22.png)
+![use23](../images/use23.png)
+![use24](../images/use24.png)
 
 ### SCOW 平台传输文件
 

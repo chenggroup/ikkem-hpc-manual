@@ -30,7 +30,7 @@ sbatch: error: Job submit/allocate failed: Invalid account or account/partition 
 
 用户可在 SCOW 管理平台主页账户信息的仪表盘中查看当前用户可使用账户的余额情况。
 
-![余额情况](../_images/scow/image17.png)
+![余额情况](../images/scow/image17.png)
 
 ### 续费
 
