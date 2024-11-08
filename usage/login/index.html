@@ -483,9 +483,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#mobaxterm" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过 MobaXterm 登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#xshellversion-7" class="md-nav__link">
     <span class="md-ellipsis">
-      通过xshell(version 7)工具登录
+      通过 XShell(version 7) 工具登录
     </span>
   </a>
   
@@ -542,6 +551,15 @@
   <a href="#scp" class="md-nav__link">
     <span class="md-ellipsis">
       SCP 命令行传输文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobaxterm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MobaXterm 传输文件
     </span>
   </a>
   
@@ -649,7 +667,7 @@
         
   
   <span class="md-ellipsis">
-    应用软件
+    软件使用说明
   </span>
   
 
@@ -1502,9 +1520,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#mobaxterm" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过 MobaXterm 登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#xshellversion-7" class="md-nav__link">
     <span class="md-ellipsis">
-      通过xshell(version 7)工具登录
+      通过 XShell(version 7) 工具登录
     </span>
   </a>
   
@@ -1561,6 +1588,15 @@
   <a href="#scp" class="md-nav__link">
     <span class="md-ellipsis">
       SCP 命令行传输文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobaxterm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MobaXterm 传输文件
     </span>
   </a>
   
@@ -1634,23 +1670,40 @@
 <h1 id="_1">用户登录与文件传输<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>嘉庚智算中心目前仅支持通过密钥方式登录，不支持通过密码方式登录。</p>
 <h2 id="_2">密钥分发<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>用户申请完账号后，管理员会将用户的密钥发送到申请账号时预留的厦大邮箱，按照邮箱指引解压缩附件即可获取到密钥。用户务必妥善保管好该密钥，不得将密钥给与他人使用。</p>
+<p>用户申请账号后，管理员会将用户的密钥发送到申请账号时预留的邮箱中，按照邮箱指引解压缩附件即可获取密钥。</p>
+<p><strong>用户务必妥善保管好该密钥，请勿泄露。</strong></p>
 <h2 id="_3">登陆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>当前集群登录节点 IP 为 10.26.14.64。</p>
+<p>仅厦大校内网可以访问，校外用户请通过 SSLVPN 或零信任终端访问。</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Failure</p>
+<p>旧登录节点IP 10.26.14.56 <strong>已停止任务提交</strong>，如遇到作业长久排队且计算节点均显示为 Drain 状态请检查登录节点是否正确。</p>
+</div>
 <h3 id="windows">Windows用户<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
-<h4 id="xshellversion-7">通过xshell(version 7)工具登录<a class="headerlink" href="#xshellversion-7" title="Permanent link">&para;</a></h4>
-<p><img alt="useone" src="../../_images/useone.png" />
-<img alt="usetwo" src="../../_images/usetwo.png" />
-<img alt="usethree" src="../../_images/usethree.png" />
-<img alt="usefour" src="../../_images/usefour.png" />
-<img alt="usefive" src="../../_images/usefive.png" />
-<img alt="usesix" src="../../_images/usesix.png" />
-<img alt="useseven" src="../../_images/useseven.png" /></p>
+<h4 id="mobaxterm">通过 MobaXterm 登录<a class="headerlink" href="#mobaxterm" title="Permanent link">&para;</a></h4>
+<p>MobaXterm 是 Windows 下一款终端软件，支持SSH、WSL等，并且包含一个集成的 X 桌面服务，允许您远程运行图形应用程序（如 gnuplot、VMD 等）。</p>
+<p>您可以从以下链接下载 MobaXterm 家庭版（安装版）：</p>
+<p><a href="http://mobaxterm.mobatek.net/download-home-edition.html">安装 MobaXterm</a></p>
+<p>请按下图所示步骤操作，在第④步时请导入邮件中收到的密钥，然后点击 OK 即可登录。</p>
+<p><img alt="mobaxterm-step1" src="../../images/mobaxterm/login.png" />
+<img alt="mobaxterm-step2" src="../../images/mobaxterm/logged-in.png" /></p>
+<h4 id="xshellversion-7">通过 XShell(version 7) 工具登录<a class="headerlink" href="#xshellversion-7" title="Permanent link">&para;</a></h4>
+<p><img alt="useone" src="../../images/useone.png" />
+<img alt="usetwo" src="../../images/usetwo.png" />
+<img alt="usethree" src="../../images/usethree.png" />
+<img alt="usefour" src="../../images/usefour.png" />
+<img alt="usefive" src="../../images/usefive.png" />
+<img alt="usesix" src="../../images/usesix.png" />
+<img alt="useseven" src="../../images/useseven.png" /></p>
 <h4 id="cmd">通过CMD(命令提示符)直接登录<a class="headerlink" href="#cmd" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>本方法也适用于使用 Powershell 的情况。我们推荐使用 Windows Terminal 作为终端，Windows 11 用户无须额外下载，Windows 10 用户可以在 Microsoft Store 中下载。</p>
 </blockquote>
 <p>将获取到的密钥文件（id_rsa）拷贝到C:\Users\user1\.ssh目录下</p>
-<p><img alt="useeight" src="../../_images/useeight.png" /></p>
+<p><img alt="useeight" src="../../images/useeight.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>说明：
@@ -1658,16 +1711,16 @@
 2. 此处假设用户 <code>.ssh</code> 目录下没有 <code>id_rsa</code> 同名密钥文件，如有冲突可以联系管理员协助处理。</p>
 </div>
 <p>通过CMD(命令提示符)登录到登录节点，命令为： <code>ssh account@10.26.14.64</code>，此处account请替换为实际申请的用户账号。如下：</p>
-<p><img alt="usenine" src="../../_images/usenine.png" /></p>
+<p><img alt="usenine" src="../../images/usenine.png" /></p>
 <h4 id="securecrt">通过SecureCRT工具登录<a class="headerlink" href="#securecrt" title="Permanent link">&para;</a></h4>
 <p>以secureCRT version 9.2.3为例：</p>
-<p><img alt="use10" src="../../_images/use10.png" />
-<img alt="use11" src="../../_images/use11.png" />
-<img alt="use12" src="../../_images/use12.png" />
-<img alt="use13" src="../../_images/use13.png" />
-<img alt="use14" src="../../_images/use14.png" />
-<img alt="use15" src="../../_images/use15.png" />
-<img alt="use16" src="../../_images/use16.png" /></p>
+<p><img alt="use10" src="../../images/use10.png" />
+<img alt="use11" src="../../images/use11.png" />
+<img alt="use12" src="../../images/use12.png" />
+<img alt="use13" src="../../images/use13.png" />
+<img alt="use14" src="../../images/use14.png" />
+<img alt="use15" src="../../images/use15.png" />
+<img alt="use16" src="../../images/use16.png" /></p>
 <h3 id="mac">MAC电脑用户<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h3>
 <ol>
 <li>将获取到的密钥文件（<code>id_rsa</code>）拷贝到 <code>~/.ssh</code> 目录下</li>
@@ -1697,20 +1750,23 @@ Host<span class="w"> </span>ikkemhpc
 <p>示例1：将本地目录 <code>D:\data</code> 的全部数据上传至智算中心集群用户 <code>user01</code> 的家目录下（以下命令在用户本地电脑运行）</p>
 <div class="highlight"><pre><span></span><code>scp<span class="w"> </span>-r<span class="w"> </span>D:<span class="se">\\</span>data<span class="se">\\</span><span class="w"> </span>user01@10.26.14.64:/public/home/user01/
 </code></pre></div>
-<p><img alt="use16" src="../../_images/use16.png" /></p>
+<p><img alt="use16" src="../../images/use16.png" /></p>
 <p>示例2：将集群中用户user01家目录中的~/math.dat文件下载到本地电脑的D:\data目录下（以下命令在用户本地电脑运行）</p>
 <div class="highlight"><pre><span></span><code>scp<span class="w"> </span>user01@10.26.14.64:/public/home/user01/math.dat<span class="w"> </span>D:<span class="se">\\</span>data<span class="se">\\</span>
 </code></pre></div>
-<p><img alt="use17" src="../../_images/use17.png" /></p>
+<p><img alt="use17" src="../../images/use17.png" /></p>
+<h3 id="mobaxterm_1">MobaXterm 传输文件<a class="headerlink" href="#mobaxterm_1" title="Permanent link">&para;</a></h3>
+<p>MobaXterm 自身即支持传输文件。登录后在左侧的 Quick connect栏即可右键选择上传文件。</p>
+<p><img alt="MobaXterm Upload" src="../../images/mobaxterm/upload.png" /></p>
 <h3 id="xftp">XFTP 传输文件<a class="headerlink" href="#xftp" title="Permanent link">&para;</a></h3>
 <p>如果已经装了xftp软件，也可以使用xftp软件进行文件传输：</p>
-<p><img alt="use18" src="../../_images/use18.png" />
-<img alt="use19" src="../../_images/use19.png" />
-<img alt="use20" src="../../_images/use20.png" />
-<img alt="use21" src="../../_images/use21.png" />
-<img alt="use22" src="../../_images/use22.png" />
-<img alt="use23" src="../../_images/use23.png" />
-<img alt="use24" src="../../_images/use24.png" /></p>
+<p><img alt="use18" src="../../images/use18.png" />
+<img alt="use19" src="../../images/use19.png" />
+<img alt="use20" src="../../images/use20.png" />
+<img alt="use21" src="../../images/use21.png" />
+<img alt="use22" src="../../images/use22.png" />
+<img alt="use23" src="../../images/use23.png" />
+<img alt="use24" src="../../images/use24.png" /></p>
 <h3 id="scow">SCOW 平台传输文件<a class="headerlink" href="#scow" title="Permanent link">&para;</a></h3>
 <p>SCOW 平台本身也支持向集群传输文件，有两种方式。</p>
 <h4 id="_5">通过文件管理模块<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>

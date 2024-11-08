@@ -470,7 +470,7 @@
         
   
   <span class="md-ellipsis">
-    应用软件
+    软件使用说明
   </span>
   
 
@@ -1374,9 +1374,9 @@
 <h2 id="cp2k_1">嘉庚智算上的CP2K<a class="headerlink" href="#cp2k_1" title="Permanent link">&para;</a></h2>
 <div class="admonition failure">
 <p class="admonition-title">Failure</p>
-<p>目前由于升级后 OpenMPI 的已知问题，目前集群上的 CP2K 仅 <code>cp2k/2024.3</code> 和 <code>cp2k/2024.3-generic</code> 版本可用。
-前者由于 Core Dump 等原因未能通过 Regtest（但无数值issue），后者由于17个测试任务的数值不匹配亦未能通过。</p>
-<p>因此请各位用户在使用时注意自己的结果，我们正在积极解决升级后的集群与 CP2K 的兼容性问题。
+<p>目前集群上的 CP2K 尚需要测试其可靠性和稳定性。
+<!--前者由于 Core Dump 等原因未能通过 Regtest（但无数值issue），后者由于17个测试任务的数值不匹配亦未能通过。--></p>
+<p>因此请各位用户在使用时注意自己得到的结果，我们正在积极解决升级后的集群与 CP2K 的兼容性问题。
 如对可靠性有较高要求，推荐使用 <a href="https://github.com/cp2k/cp2k-containers#apptainer-singularity">CP2K 官方 Singularity 容器镜像</a>。</p>
 </div>
 <div class="highlight"><span class="filename">/public/slurmscript_demo/cp2k-2024.3.slurm</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
