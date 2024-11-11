@@ -604,6 +604,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="已知问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存泄漏
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1351,6 +1375,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      已知问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="已知问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存泄漏
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1372,12 +1420,43 @@
 <h1 id="cp2k">CP2K<a class="headerlink" href="#cp2k" title="Permanent link">&para;</a></h1>
 <p>CP2K 是可用于DFT计算和分子动力学模拟的强大软件包。它支持多种计算方法，包括密度泛函理论（DFT）、半经验方法和经典力场。CP2K 以其高效的并行计算能力和灵活的输入文件格式而闻名，适用于从小分子到大规模材料系统的模拟。用户可以利用 CP2K 进行能量计算、几何优化、分子动力学模拟等多种任务。</p>
 <h2 id="cp2k_1">嘉庚智算上的CP2K<a class="headerlink" href="#cp2k_1" title="Permanent link">&para;</a></h2>
-<div class="admonition failure">
-<p class="admonition-title">Failure</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>目前集群上的 CP2K 尚需要测试其可靠性和稳定性。
 <!--前者由于 Core Dump 等原因未能通过 Regtest（但无数值issue），后者由于17个测试任务的数值不匹配亦未能通过。--></p>
 <p>因此请各位用户在使用时注意自己得到的结果，我们正在积极解决升级后的集群与 CP2K 的兼容性问题。
 如对可靠性有较高要求，推荐使用 <a href="https://github.com/cp2k/cp2k-containers#apptainer-singularity">CP2K 官方 Singularity 容器镜像</a>。</p>
+<p>注意 CP2K 常常需要超出默认值的内存设置，建议在作业提交脚本中加入 <code>--mem=251G</code> 来使用 CPU 计算节点的内存上限。</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">2022.1</label><label for="__tabbed_1_2">2024.3</label><label for="__tabbed_1_3">2023.2</label><label for="__tabbed_1_4">7.1</label><label for="__tabbed_1_5">2024.1</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/public/slurmscript_demo/cp2k-2022.1.slurm</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=2                   # 节点数量</span>
+<span class="c1">#SBATCH --ntasks-per-node=64        # 每个节点核心数量</span>
+<span class="c1">#SBATCH --account=[budget]          # Account name</span>
+<span class="c1">#SBATCH --partition=cpu             # Partition name</span>
+<span class="c1">#SBATCH --qos=[qos]                 # QOS name</span>
+<span class="c1">#SBATCH --job-name=hello            # 作业名称</span>
+<span class="c1">#SBATCH --output=%j.out             # 正常日志输出 (%j 参数值为 jobId)</span>
+<span class="c1">##SBATCH --error=%j.err             # 错误日志输出 (%j 参数值为 jobId)</span>
+
+<span class="c1">##############################################</span>
+<span class="c1">#          Software Envrironment             #</span>
+<span class="c1">##############################################</span>
+module<span class="w"> </span>load<span class="w"> </span>gcc/9.3<span class="w"> </span>intel/2020.2
+module<span class="w"> </span>load<span class="w"> </span>cp2k/2022.1-intel-2020
+<span class="c1">##############################################</span>
+<span class="c1">#               Run job                      #</span>
+<span class="c1">##############################################</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+mpirun<span class="w">  </span>cp2k.psmp<span class="w"> </span>-i<span class="w"> </span>input.inp<span class="w"> </span>&gt;&gt;<span class="w"> </span>output
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="admonition failure">
+<p class="admonition-title">Failure</p>
+<p>此版本未能通过官方提供的 Regtest，可能会在计算过程中意外退出，但无数值 Issue。</p>
 </div>
 <div class="highlight"><span class="filename">/public/slurmscript_demo/cp2k-2024.3.slurm</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --nodes=1                   # 节点数量</span>
@@ -1399,6 +1478,90 @@ module<span class="w"> </span>load<span class="w"> </span>cp2k/2024.3
 <span class="c1">##############################################</span>
 mpirun<span class="w"> </span>cp2k.psmp<span class="w"> </span>cp2k.inp<span class="w">  </span>&gt;&gt;<span class="w"> </span>output
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/public/slurmscript_demo/cp2k-2023.2.slurm</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=2                   # 节点数量</span>
+<span class="c1">#SBATCH --ntasks-per-node=64        # 每个节点核心数量</span>
+<span class="c1">#SBATCH --account=[budget]          # Account name</span>
+<span class="c1">#SBATCH --partition=cpu             # Partition name</span>
+<span class="c1">#SBATCH --qos=[qos]                 # QOS name</span>
+<span class="c1">#SBATCH --job-name=hello            # 作业名称</span>
+<span class="c1">#SBATCH --output=%j.out             # 正常日志输出 (%j 参数值为 jobId)</span>
+<span class="c1">##SBATCH --error=%j.err             # 错误日志输出 (%j 参数值为 jobId)</span>
+
+<span class="c1">##############################################</span>
+<span class="c1">#          Software Envrironment             #</span>
+<span class="c1">##############################################</span>
+module<span class="w"> </span>load<span class="w"> </span>gcc/12.1<span class="w"> </span>intel/2020.2
+module<span class="w"> </span>load<span class="w"> </span>app/cp2k/2023.2
+<span class="c1">##############################################</span>
+<span class="c1">#               Run job                      #</span>
+<span class="c1">##############################################</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+mpirun<span class="w">  </span>cp2k.psmp<span class="w"> </span>-i<span class="w">  </span><span class="nb">test</span><span class="w">    </span>&gt;&gt;<span class="w"> </span>output
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/public/slurmscript_demo/cp2k-7.1.slurm</span><pre><span></span><code><span class="c1">#/bin/bash</span>
+<span class="c1">#SBATCH -o lgps.out</span>
+<span class="c1">#SBATCH -J CP2K</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks-per-node=32</span>
+<span class="c1">#SBATCH --account=[budget]          # Account name</span>
+<span class="c1">#SBATCH --partition=cpu             # Partition name</span>
+<span class="c1">#SBATCH --qos=[qos]                 # QOS name</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_NTASKS</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Date              = </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hostname          = </span><span class="k">$(</span>hostname<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Working Directory = </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Number of Nodes Allocated      = </span><span class="nv">$SLURM_JOB_NUM_NODES</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Number of Tasks Allocated      = </span><span class="nv">$SLURM_NTASKS</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Number of Cores/Task Allocated = </span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_NPROCS</span>
+
+module<span class="w"> </span>load<span class="w"> </span>intel/oneapi2021.1
+module<span class="w"> </span>load<span class="w">  </span>cp2k/7.1
+srun<span class="w"> </span>hostname<span class="w"> </span>&gt;./hostfile
+
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_NTASKS</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>cp2k.psmp<span class="w"> </span>-i<span class="w"> </span>lgps.inp<span class="w"> </span>-o<span class="w"> </span>lgps.out
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/public/slurmscript_demo/cp2k-2024.1.slurm</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=2                   # 节点数量</span>
+<span class="c1">#SBATCH --ntasks-per-node=64        # 每个节点核心数量</span>
+<span class="c1">#SBATCH --account=[budget]          # Account name</span>
+<span class="c1">#SBATCH --partition=cpu             # Partition name</span>
+<span class="c1">#SBATCH --qos=[qos]                 # QOS name</span>
+<span class="c1">#SBATCH --job-name=hello            # 作业名称</span>
+<span class="c1">#SBATCH --output=%j.out             # 正常日志输出 (%j 参数值为 jobId)</span>
+<span class="c1">##SBATCH --error=%j.err             # 错误日志输出 (%j 参数值为 jobId)</span>
+
+<span class="c1">##############################################</span>
+<span class="c1">#          Software Envrironment             #</span>
+<span class="c1">##############################################</span>
+module<span class="w"> </span>load<span class="w"> </span>app/cp2k/2024.1
+<span class="c1">##############################################</span>
+<span class="c1">#               Run job                      #</span>
+<span class="c1">##############################################</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMPI_MCA_btl_openib_allow_ib</span><span class="o">=</span><span class="m">1</span>
+mpirun<span class="w">  </span>cp2k.popt<span class="w"> </span>cp2k.inp<span class="w">   </span>&gt;&gt;<span class="w"> </span>output
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_1">已知问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">内存泄漏<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>一些版本可能存在严重的内存泄漏 Issue，若遇到此问题，建议用户关闭 ELPA 功能，使用 Scalapack 进行对角化。</p>
+<div class="highlight"><pre><span></span><code>&amp;GLOBAL
+    PREFERRED_DIAG_LIBRARY SL
+&amp;END GLOBAL
+</code></pre></div>
+<p>若仍然存在问题，建议尝试降低每个节点上的核数，即调整 <code>--ntasks-per-node</code> 为更低的值。</p>
 
 
 
