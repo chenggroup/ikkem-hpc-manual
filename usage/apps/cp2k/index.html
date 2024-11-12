@@ -615,9 +615,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#oom" class="md-nav__link">
     <span class="md-ellipsis">
-      内存泄漏
+      内存 OOM 问题排查
     </span>
   </a>
   
@@ -1386,9 +1386,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#oom" class="md-nav__link">
     <span class="md-ellipsis">
-      内存泄漏
+      内存 OOM 问题排查
     </span>
   </a>
   
@@ -1555,13 +1555,49 @@ mpirun<span class="w">  </span>cp2k.popt<span class="w"> </span>cp2k.inp<span cl
 </div>
 </div>
 <h2 id="_1">已知问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="_2">内存泄漏<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>一些版本可能存在严重的内存泄漏 Issue，若遇到此问题，建议用户关闭 ELPA 功能，使用 Scalapack 进行对角化。</p>
+<h3 id="oom">内存 OOM 问题排查<a class="headerlink" href="#oom" title="Permanent link">&para;</a></h3>
+<p>请首先检查所申请内存是否足够，若所运行计算可以跑满整个节点，请设置 <code>#SBATCH --mem=251G</code>。</p>
+<p>一些版本可能存在严重的内存泄漏 Issue，若遇到内存 OOM 问题，建议用户关闭 ELPA 功能（特别是使用 DIIS 做对角化的情况），使用 Scalapack 进行对角化。</p>
 <div class="highlight"><pre><span></span><code>&amp;GLOBAL
     PREFERRED_DIAG_LIBRARY SL
 &amp;END GLOBAL
 </code></pre></div>
-<p>若仍然存在问题，建议尝试降低每个节点上的核数，即调整 <code>--ntasks-per-node</code> 为更低的值。</p>
+<p>若仍然存在问题，请进一步按照以下步骤进行测试：</p>
+<ol>
+<li>
+<p>若为多节点并行任务，请调查任务是否正确并行在每个节点上，当使用 <code>mpirun</code> 时，一般需要确保 <code>-np</code> 的值为所有节点的进程总数（通常使用 <code>popt</code> 或者 <code>OMP_NUM_THREADS=1</code> 时为核数）</p>
+</li>
+<li>
+<p>检查输入参数中交换关联泛函部分的 <code>MAX_MEMORY</code> 设置（单位为MB），若该值太大则需要根据节点总量适当缩减。
+   例如采用杂化泛函进行模拟时，</p>
+<div class="highlight"><pre><span></span><code>&amp;XC
+  &amp;HF
+    &amp;MEMORY
+      MAX_MEMORY 1500
+      EPS_STORAGE_SCALING 0.1
+    &amp;END
+  &amp;END
+&amp;END XC
+</code></pre></div>
+</li>
+</ol>
+<p>具体数值请根据体系情况进行测试，确保不会造成OOM</p>
+<ol>
+<li>
+<p>使用psmp版本并尝试提高OMP线程数，以减少总进程数，线程间可以共享内存</p>
+<p>例如总共申请64核，采用16个进程，每个进程4个线程:</p>
+<div class="highlight"><pre><span></span><code>...
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH --ntasks-per-node=64 </span>
+...
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">16</span><span class="w"> </span>cp2k.psmp<span class="w"> </span>-i<span class="w"> </span>input
+</code></pre></div>
+</li>
+<li>
+<p>若问题仍然存在或者出现了意料之外的报错（此时请恢复到 <code>popt</code> 版本），建议尝试降低每个节点上的核数，即调整 <code>#SBATCH --ntasks-per-node</code> 为更低的值。</p>
+</li>
+</ol>
 
 
 
