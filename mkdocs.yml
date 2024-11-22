@@ -1,9 +1,9 @@
 theme:
   name: material
-  favicon: favicon.ico
-  #logo: images/archer2_white_transparent.png
+  favicon: images/logo/favicon.ico
+  logo: images/logo/logo-white.svg
   palette:
-    primary: custom
+    scheme: ai4ec
   icon:
     repo: fontawesome/brands/github
 
@@ -16,6 +16,8 @@ extra:
   social:
     - icon: fontawesome/solid/globe
       link: http://ai4ec.ikkem.com
+extra_css:
+  - stylesheets/extra.css
 
 #plugins:
 #  - with-pdf
