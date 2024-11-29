@@ -64,7 +64,7 @@ nav:
   - 首页: index.md
   - 平台概况和介绍:
     - introduction/index.md
-    - 分区规则和收费标准: usage/partition.md
+    - 分区规则和收费标准: introduction/partition.md
     - 开户流程: introduction/register.md
     - 重大更新公告: introduction/updates.md
   - 使用指南:
