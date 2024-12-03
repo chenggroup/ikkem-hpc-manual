@@ -6,6 +6,8 @@ theme:
     scheme: ai4ec
   icon:
     repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
 
 site_name: 嘉庚智算用户手册
 site_url: https://ai4ec.ikkem.com/ikkem-hpc/doc
@@ -19,8 +21,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
-#plugins:
-#  - with-pdf
+plugins:
+  - search
+  - blog
 
 markdown_extensions:
   # Python Markdown
@@ -61,49 +64,52 @@ markdown_extensions:
   - pymdownx.tilde
 
 nav:
-  - 首页: index.md
-  - 平台概况和介绍:
-    - introduction/index.md
-    - 分区规则和收费标准: introduction/partition.md
-    - 开户流程: introduction/register.md
-    - 重大更新公告: introduction/updates.md
-  - 使用指南:
-    - 快速上手: usage/quick-start.md
-    - 用户登录与文件传输: usage/login.md
-    - 应用软件: 
-      - usage/apps/index.md
-      - usage/apps/abaqus.md
-      - usage/apps/amber.md
-      - usage/apps/comsol.md
-      - usage/apps/cp2k.md
-      - usage/apps/gromacs.md
-      - usage/apps/gaussian.md
-      - usage/apps/lammps.md
-      - usage/apps/matlab.md
-      - usage/apps/orca.md
-      - usage/apps/pytorch.md
-      - usage/apps/vasp.md
-    - SCOW 算力平台: usage/scow.md
-    - 应用程序的编译与安装: usage/compile-install.md
-  - Slurm作业调度系统:
-    - slurm/index.md
-    - slurm/basic.md
-    - slurm/sinfo.md
-    - slurm/squeue.md
-    - slurm/partition.md
-    - slurm/node.md
-    - slurm/job.md
-    - slurm/qos.md
-    - slurm/submission.md
-    - slurm/srun.md
-    - slurm/sbatch.md
-    - slurm/salloc.md
-    - slurm/sbcast.md
-    - slurm/sattach.md
-    - slurm/sacct.md
-    - slurm/others.md
-  - 注意事项: information/notes.md
-  - 故障排查: information/troubleshooting.md
-  - 常见问题: information/faq.md
-  - 资料下载: information/download.md
-  - 视频教程: information/tutorial.md
+  - 用户手册:
+    - 首页: index.md
+    - 平台概况和介绍:
+      - introduction/index.md
+      - 分区规则和收费标准: introduction/partition.md
+      - 开户流程: introduction/register.md
+      - 重大更新公告: introduction/updates.md
+    - 使用指南:
+      - 快速上手: usage/quick-start.md
+      - 用户登录与文件传输: usage/login.md
+      - 应用软件: 
+        - usage/apps/index.md
+        - usage/apps/abaqus.md
+        - usage/apps/amber.md
+        - usage/apps/comsol.md
+        - usage/apps/cp2k.md
+        - usage/apps/gromacs.md
+        - usage/apps/gaussian.md
+        - usage/apps/lammps.md
+        - usage/apps/matlab.md
+        - usage/apps/orca.md
+        - usage/apps/pytorch.md
+        - usage/apps/vasp.md
+      - 嘉庚智算中心服务门户: usage/scow.md
+      - 应用程序的编译与安装: usage/compile-install.md
+    - Slurm作业调度系统:
+      - slurm/index.md
+      - slurm/basic.md
+      - slurm/sinfo.md
+      - slurm/squeue.md
+      - slurm/partition.md
+      - slurm/node.md
+      - slurm/job.md
+      - slurm/qos.md
+      - slurm/submission.md
+      - slurm/srun.md
+      - slurm/sbatch.md
+      - slurm/salloc.md
+      - slurm/sbcast.md
+      - slurm/sattach.md
+      - slurm/sacct.md
+      - slurm/others.md
+    - 注意事项: information/notes.md
+    - 故障排查: information/troubleshooting.md
+    - 常见问题: information/faq.md
+    - 资料下载: information/download.md
+    - 视频教程: information/tutorial.md
+  - 新闻公告:
+    - blog/index.md
