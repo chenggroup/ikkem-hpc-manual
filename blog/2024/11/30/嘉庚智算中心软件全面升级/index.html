@@ -8,28 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/slurm/partition/">
+        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/blog/2024/11/30/%E5%98%89%E5%BA%9A%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E8%BD%AF%E4%BB%B6%E5%85%A8%E9%9D%A2%E5%8D%87%E7%BA%A7/">
       
       
-        <link rel="prev" href="../squeue/">
       
       
-        <link rel="next" href="../node/">
-      
-      
-      <link rel="icon" href="../../images/logo/favicon.ico">
+      <link rel="icon" href="../../../../../images/logo/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
-        <title>查看详细队列信息：scontrol show partition - 嘉庚智算用户手册</title>
+        <title>嘉庚智算中心软件全面升级 - 嘉庚智算用户手册</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scontrol-show-partition" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -88,9 +84,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="嘉庚智算用户手册" class="md-header__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
+    <a href="../../../../.." title="嘉庚智算用户手册" class="md-header__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
       
-  <img src="../../images/logo/logo-white.svg" alt="logo">
+  <img src="../../../../../images/logo/logo-white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -107,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              查看详细队列信息：scontrol show partition
+              嘉庚智算中心软件全面升级
             
           </span>
         </div>
@@ -186,13 +182,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../.." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
           
   
   用户手册
@@ -206,11 +200,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
           
   
   新闻公告
@@ -232,7 +228,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -243,9 +241,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="嘉庚智算用户手册" class="md-nav__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
+    <a href="../../../../.." title="嘉庚智算用户手册" class="md-nav__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
       
-  <img src="../../images/logo/logo-white.svg" alt="logo">
+  <img src="../../../../../images/logo/logo-white.svg" alt="logo">
 
     </a>
     嘉庚智算用户手册
@@ -269,28 +267,23 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -301,7 +294,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             用户手册
@@ -315,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/" class="md-nav__link">
+      <a href="../../../../../introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/partition/" class="md-nav__link">
+      <a href="../../../../../introduction/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/register/" class="md-nav__link">
+      <a href="../../../../../introduction/register/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -437,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/updates/" class="md-nav__link">
+      <a href="../../../../../introduction/updates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -504,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/quick-start/" class="md-nav__link">
+      <a href="../../../../../usage/quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -525,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/login/" class="md-nav__link">
+      <a href="../../../../../usage/login/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -584,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/" class="md-nav__link">
+      <a href="../../../../../usage/apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -605,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/abaqus/" class="md-nav__link">
+      <a href="../../../../../usage/apps/abaqus/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/amber/" class="md-nav__link">
+      <a href="../../../../../usage/apps/amber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/comsol/" class="md-nav__link">
+      <a href="../../../../../usage/apps/comsol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -668,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/cp2k/" class="md-nav__link">
+      <a href="../../../../../usage/apps/cp2k/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -689,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/gromacs/" class="md-nav__link">
+      <a href="../../../../../usage/apps/gromacs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -710,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/gaussian/" class="md-nav__link">
+      <a href="../../../../../usage/apps/gaussian/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -731,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/lammps/" class="md-nav__link">
+      <a href="../../../../../usage/apps/lammps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -752,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/matlab/" class="md-nav__link">
+      <a href="../../../../../usage/apps/matlab/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -773,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/orca/" class="md-nav__link">
+      <a href="../../../../../usage/apps/orca/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/pytorch/" class="md-nav__link">
+      <a href="../../../../../usage/apps/pytorch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -815,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/apps/vasp/" class="md-nav__link">
+      <a href="../../../../../usage/apps/vasp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/scow/" class="md-nav__link">
+      <a href="../../../../../usage/scow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/compile-install/" class="md-nav__link">
+      <a href="../../../../../usage/compile-install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -891,8 +884,6 @@
                 
   
   
-    
-  
   
   
     
@@ -902,11 +893,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
         
           
           <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
@@ -920,7 +911,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_4">
             <span class="md-nav__icon md-icon"></span>
             Slurm作业调度系统
@@ -934,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../../../slurm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -955,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic/" class="md-nav__link">
+      <a href="../../../../../slurm/basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -976,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sinfo/" class="md-nav__link">
+      <a href="../../../../../slurm/sinfo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../squeue/" class="md-nav__link">
+      <a href="../../../../../slurm/squeue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1015,30 +1006,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    查看详细队列信息：scontrol show partition
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,35 +1018,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#scontrol-show-partition_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      scontrol show partition主要输出项
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1088,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../node/" class="md-nav__link">
+      <a href="../../../../../slurm/node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1109,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../job/" class="md-nav__link">
+      <a href="../../../../../slurm/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1130,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qos/" class="md-nav__link">
+      <a href="../../../../../slurm/qos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1151,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../submission/" class="md-nav__link">
+      <a href="../../../../../slurm/submission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1172,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../srun/" class="md-nav__link">
+      <a href="../../../../../slurm/srun/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1193,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sbatch/" class="md-nav__link">
+      <a href="../../../../../slurm/sbatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1214,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../salloc/" class="md-nav__link">
+      <a href="../../../../../slurm/salloc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1235,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sbcast/" class="md-nav__link">
+      <a href="../../../../../slurm/sbcast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1256,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sattach/" class="md-nav__link">
+      <a href="../../../../../slurm/sattach/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1277,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sacct/" class="md-nav__link">
+      <a href="../../../../../slurm/sacct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1298,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../others/" class="md-nav__link">
+      <a href="../../../../../slurm/others/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1327,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/notes/" class="md-nav__link">
+      <a href="../../../../../information/notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1348,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/troubleshooting/" class="md-nav__link">
+      <a href="../../../../../information/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/faq/" class="md-nav__link">
+      <a href="../../../../../information/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/download/" class="md-nav__link">
+      <a href="../../../../../information/download/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1411,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../information/tutorial/" class="md-nav__link">
+      <a href="../../../../../information/tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,23 +1378,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1463,7 +1410,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             新闻公告
@@ -1474,12 +1421,14 @@
                 
   
   
+    
+  
   
     
   
   
-    <li class="md-nav__item">
-      <a href="../../blog/" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1540,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2024/" class="md-nav__link">
+      <a href="../../../../archive/2024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1577,6 +1526,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1596,11 +1547,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#scontrol-show-partition_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      scontrol show partition主要输出项
+      更安全、更高效的国产操作系统
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      更友好的交互式应用支持
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      更精细的预算管理功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      后记
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于我们
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关于我们">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于嘉庚智算中心
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai4ec-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI4EC Lab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系我们
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1613,171 +1642,151 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-  
-
-
-<h1 id="scontrol-show-partition">查看详细队列信息：scontrol show partition<a class="headerlink" href="#scontrol-show-partition" title="Permanent link">&para;</a></h1>
-<p><code>scontrol show partition</code>显示全部队列信息，<code>scontrol show partition PartitionName</code>或
-<code>scontrol show partition=PartitionName</code>显示队列名PartitionName的队列信息，输出类似：</p>
-<div class="highlight"><pre><span></span><code>PartitionName=CPU-Large AllowGroups=ALL AllowAccounts=ALL AllowQos=ALL
-AllocNodes=ALL Default=YES QoS=N/A DefaultTime=NONE DisableRootJobs=YES
-ExclusiveUser=NO GraceTime=0 Hidden=NO MaxNodes=UNLIMITED
-MaxTime=UNLIMITED MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED
-Nodes=cnode[001-720] PriorityJobFactor=1 PriorityTier=1 RootOnly=NO
-ReqResv=NO OverSubscribe=NO OverTimeLimit=NONE PreemptMode=OFF State=UP
-TotalCPUs=28800 TotalNodes=720 SelectTypeParameters=NONE
-JobDefaults=(null) DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
-
-PartitionName=GPU-V100 AllowGroups=ALL AllowAccounts=ALL AllowQos=ALL
-AllocNodes=ALL Default=NO QoS=N/A DefaultTime=NONE DisableRootJobs=YES
-ExclusiveUser=NO GraceTime=0 Hidden=NO MaxNodes=UNLIMITED
-MaxTime=UNLIMITED MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED
-Nodes=gnode[01-10] PriorityJobFactor=1 PriorityTier=1 RootOnly=NO
-ReqResv=NO OverSubscribe=NO OverTimeLimit=NONE PreemptMode=OFF State=UP
-TotalCPUs=400 TotalNodes=10 SelectTypeParameters=NONE JobDefaults=(null)
-DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
-
-PartitionName=2TB-AEP-Mem AllowGroups=ALL AllowAccounts=ALL AllowQos=ALL
-AllocNodes=ALL Default=NO QoS=N/A DefaultTime=NONE DisableRootJobs=YES
-ExclusiveUser=NO GraceTime=0 Hidden=NO MaxNodes=UNLIMITED
-MaxTime=UNLIMITED MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED
-Nodes=anode[01-08] PriorityJobFactor=1 PriorityTier=1 RootOnly=NO
-ReqResv=NO OverSubscribe=NO OverTimeLimit=NONE PreemptMode=OFF State=UP
-TotalCPUs=320 TotalNodes=8 SelectTypeParameters=NONE JobDefaults=(null)
-DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
-
-PartitionName=ARM-CPU AllowGroups=ALL AllowAccounts=ALL AllowQos=ALL
-AllocNodes=ALL Default=NO QoS=N/A DefaultTime=NONE DisableRootJobs=YES
-ExclusiveUser=NO GraceTime=0 Hidden=NO MaxNodes=UNLIMITED
-MaxTime=UNLIMITED MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED
-Nodes=rnode[01-09] PriorityJobFactor=1 PriorityTier=1 RootOnly=NO
-ReqResv=NO OverSubscribe=NO OverTimeLimit=NONE PreemptMode=OFF State=UP
-TotalCPUs=864 TotalNodes=9 SelectTypeParameters=NONE JobDefaults=(null)
-DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
-</code></pre></div>
-<h2 id="scontrol-show-partition_1">scontrol show partition主要输出项<a class="headerlink" href="#scontrol-show-partition_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><code>PartitionName</code>：队列名。</p>
-</li>
-<li>
-<p><code>AllowGroups</code>：允许的用户组。</p>
-</li>
-<li>
-<p><code>AllowAccounts</code>：允许的用户。</p>
-</li>
-<li>
-<p><code>AllowQos</code>：允许的QoS。</p>
-</li>
-<li>
-<p><code>AllocNodes</code>：允许的节点。</p>
-</li>
-<li>
-<p><code>Default</code>：是否为默认队列。</p>
-</li>
-<li>
-<p><code>QoS</code>：服务质量。</p>
-</li>
-<li>
-<p><code>DefaultTime</code>：默认时间。</p>
-</li>
-<li>
-<p><code>DisableRootJobs</code>：是否禁止root用户提交作业。</p>
-</li>
-<li>
-<p><code>ExclusiveUser</code>：排除的用户。</p>
-</li>
-<li>
-<p><code>GraceTime</code>：抢占的款显时间，单位秒。</p>
-</li>
-<li>
-<p><code>Hidden</code>：是否为隐藏队列。</p>
-</li>
-<li>
-<p><code>MaxNodes</code>：最大节点数。</p>
-</li>
-<li>
-<p><code>MaxTime</code>：最大运行时间。</p>
-</li>
-<li>
-<p><code>MinNodes</code>：最小节点数。</p>
-</li>
-<li>
-<p><code>LLN</code>：是否按照最小负载节点调度。</p>
-</li>
-<li>
-<p><code>MaxCPUsPerNode</code>：每个节点的最大CPU颗数。</p>
-</li>
-<li>
-<p><code>Nodes</code>：节点名。</p>
-</li>
-<li>
-<p><code>PriorityJobFactor</code>：作业因子优先级。</p>
-</li>
-<li>
-<p><code>PriorityTier</code>：调度优先级。</p>
-</li>
-<li>
-<p><code>RootOnly</code>：是否只允许Root。</p>
-</li>
-<li>
-<p><code>ReqResv</code>：要求预留的资源。</p>
-</li>
-<li>
-<p><code>OverSubscribe</code>：是否允许超用。</p>
-</li>
-<li>
-<p><code>PreemptMode</code>：是否为抢占模式。</p>
-</li>
-<li>
-<p><code>State</code>：状态：</p>
-</li>
-<li>
-<p><code>UP</code>：可用，作业可以提交到此队列，并将运行。</p>
-</li>
-<li><code>DOWN</code>：作业可以提交到此队列，但作业也许不会获得分配开始运行。已运行的作业还将继续运行。</li>
-<li><code>DRAIN</code>：不接受新作业，已接受的作业可以被运行。</li>
-<li>
-<p><code>INACTIVE</code>：不接受新作业，已接受的作业未开始运行的也不运行。</p>
-</li>
-<li>
-<p><code>TotalCPUs</code>：总CPU核数。</p>
-</li>
-<li>
-<p><code>TotalNodes</code>：总节点数。</p>
-</li>
-<li>
-<p><code>SelectTypeParameters</code>：资源选择类型参数。</p>
-</li>
-<li>
-<p><code>DefMemPerNode</code>：每个节点默认分配的内存大小，单位MB。</p>
-</li>
-<li>
-<p><code>MaxMemPerNode</code>：每个节点最大内存大小，单位MB。</p>
-</li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
             </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/3314130" alt="徐伟鸿">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://github.com/link89">徐伟鸿</a>
+                        
+                      </strong>
+                      <br>
+                      高级软件工程师
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2024-11-30 00:00:00+00:00" class="md-ellipsis">November 30, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              2 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
           
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="_1">嘉庚智算中心软件全面升级<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><img alt="图片" src="../../../../images/llama.png" /></p>
+<blockquote>
+<p>原文链接：https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/</p>
+</blockquote>
+<p><img alt="图片" src="../../../../images/alphafold3.png" /></p>
+<blockquote>
+<p>原文链接：https://www.nature.com/articles/d41586-024-03708-4</p>
+</blockquote>
+<p>当你看到上面的新闻，迫不及待地登录智算集群打算尝鲜时，一定不希望遇到因为系统过于老旧导致软件无法安装成功的问题。或者你已经习惯于在 Jupyter Notebook 上编写代码与绘制图表，但是面对漆黑的命令行终端时常常会感到不知所措。又或者，作为团队负责人的你正在为如何有效管理研究组成员的机时使用而烦恼时。别担心，嘉庚智算中心升级将为您提供全面的解决方案。</p>
+<p>嘉庚智算中心运营团队（AI4EC Lab）为了应对操作系统停止支持带来的潜在安全和功能性问题，也为了让用户在嘉庚智算集群有更好的使用体验，与浪潮信息团队合作，为嘉庚智算集群量身订制了一套软件升级计划。升级作业于10月国庆期间启动并在10月中旬顺利完成，如今已平稳运营一个多月。接下来本文将带大家一起回顾此次集群升级带来的一些新变化，帮助大家更好地了解和使用智算中心的算力资源。</p>
+<h2 id="_2">更安全、更高效的国产操作系统<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>CentOS 7 自2014年发布至今已有10年，2020年停止更新，并于今年彻底停止维护，这意味着今后CentOS 7系统将无法继续安装官方软件包。虽然 CentOS 以可靠性著称在高性能计算和云计算等领域被大量使用，但多年停止更新导致一些新发布的软件由于版本兼容性问题难以直接编译或安装。例如，由于glibc版本低导致新版本的PyTorch无法正常编译，虽然可以借助容器或者热补丁等更为复杂的解决方案进行规避，但这无疑增加了用户的使用成本。长期停止更新也导致一些能为系统带来性能提升的新特性无法使用，同时也留下大量安全隐患。</p>
+<p>为了一劳永逸地解决以上问题，嘉庚智算运营团队与浪潮信息团队在经过大量的方案评估和讨论后，最终选择使用由浪潮信息研发的国产化操作系统 KOS 5.8 作为集群的新系统。如今在嘉庚智算集群上用户可以用更简单便利的方式编译或安装大部分最新版本的计算软件，无需再应对各种恼人的版本过低问题。对于有兴趣追求性能或者探索新特性的用户，也有诸如XPMEM等新功能可供使用。</p>
+<p><img alt="图片" src="../../../../images/kos.png" /></p>
+<h2 id="_3">更友好的交互式应用支持<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>随着Colab等在线计算平台的流行，越来越多的人开始习惯于在Notebook上完成计算工作。相比与传统超算平台只能在终端界面运行命令或脚本，Notebook 的优势在于提供更丰富的交互功能，并能够忠实地记录完整计算过程，当你在Notebook上完成所有工作时，你同时也就得到一份图文并茂的报告，可以方便地用它向他人介绍或分享你的成果。</p>
+<p>为了让用户能在嘉庚智算集群上有同样便捷的体验，嘉庚智算运营团队推出了 <strong>嘉庚智算中心服务门户</strong>。该门户应用北京大学推出的开源算力管理方案（SCOW）进行集群管理工作，旨在解决当前算力中心面临的管理运营难、用户使用难、算力融合难等问题。</p>
+<p>现在您 <strong>可以直接通过服务门户使用Jupyter Notebook 完成计算工作</strong>。</p>
+<p><img alt="图片" src="../../../../images/scow-portal.png" /></p>
+<h2 id="_4">更精细的预算管理功能<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>智算集群的核心功能是让用户可以用简单的方式调度大量资源进行计算。然而，这样的易用性也意味着，课题组的新生可能会因为将一个尚未验证完毕的程序投入大规模计算，将课题组所属账户中的机时费用消耗殆尽，进而影响了整个课题组的科研进度。</p>
+<p>嘉庚智算中心服务门户 <strong>为每个账号管理员提供了限制每个用户可用经费额度的功能</strong>，方便您根据研究的进展为每一位共享经费的成员设置一个合理的预算。例如，在研究起步阶段，您可以为相应成员设定一个费用上限用于进行实验性的计算，在这笔费用用完后该用户将无法提交新作业，如该用户需要继续向集群提交作业，则必须向对应账号的管理员申请提升上限。如此一来，账号管理员即可以 <strong>通过预算管理对研究进度进行跟踪，避免在不知情的情况下浪费大量机时。</strong></p>
+<p><img alt="图片" src="../../../../images/scow-limitation.png" /></p>
+<h2 id="_5">后记<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>此次智算集群的升级工作除了上述几个比较重大的更新外，还包括全新的在线文档：<a href="https://ai4ec.ikkem.com/ikkem-hpc/doc/">https://ai4ec.ikkem.com/ikkem-hpc/doc/</a>，以及登录节点资源自动管理等功能。后续嘉庚智算运营团队还将陆续发布一系列文章，向大家更详细地介绍如何使用智算中心提供的各种能力，尽请期待。</p>
+<h2 id="_6">关于我们<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">关于作者<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>徐伟鸿</strong> 嘉庚创新实验室高级软件工程师，多年互联网从业经验，先后于美团、铃盛等企业担任系统工程师、技术团队经理等职务。目前负责嘉庚创新实验室、嘉庚智算中心和AI4EC实验室的软件开发和信息化建设工作。</p>
+<h3 id="_8">关于嘉庚智算中心<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>嘉庚创新实验室智能计算中心（简称“嘉庚智算中心”）于 2022 年建成投用，通过先进液冷技术实现绿色节能，并配备了先进的计算硬件。集群包含390 个 CPU 计算节点、<strong>6 个 GPU 计算节点（共计48张A100 80G NVLink 全连接计算卡）</strong> 和 2 个胖节点，能支持模型训练、模拟仿真、大规模科学计算。</p>
+<h3 id="ai4ec-lab">AI4EC Lab<a class="headerlink" href="#ai4ec-lab" title="Permanent link">&para;</a></h3>
+<p>人工智能应用电化学联合实验室（AI4EC Lab）由嘉庚创新实验室与北京科学智能研究院于2022年合作创立。围绕“科学智能加速电化学科学和工程创新”的使命，联合实验室将致力于将人工智能与电化学理论相结合发展智能算法和机器学习模型，加速电化学基础创新，并驱动电化学应用的拓展。</p>
+<p><strong>AI4EC Lab正着力寻求三大方面的突破</strong>  </p>
+<ul>
+<li>机器学习算法加速从头算分子动力学，发展电化学体系中复杂材料结构模拟和物化性质计算的解决方案，助力材料筛选设计；</li>
+<li>针对复杂电化学体系开发智能谱学计算和分析平台，建立“谱构”关系模型，助力电化学器件原位、工况表征检测；</li>
+<li>发展电化学器件跨尺度仿真策略结合微观材料计算和表征实验数据以及人工智能算法，推动器件智能优化。</li>
+</ul>
+<h3 id="_9">联系我们<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>官方网站: <a href="https://ai4ec.ikkem.com">https://ai4ec.ikkem.com</a></p>
+<p>电子邮箱: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#105;&#52;&#101;&#99;&#64;&#120;&#109;&#117;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#97;&#105;&#52;&#101;&#99;&#64;&#120;&#109;&#117;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
@@ -1823,10 +1832,10 @@ DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
