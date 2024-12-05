@@ -1,7 +1,7 @@
 # 常见问题
 
 1. 收费标准
-   平台集群总费用为CPU，GPU和存储三者的费用之和。CPU 资源按核时收费，GPU 资源按卡时收费。具体费率标准请参考[分区规则和收费标准](../usage/partition.md)，或请发送邮件至[ikkemhpc@xmu.edu.cn](mailto:ikkemhpc@xmu.edu.cn)咨询。
+   平台集群总费用为CPU，GPU和存储三者的费用之和。CPU 资源按核时收费，GPU 资源按卡时收费。具体费率标准请参考[分区规则和收费标准](../introduction/partition.md)，或请发送邮件至[ikkemhpc@xmu.edu.cn](mailto:ikkemhpc@xmu.edu.cn)咨询。
 2. 单个作业最长运行时间是多长
     具体时间限制可以通过 `sacctmgr show qos format=Name,MaxWall,Priority` 命令查看 `MaxWall` 参量
 3. 为什么我的作业运行结果是作业运行结果是`node_fail`，该怎么处理？

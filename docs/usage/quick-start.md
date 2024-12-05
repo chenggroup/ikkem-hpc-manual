@@ -172,7 +172,7 @@ module switch vasp/5.4.4-intel
 将以下文本粘贴到您的作业提交脚本中，并将 `[budget]` 替换为您的账户，例如 `ai4ecccg`，将 `[partition]` 替换为您希望运行的分区（例如 `cpu`），将 `[qos]` 替换为您想要的QOS（例如 `normal`）。
 
 !!! tip
-    - 关于分区、QOS和对应的收费标准，请参考[说明文档](partition.md)
+    - 关于分区、QOS和对应的收费标准，请参考[说明文档](../introduction/partition.md)
     - 关于不同应用对应的提交脚本示例，请参考[应用使用说明](apps/index.md)
 
 === "VASP 5.4.4 提交脚本示例"

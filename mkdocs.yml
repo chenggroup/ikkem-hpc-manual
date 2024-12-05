@@ -8,6 +8,7 @@ theme:
     repo: fontawesome/brands/github
   features:
     - navigation.tabs
+  language: zh
 
 site_name: 嘉庚智算用户手册
 site_url: https://ai4ec.ikkem.com/ikkem-hpc/doc
