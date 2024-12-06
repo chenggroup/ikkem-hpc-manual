@@ -43,28 +43,28 @@
 
 ## scontrol show node主要输出项
 
-- NodeName：节点名。
-- Arch：系统架构。
-- CoresPerSocket：12。
-- CPUAlloc：分配给的CPU核数。
-- CPUErr：出错的CPU核数。
-- CPUTot：总CPU核数。
-- CPULoad：CPU负载。
-- AvailableFeatures：可用特性。
-- ActiveFeatures：激活的特性。
-- Gres：通用资源。如上面 `Gres=gpu:v100:2` 指明了有两块V100 GPU。
-- NodeAddr：节点IP地址。
-- NodeHostName：节点名。
-- Version：Slurm版本。
-- OS：操作系统 。
-- RealMemory：实际物理内存，单位GB。
-- AllocMem：已分配内存，单位GB。
-- FreeMem：可用内存，单位GB。
-- Sockets：CPU颗数。
-- Boards：主板数。
-- State：状态。
-- ThreadsPerCore：每颗CPU核线程数。
-- TmpDisk：临时存盘硬盘大小。
-- Weight：权重。
-- BootTime：开机时间。
-- SlurmdStartTime：Slurmd守护进程启动时间。
+- `NodeName`：节点名。
+- `Arch`：系统架构，如 `x86_64`。
+- `CoresPerSocket`：每颗 CPU 处理器的核数。
+- `CPUAlloc`：已分配的 CPU 核数。
+- `CPUErr`：出错的 CPU 核数。
+- `CPUTot`：总 CPU 核数。
+- `CPULoad`：CPU 当前负载。
+- `AvailableFeatures`：可用特性。
+- `ActiveFeatures`：激活的特性。
+- `Gres`：通用资源，包括 GPU 等。例如上面 `Gres=gpu:v100:2` 指明了该节点上安装有两块V100 GPU。
+- `NodeAddr`：节点 IP 地址或当前主机可以访问的主机名。
+- `NodeHostName`：节点名。
+- `Version`：Slurm版本。
+- `OS`：操作系统及版本信息 。
+- `RealMemory`：实际物理内存，单位 MB。
+- `AllocMem`：已分配内存，单位 MB。
+- `FreeMem`：可用内存，单位 MB。
+- `Sockets`：CPU 颗数。
+- `Boards`：主板数。
+- `State`：状态。
+- `ThreadsPerCore`：每颗CPU核线程数。
+- `TmpDisk`：设定的临时存储空间大小。
+- `Weight`：权重。
+- `BootTime`：开机时间。
+- `SlurmdStartTime`：Slurmd守护进程启动时间。

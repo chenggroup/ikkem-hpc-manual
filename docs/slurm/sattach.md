@@ -2,7 +2,11 @@
 
 `sattach`可以吸附到一个运行中的Slurm作业步，通过吸附，可以获取所有任务的IO流等，有时也可用于并行调试器。
 
-基本语法：`sattach [options] <jobid.stepid>`
+基本语法：
+
+```bash
+sattach [options] <jobid.stepid>
+```
 
 ## sattach主要参数
 

@@ -4,7 +4,11 @@
 
 当前，用户主目录是共享的，一般不需要此命令，如果用户需要将某些文件传递到分配给作业的各节点`/tmp`等非共享目录，那么可以考虑此命令。
 
-`sbcast`命令的基本语法为：`sbcast [-CfFjpstvV] SOURCE DEST`。
+`sbcast` 命令的基本语法为：
+
+```bash
+sbcast [-CfFjpstvV] SOURCE DEST
+```
 
 此命令仅对批处理作业或在Slurm资源分配后生成的shell中起作用。SOURCE是当前节点上文件名，DEST为分配给此作业的对应节点将要复制到文件全路径。
 

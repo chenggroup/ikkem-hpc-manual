@@ -2,7 +2,9 @@
 
 `salloc`将获取作业的分配后执行命令，当命令结束后释放分配的资源。其基本语法为：
 
-`salloc [options] [<command> [command args]]`
+```bash
+salloc [options] [<command> [command args]]
+```
 
 command可以是任何是用户想要用的程序，典型的为xterm或包含`srun`命令的shell。如果后面没有跟命令，那么将执行Slurm系统slurm.conf配置文件中通过SallocDefaultCommand设定的命令。如果SallocDefaultCommand没有设定，那么将执行用户的默认shell。
 

@@ -1,62 +1,93 @@
-# 提交作业命令共同说明
+# 作业提交命令共同说明
 
-提交作业的命令主要有`salloc`、`sbatch`与`srun`，其多数参数、输入输出变量等都是一样的。
+提交作业的命令主要有 `salloc`、`sbatch` 与 `srun`，其多数参数、输入输出变量等都是一样的。
 
+对于上述三个命令各自的说明，请参阅：
+- [交互式提交并行作业：srun](./srun.md)
+- [批处理方式提交作业：sbatch](./sbatch.md)
+- [分配式提交作业：salloc](./salloc.md)
+
+!!! info "说明"
+	关于如何在嘉庚智算上提交作业，请参阅[快速上手](../usage/quick-start.md)部分的说明。
+	
+	关于队列的相关设置和说明，请参阅 [分区规则和收费标准](../introduction/partition.md)。
+
+## TLDR : 作业提交常用参数
+
+| 参数选项                             | 含义                                                                |
+| -------------------------------- | ----------------------------------------------------------------- |
+| `-A` 或 `--account`               | 指定该作业使用 `<account>` 账户下的经费。                                       |
+| `-N` 或 `--nodes`                 | 作业的节点数。                                                           |
+| `-c` 或 `--cpus-per-task=<ncpus>` | 每个进程使用的 CPU 核数。通常设置与 `OMP_NUM_THREADS` 相同的数值。                     |
+| `-n` 或 `--ntasks`                | 设定所需要的进程总数。通常设置与 `mpirun -np <nprocs>` 中的 `<nprocs>` 相同的数值。       |
+| `--ntasks-per-node`              | 设定每个节点产生的进程总数。                                                    |
+| `-t` 或 `--time`                  | 作业的最长运行时间，格式为 `HH:MM:SS`。                                         |
+| `--mem`                          | 每个节点分配的内存量，例如 `--mem=4G` 表示 4GB 内存。                               |
+| `--gres`                         | 指定通用资源（如 GPU）的数量，例如 `--gres=gpu:2` 表示使用 2 张 GPU。                  |
+| `-p` 或 `--partition`             | 指定作业提交的分区（队列）。                                                    |
+| `-J` 或 `--job-name`              | 指定作业的名称。                                                          |
+| `-o` 或 ` --output `              | 指定标准输出文件的路径和名称。                                                   |
+| `-e` 或 `--error`                 | 指定标准错误文件的路径和名称。                                                   |
+| `-x` 或 ` --exclusive `           | 独占节点，不允许其他作业共享该节点。<br>**注意：此时计费按照整个节点全部资源而非所申请的资源。**              |
+| `-d` 或 ` --dependency`           | 指定作业依赖关系，例如 `--dependency=afterok:<jobid>` 表示作业在 `<jobid>` 完成后开始。 |
+| `-q` 或 `--qos`                   | 指定作业的服务质量（QOS, Quality of Service）。                               |
+| `-D` 或 `--chdir`                 | 指定作业的工作目录，即命令执行的路径。默认为当前目录。                                       |
+<!-- 需要测试可用性，暂不显示
+| `--cpus-per-gpu`                  | 每张 GPU 卡使用的 CPU 核数。<br>**注意：与 `-c` 或 `--cpus-per-task` 不兼容。** |
+| `--array`                          | 提交作业数组，例如 `--array=1-10` 表示提交 10 个作业。                      |
+| `--export`                         | 指定环境变量，例如 `--export=ALL, VAR 1=value 1, VAR 2=value 2`。   |
+| `--reservation`                    | 指定作业使用的预留资源。                                                  |
+| `--mail-type`                      | 指定邮件通知的类型（如 `BEGIN`, `END`, `FAIL`）。                          |
+| `--mail-user`                      | 指定接收邮件通知的用户邮箱地址。                                            |
+| `--no-requeue`                     | 防止作业在系统重启后重新排队。                                              |
+| `--signal`                         | 指定在作业结束前发送的信号，例如 `--signal=B: USR1@60 ` 表示在作业结束前 60 秒发送 USR 1 信号。 |
+| `--open-mode`                      | 指定输出文件的打开模式（如 `append` 或 `truncate`）。                  |
+| `--wrap`                           | 使用 `sbatch` 时，直接在命令行中指定作业脚本内容。                           |
+-->
+
+!!! tips "提示"
+	- 每节点申请的 CPU 核数=每节点进程数 (`--ntasks-per-node`) ×每进程核数 (`--cpus-per-task`) 
+	- 实际分配的 CPU 核数=节点数(`-N`)×每节点 CPU 核数=总进程数 (`--ntasks`) ×每进程核数 (`--cpus-per-task`) 
+	- `sbatch` 仅根据上述资源绑定关系申请对应的资源，实际 MPI 进程数和 OpenMP 线程数须由用户在作业批处理脚本中自行指定。
+	- `srun` 会根据所申请的进程数和每个进程所需的核数创建对应的 MPI 进程，此时若命令未正确设置可能导致同个程序被重复运行多次。对于 MPI 任务，在使用 `srun` 的情况下，请勿重复执行 `mpirun`。
 ## 主要参数
 
-- `-A`, `--account=<account>`：指定此作业的责任资源为账户 `<account>`，即账单（与计算费对应）记哪个名下，只有账户属于多个账单组才有权指定。
+以下列出  `salloc`、`sbatch` 与 `srun`  三个命令共通的主要参数。对于各命令分别对应的详细说明，请分别参见各自的文档。
 
+- `-A`, `--account=<account>`：指定此作业的责任资源为账户 `<account>`，即账单（与计算费对应）记哪个名下，只有账户属于多个账单组才有权指定。
 - `--accel-bind=<options>`：`srun` 特有，控制如何绑定作业到GPU、网络等特定资源，支持同时多个选项，支持的选项如下：
     - `g`：绑定到离分配的CPU最近的GPU
     - `m`：绑定到离分配的CPU最近的MIC
     - `n`：绑定到离分配的CPU最近的网卡
     - `v`：详细模式，显示如何绑定GPU和网卡等等信息
-
 - `--acctg-freq`：指定作业记账和剖面信息采样间隔。支持的格式为 `--acctg-freq=<datatype>=<interval>`，其中 `<datatype>=<interval>` 指定了任务抽样间隔或剖面抽样间隔。多个 `<datatype>=<interval>` 可以采用,分隔（默认为30秒）：
-
     - `task=<interval>`：以秒为单位的任务抽样（需要 `jobacct_gather` 插件启用）和任务剖面（需要 `acct_gather_profile` 插件启用）间隔。
     - `energy=<interval>`：以秒为单位的能源剖面抽样间隔，需要 `acct_gather_energy` 插件启用。
     - `network=<interval>`：以秒为单位的InfiniBand网络剖面抽样间隔，需要 `acct_gather_infiniband` 插件启用。
     - `filesystem=<interval>`：以秒为单位的文件系统剖面抽样间隔，需要 `acct_gather_filesystem` 插件启用。
-
 - `-B --extra-node-info=<sockets[:cores[:threads]]>`：选择满足 `<sockets[:cores[:threads]]>` 的节点，\*表示对应选项不做限制。对应限制可以采用下面对应选项：
-
     - `--sockets-per-node=<sockets>`
     - `--cores-per-socket=<cores>`
     - `--threads-per-core=<threads>`
-
 - `--bcast[=<dest_path>]`：`srun` 特有，复制可执行程序到分配的计算节点的 `<dest_path>` 目录。如指定了 `<dest_path>`，则复制可执行程序到此；如没指定则复制到当前工作目录下的 `slurm_bcast_<job_id>.<step_id>`。如 `srun --bcast=/tmp/mine -N3 a.out` 将从当前目录复制 `a.out` 到每个分配的节点的 `/tmp/min` 并执行。
-
 - `--begin=<time>`：设定开始分配资源运行的时间。时间格式可为HH:MM:SS，或添加AM、PM等，也可采用MMDDYY、MM/DD/YY或YYYY-MM-DD格式指定日期，含有日期及时间的格式为：`YYYY-MM-DD[THH:MM[:SS]]`，也可以采用类似now+时间单位的方式，时间单位可以为seconds（默认）、minutes、hours、days和weeks、today、tomorrow等，例如：
-
     - `--begin=16:00`：16:00开始。
     - `--begin=now+1hour`：1小时后开始。
     - `--begin=now+60`：60秒后开始（默认单位为秒）。
     - `--begin=2017-02-20T12:34:00`：2017-02-20T12:34:00开始。
-
 - `--bell`：分配资源时终端响铃，参见 `--no-bell`。
-
 - `--cpu-bind=[quiet,verbose,]type`：`srun` 特有，设定CPU绑定模式。
-
 - `--comment=<string>`：作业说明。
-
 - `--contiguous`：需分配到连续节点，一般来说连续节点之间网络会快一点，如在同一个IB交换机内，但有可能导致开始运行时间推迟（需等待足够多的连续节点）。
-
 - `--cores-per-socket=<cores>`：分配的节点需要每颗CPU至少 `<cores>` CPU核。
-
 - `--cpus-per-gpu=<ncpus>`：每颗GPU需 `<ncpus>` 个CPU核，与 `--cpus-per-task` 不兼容。
-
 - `-c`, `--cpus-per-task=<ncpus>`：每个进程需 `<ncpus>` 颗CPU核，一般运行OpenMP等多线程程序时需，普通MPI程序不需。
-
 - `--deadline=<OPT>`：如果在此 deadline（start > (deadline - time\[-min\]）之前没有结束，那么移除此作业。默认没有 deadline，有效的时间格式为：
-
     - `HH:MM[:SS] [AM|PM]`
     - `MMDD[YY]`或 `MM/DD[/YY]` 或 `MM.DD[.YY]`
     - `MM/DD[/YY]-HH:MM[:SS]`
     - `YYYY-MM-DD[THH:MM[:SS]]]`
-
 - `-d`, `--dependency=<dependency_list>`：满足依赖条件 `<dependency_list>` 后开始分配。`<dependency_list>` 可以为 `<type:job_id[:job_id][,type:job_id[:job_id]]>` 或\<type:job_id\[:job_id\]\[?type:job_id\[:job_id\]\]>。依赖条件如果用,分隔，则各依赖条件都需要满足；如果采用?分隔，那么只要任意条件满足即可。可以为：
-
   - after:job_id\[:jobid...\]：当指定作业号的作业结束后开始运行。
   - afterany:job_id\[:jobid...\]：当指定作业号的任意作业结束后开始运行。
   - aftercorr:job_id\[:jobid...\]：当相应任务号任务结束后，此作业组中的开始运行。
@@ -64,25 +95,16 @@
   - afterok:job_id\[:jobid...\]：当指定的作业正常结束（退出码为0）时开始运行。
   - expand:job_id：分配给此作业的资源将扩展给指定作业。
   - singleton：等任意通账户的相同作业名的前置作业结束时。
-
 - -D, --chdir=\<path>：在切换到\<path>工作目录后执行命令。
-
 - -e, --error=\<mode>：设定标准错误如何重定向。非交互模式下，默认srun重定向标准错误到与标准输出同样的文件（如指定）。此参数可以指定重定向到不同文件。如果指定的文件已经存在，那么将被覆盖。参见IO重定向。`salloc`无此选项。
-
 - --epilog=\<executable>：`srun特有`，作业结束后执行\<executable>程序做相应处理。
-
 - -E, --preserve-env：将环境变量`SLURM_NNODES`和`SLURM_NTASKS`传递给可执行文件，而无需通过计算命令行参数。
-
 - --exclusive\[=user|mcs\]：排他性运行，独占性运行，此节点不允许其他\[user\]用户或mcs选项的作业共享运行作业。
-
 - --export=\<\[ALL,\]environment variables|ALL|NONE>：`sbatch与srun特有`，将环境变量传递给应用程序
-
   - ALL：复制所有提交节点的环境变量，为默认选项。
   - NONE：所有环境变量都不被传递，可执行程序必须采用绝对路径。一般用于当提交时使用的集群与运行集群不同时。
   - \[ALL,\]environment variables：复制全部环境变量及特定的环境变量及其值，可以有多个以,分隔的变量。如：“--export=EDITOR,ARG1=test”。
-
 - --export-file=\<filename | fd>：`sbatch特有`，将特定文件中的变量设置传递到计算节点，这允许在定义环境变量时有特殊字符。
-
 - -F, --nodefile=\<node file>：类似--nodelist指定需要运行的节点，但在一个文件中含有节点列表。
 
 - -G, --gpus=\[\<type>:\]\<number>：设定使用的GPU类型及数目，如--gpus=v100:2。
@@ -236,8 +258,6 @@
 - -X, --disable-status：`srun特有`，禁止在srun收到SIGINT (Ctrl-C)时显示任务状态。
 
 - -x, --exclude=\<host1,host2,... or filename>：在特定\<host1,host2>节点或filename文件中指定的节点之外的节点上运行。
-
-(slurmio)=
 
 ## IO重定向
 
