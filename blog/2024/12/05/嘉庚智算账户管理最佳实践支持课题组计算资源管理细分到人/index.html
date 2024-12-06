@@ -1,0 +1,1783 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ai4ec.ikkem.com/ikkem-hpc/doc/blog/2024/12/05/%E5%98%89%E5%BA%9A%E6%99%BA%E7%AE%97%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%94%AF%E6%8C%81%E8%AF%BE%E9%A2%98%E7%BB%84%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E7%BB%86%E5%88%86%E5%88%B0%E4%BA%BA/">
+      
+      
+        <link rel="prev" href="../../../11/30/%E5%98%89%E5%BA%9A%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E8%BD%AF%E4%BB%B6%E5%85%A8%E9%9D%A2%E5%8D%87%E7%BA%A7/">
+      
+      
+      
+      <link rel="icon" href="../../../../../images/logo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+    
+    
+      
+        <title>嘉庚智算账户管理最佳实践——支持课题组计算资源管理细分到人 - 嘉庚智算用户手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="ai4ec" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../../.." title="嘉庚智算用户手册" class="md-header__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
+      
+  <img src="../../../../../images/logo/logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            嘉庚智算用户手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              嘉庚智算账户管理最佳实践——支持课题组计算资源管理细分到人
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chenggroup/ikkem-hpc-manual" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chenggroup/ikkem-hpc-manual
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
+  
+  用户手册
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  新闻公告
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="嘉庚智算用户手册" class="md-nav__button md-logo" aria-label="嘉庚智算用户手册" data-md-component="logo">
+      
+  <img src="../../../../../images/logo/logo-white.svg" alt="logo">
+
+    </a>
+    嘉庚智算用户手册
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chenggroup/ikkem-hpc-manual" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chenggroup/ikkem-hpc-manual
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    用户手册
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            用户手册
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    平台概况和介绍
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            平台概况和介绍
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    平台概况
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../introduction/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分区规则和收费标准
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../introduction/register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开户流程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../introduction/updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    重大更新公告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    使用指南
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            使用指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快速上手
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用户登录与文件传输
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3" id="__nav_1_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    应用软件
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            应用软件
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    软件使用说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/abaqus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Abaqus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/amber/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    amber
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/comsol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COMSOL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/cp2k/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CP2K
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/gromacs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/gaussian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/lammps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LAMMPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/matlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matlab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/orca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ORCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/pytorch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/apps/vasp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VASP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/scow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    嘉庚智算中心服务门户
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../usage/compile-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用程序的编译与安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Slurm作业调度系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Slurm作业调度系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/sinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    显示队列、节点信息：sinfo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/squeue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看队列中的作业信息：squeue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细队列信息：scontrol show partition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细节点信息：scontrol show node
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看详细作业信息：scontrol show job
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/qos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看服务质量(QoS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    作业提交命令共同说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/srun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    交互式提交并行作业：srun
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/sbatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    批处理方式提交作业：sbatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/salloc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分配式提交作业：salloc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/sbcast/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    将文件同步到各节点：sbcast
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/sattach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    吸附到作业步：sattach
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/sacct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看记账信息：sacct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../slurm/others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其它常用作业管理命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../information/notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注意事项
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../information/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    故障排查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../information/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常见问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../information/download/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    资料下载
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../information/tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    视频教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    新闻公告
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            新闻公告
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    新闻公告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    回到主页
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/13016685" alt="刘云霈">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://github.com/cloudac7">刘云霈</a>
+                        
+                      </strong>
+                      <br>
+                      项目工程师
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    元数据
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2024-12-05 00:00:00+00:00" class="md-ellipsis">2024年12月5日</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              需要 2 分钟阅读时间
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="_1">嘉庚智算账户管理最佳实践——支持课题组计算资源管理细分到人<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>嘉庚创新实验室智能计算中心（以下称“嘉庚智算中心”）最新升级——上线基于SCOW的 <strong>嘉庚智算中心服务门户</strong>。</p>
+<p>该平台支持账户管理员按照项目管理的需要，实现经费使用情况精细到每一位用户进行精确把控。账户管理员可以对每个用户能够使用的经费进行限额管理，以规避潜在的资源浪费情况，提升经费的使用效率。</p>
+<p>以下我们以一个具体场景为例来说明账户管理员如何利用嘉庚智算中心服务门户提供的账户管理功能对用户的机时和经费使用情况进行管理和把控。</p>
+<!-- more -->
+
+<h1 id="_2">应用场景<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>假设A老师课题组（账户名electroplating，下设账户管理员B同学等人）今年有新入学的C同学和D同学，按照课题规划交给B同学指导。两位同学可在嘉庚智算中心开立个人用户，并申请使用A老师课题组账户内的经费进行计算。</p>
+<ul>
+<li>C同学之前在其他项目参与过实习，在智算平台上已经开户，但经费隶属于其他账户且原账户已经欠费；</li>
+<li>D同学之前未开通过智算用户，则需要先填写申请开户，完成开户流程，获得用户名和密码。</li>
+</ul>
+<p>此时两位同学可直接联系A老师课题组的账户管理员（如B同学），账户管理员通过管理平台添加C同学的用户为electroplating账户组成员。后续账户管理员可以通过经费限额等方式对两位同学的课题进行全流程管理。</p>
+<p>我们将以以下两个案例来详细说明上述流程。</p>
+<h1 id="_3">案例目标<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li>希望将C同学和D同学加入到electroplating组，授予其项目经费使用权限；</li>
+<li>由于D同学没有相关计算经验，故在入门阶段希望为D同学设置5000元的经费限额，以便对其项目进行把控。</li>
+</ul>
+<p>以下将对案例两种情况的解决方案分别进行详细说明。</p>
+<h1 id="_4">解决方案<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h2 id="c">管理员将用户添加到账户组（以C同学为例）<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<p>作为账户管理员的B同学在收到C同学的联系后，便可以登录进入SCOW后台，点击“超算平台”，选择“账户管理”界面，如图输入C同学的用户ID和姓名（注意应在用户列表中查询确认正确的 <strong>用户ID-姓名</strong> 组合）。</p>
+<p><img alt="" src="../../../../20241205-project-management/images/2c2e8343e77837461dfeb08102e32fe5_MD5.png" /></p>
+<p>点击确定，稍作等待后即添加成功：</p>
+<p><img alt="" src="../../../../20241205-project-management/images/3d4e196ae38311f79c939d74d9d5324c_MD5.png" /></p>
+<p>当然，作为账户所有者的A老师还可以在当前页面增设其他管理员，协同进行管理。</p>
+<p>经过上面的操作以后，C同学便可以通过原本的用户，在提交脚本中指定新的账户对作业进行提交：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH -A electroplating</span>
+</code></pre></div>
+<p>用同样的操作流程还可以将D同学添加到electroplating账户组。</p>
+<h2 id="d">组内项目管理最佳实践（以D同学为例）<a class="headerlink" href="#d" title="Permanent link">&para;</a></h2>
+<p>在实际的科研过程中，由于用户的水平参差不齐、软件环境千差万别，在智算平台上时常会出现这样的场景：</p>
+<ul>
+<li>用户X有着优秀的代码能力，可以手撸代码实现自己的需求，但由于上游编译环境本身的bug，其软件未正确编译，可能导致输出存在数值bug。经历了长时间的计算仍未能得到预期结果的用户A最终发现问题，且切换集群提供的其他编译环境可以正确编译，但此时经费已经烧完，面对着不知何时已经花完的20000元机时，束手无策。</li>
+<li>用户Y通过脚本在同一作业中实现大量任务的批量提交，但由于经验不足，其未对工作流中的子任务设置有效的续算检验机制，工作流因意外情况中止，便不得不从头开始。于是已经进行过的作业任务被重复计算，消耗了大量机时。</li>
+<li>用户Z是计算化学新手，入门计算时尚未充分理解背后原理，用错误的计算设置在未经师兄/师姐把关的情况下，直接投入大量作业任务进行批量计算，师兄/师姐处理数据时发现异常，只得含泪要求用户C重算一遍，但经费历经浩劫已耗竭。</li>
+</ul>
+<p>为了针对性地解决这些问题，账户管理者可以利用升级后的SCOW平台，对每个用户的使用情况进行精准把控和管理。以下我们将以D同学作为例子来展示一个项目全过程管理的案例。</p>
+<p>假设D同学的目标是对多种离子在水溶液中的扩散系数进行批量计算，为实现这一目的，需要对其任务进行拆解。</p>
+<h3 id="_5">测试阶段<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>这一阶段对计算的设置进行测试，通过单个体系、短时间计算任务的快速提交，确保输入参数没有异常，计算的结果符合预期，软硬件兼容性正常，可以正确使用计算的资源。</p>
+<p>对应到上面的案例，即需要D同学在师兄B同学的指导下用较少的经费先构建一种离子的模型和计算输入，并设定一个较短的步数，同时设置好重启计算的checkpoint以确保后续生产可以继续在测试通过的输入上续算，最大程度减少机时的消耗。</p>
+<p>这一阶段由于用户往往对自己所需要消耗的经费缺乏预期，则建议账户管理员（B同学）根据自己的经验进行估计，确定单个体系测试需要的机时，并适当预留冗余，换算成经费。例如经过估计，预计D同学这一阶段需要 5000 元的测试机时，则账户管理员可以对该用户在SCOW管理平台设置费用限额，点击确定即可。</p>
+<p><img alt="" src="../../../../20241205-project-management/images/2db0db0fb36d842327828469268aa271_MD5.png" /></p>
+<p>可以看到此时即为用户添加了限额配置，从而可以精准管理其当前所能够使用的资源上限。</p>
+<p>当使用资源达到上限时，则系统会限制该用户继续提交新的作业任务。</p>
+<p><img alt="" src="../../../../20241205-project-management/images/ada198f6485794c5c6c509a7d1fd10ad_MD5.png" /></p>
+<p>除此而外，对于违规的用户，在当前界面还可以使用封锁等功能，临时限制其提交新的作业。同时也可以对已经不再隶属于当前研究小组的用户可以执行移出操作。</p>
+<h3 id="_6">执行阶段<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>经过测试，D同学完成了既定的目标，即对单一体系的计算有了概念和思路，并且对于自己跑一段时间相应任务所需的经费有了认识。于是师兄/师姐认为他可以继续进行其他体系的计算，经过两个人的讨论和估计，整个项目约消耗100000元的机时费用。</p>
+<p>账户管理员对于其上报的预算进行审核后确认前期准备充分、机时费用估计合理，于是在SCOW平台上对D同学的限额进行调整，将可用额度调整为100000元。</p>
+<h3 id="_7">管理用户使用情况<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>在项目实际进行过程中，账户管理员希望对机时的消费情况进行全过程管理。SCOW平台为其提供了以下功能。</p>
+<h4 id="_8">消费记录<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>首先，为了对账户组的经费使用进行合理追踪，账户管理员B同学可以查询一段时间内的消费记录。并可根据用户ID进行精确检索，以显示每个人各自的使用情况。</p>
+<p><img alt="" src="../../../../20241205-project-management/images/bf448d090a1d1d0d61ecd2ede9174249_MD5.png" /></p>
+<p>例如可以对D同学的消费情况进行把握，如图可见D同学在一段时间内运行了3个任务，分别花费39.75、0.04、0.04元。0.04元的作业是其进行的测试，由于输入存在问题未能正确运行，而39.75元的作业则是正确提交后的作业。</p>
+<p>页面内还提供了导出功能，供账户管理员导出原始信息进行进一步核对和分析。</p>
+<h4 id="_9">充值记录<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>同时，为了确保经费的到账情况，账户管理员可以对当前账户的充值情况进行管理，便于查账、对账：</p>
+<p><img alt="" src="../../../../20241205-project-management/images/e28a824eb471afa2725b4b7368f9c627_MD5.png" /></p>
+<h3 id="_10">结项<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>经过一段时间的努力，D同学顺利完成了课题的既定目标，得到了良好的数据，并着手进行后续分析。</p>
+<p>而经过和同门及师兄师姐讨论，他也确定了新的课题方向，并制定了合理的proposal。账户管理者经过审核确认其proposal内容合理完善，因此可以在SCOW平台上取消原限额，并重新设立新的限额。</p>
+<p>同样地，新项目也往往需要拆解成多个步骤进行管理，则账户管理员可以沿袭上面的实践，来对组员的经费使用进行合理调控。</p>
+<p>多年以后，成为资深组员的D同学被授予了账户管理员权限，回想自己一路成长的经历，对师弟/师妹的指导已经形成了言传身教的良好实践。</p>
+<h1 id="_11">总结<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
+<p>嘉庚智算本次升级引入的嘉庚智算中心服务门户，对项目全流程细分到人的精细管理实现了良好支持，方便账户管理员结合实际情况形成适合自己组的良好实践。</p>
+<p>本文旨在抛砖引玉，介绍管理平台提供的强大能力，帮助各位管理者学习如何在机时层面对组内同学进行指导和全流程把握，同时执行计算的同学们也能够严肃对待自己在集群上提交的每个作业，确保每一笔科研经费花到实处。</p>
+<p>同时围绕此次智算集群的升级工作，欢迎参考我们全新的在线文档：<a href="https://ai4ec.ikkem.com/ikkem-hpc/doc/">https://ai4ec.ikkem.com/ikkem-hpc/doc/</a>。嘉庚智算运营团队将陆续发布一系列文章，向大家更详细地介绍如何使用智算中心提供的各种能力，敬请期待。</p>
+<h2 id="_12">关于我们<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">关于作者<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>刘云霈 嘉庚创新实验室工程师，博士阶段主要从事计算化学、机器学习方面研究。目前负责嘉庚智算中心软硬件一体化运营工作。</p>
+<h3 id="_14">关于嘉庚智算中心<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>嘉庚创新实验室智能计算中心（简称“嘉庚智算中心”）于 2022 年建成投用，不但配置先进液冷技术，实现绿色节能，更是配备了先进的计算硬件（390 个 CPU 计算节点、6 个 GPU 计算节点和 2 个胖节点），能支持模型训练、模拟仿真、大规模科学计算。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="http://ai4ec.ikkem.com" target="_blank" rel="noopener" title="ai4ec.ikkem.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
