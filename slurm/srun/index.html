@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../images/logo/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -1202,6 +1202,84 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="常见例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行多核并行任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分配任务在不同进程上
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      在分配的节点上并行运行两个作业步
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 MPI 作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用不同节点运行不同作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用多核选项控制任务执行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行GPU作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      排它性独占运行作业
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1656,6 +1734,84 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="常见例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行多核并行任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分配任务在不同进程上
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      在分配的节点上并行运行两个作业步
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 MPI 作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用不同节点运行不同作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用多核选项控制任务执行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行GPU作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      排它性独占运行作业
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1842,80 +1998,74 @@
 7: task:7
 </code></pre></div>
 <h2 id="_4">常见例子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>使用8个CPU核 ( <code>-n8</code> ) 运行作业，并在标准输出上显示任务号 (<code>-l</code>) ：</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code><span class="w">  </span>srun<span class="w"> </span>-n8<span class="w"> </span>-l<span class="w"> </span>hostname
-<span class="w">  </span><span class="sb">```</span>
-
-
-<span class="w">  </span>输出结果：
+<h3 id="_5">运行多核并行任务<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>使用8个CPU核 ( <code>-n8</code> ) 运行作业，并在标准输出上显示任务号 (<code>-l</code>)</p>
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>-n8<span class="w"> </span>-l<span class="w"> </span>hostname
 </code></pre></div>
-0: node0
-1: node0
-2: node1
-3: node1
-4: node2
-5: node2
-6: node3
-7: node3
-<div class="highlight"><pre><span></span><code>- 在脚本中使用 `-r2`  参数使其在第2号（分配的节点号从0开始）开始的两个节点上运行，并采用实时分配模式而不是批处理模式运行：
-
-  脚本`test.sh`内容：
-
-```bash
-#!/bin/sh
-echo $SLURM_NODELIST
-srun -lN2 -r2 hostname
-srun -lN2 hostname
-</code></pre></div></p>
-<p>运行： <code>salloc -N4 test.sh</code></p>
 <p>输出结果：</p>
-<div class="highlight"><pre><span></span><code>dev[7-10]
-0: node9
-1: node10
-0: node7
-1: node8
+<div class="highlight"><pre><span></span><code>3: cu021
+4: cu021
+5: cu021
+6: cu021
+7: cu021
+1: cu021
+0: cu021
+2: cu021
 </code></pre></div>
-<ul>
-<li>在分配的节点上并行运行两个作业步：</li>
-</ul>
+<h3 id="_6">分配任务在不同进程上<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>在脚本中使用 <code>-r2</code>  参数使其在第2号（分配的节点号从0开始）开始的两个节点上运行，并采用实时分配模式而不是批处理模式运行。</p>
 <p>脚本<code>test.sh</code>内容：</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-srun<span class="w"> </span>-lN2<span class="w"> </span>-n4<span class="w"> </span>-r<span class="w"> </span><span class="m">2</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">&amp;</span>
-srun<span class="w"> </span>-lN2<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">&amp;</span>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_NODELIST</span>
+srun<span class="w"> </span>-lN2<span class="w"> </span>-r2<span class="w"> </span>hostname
+srun<span class="w"> </span>-lN2<span class="w"> </span>hostname
+</code></pre></div>
+<p>运行： <code>salloc -N4 -p cpu test.sh</code></p>
+<p>输出结果：</p>
+<div class="highlight"><pre><span></span><code>cu[011-014]
+1: cu014
+0: cu013
+1: cu012
+0: cu011
+</code></pre></div>
+<p>可以看出先启动的任务在 <code>cu[013-014]</code> 上运行，即后两个节点。</p>
+<h3 id="_7">在分配的节点上并行运行两个作业步<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>脚本<code>test.sh</code>内容：</p>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+srun<span class="w"> </span>-lN2<span class="w"> </span>-n2<span class="w"> </span>-r<span class="w"> </span><span class="m">2</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">&amp;</span>
+srun<span class="w"> </span>-lN2<span class="w"> </span>-n2<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">&amp;</span>
 sleep<span class="w"> </span><span class="m">1</span>
 squeue
 squeue<span class="w"> </span>-s
+<span class="nb">wait</span>
 </code></pre></div>
-<p>运行： <code>salloc -N4 test.sh</code></p>
+<p>运行： <code>salloc -N4 -p cpu test.sh</code></p>
 <p>输出结果：</p>
-<div class="highlight"><pre><span></span><code>JOBID PARTITION     NAME     USER  ST      TIME  NODES NODELIST
-65641     batch  test.sh   grondo   R      0:01      4 dev[7-10]
-
-STEPID     PARTITION     USER      TIME NODELIST
-65641.0        batch   grondo      0:01 dev[7-8]
-65641.1        batch   grondo      0:01 dev[9-10]
+<div class="highlight"><pre><span></span><code>JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+368585       cpu interact ypliucat  R       0:04      4 cu[011-014]
+STEPID     NAME PARTITION     USER      TIME NODELIST
+368585.0    sleep       cpu ypliucat      0:01 cu[011-012]
+368585.1    sleep       cpu ypliucat      0:01 cu[013-014]
+368585.extern   extern       cpu ypliucat      0:04 cu[011-014]
 </code></pre></div>
-<ul>
-<li>运行MPICH作业：</li>
-</ul>
+<p>可以看出我们分别创建了两个作业步 (Step)，分别运行在后两个和前两个节点上。</p>
+<h3 id="mpi">运行 MPI 作业<a class="headerlink" href="#mpi" title="Permanent link">&para;</a></h3>
 <p>脚本<code>test.sh</code>内容：</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="nv">MACHINEFILE</span><span class="o">=</span><span class="s2">&quot;nodes.</span><span class="nv">$SLURM_JOB_ID</span><span class="s2">&quot;</span>
 
-<span class="c1"># 生成MPICH所需的包含节点名的machinfile文件</span>
+<span class="c1"># 生成 MPI 所需的包含节点名的machinfile文件</span>
+module<span class="w"> </span>load<span class="w"> </span>intel/2023.2
 srun<span class="w"> </span>-l<span class="w"> </span>/bin/hostname<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>’<span class="o">{</span>print<span class="w"> </span><span class="nv">$2</span><span class="o">}</span>’<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$MACHINEFILE</span>
 
-<span class="c1"># 运行MPICH作业</span>
+<span class="c1"># 运行 MPI 作业</span>
 mpirun<span class="w"> </span>-np<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>-machinefile<span class="w"> </span><span class="nv">$MACHINEFILE</span><span class="w"> </span>mpi-app
 
 rm<span class="w"> </span><span class="nv">$MACHINEFILE</span>
 </code></pre></div>
 <p>采用2个节点（-N2）共4个CPU核（-n4）运行：<code>salloc -N2 -n4 test.sh</code></p>
-<ul>
-<li>利用不同节点号（<code>SLURM_NODEID</code>）运行不同作业，节点号从0开始：</li>
-</ul>
+<h3 id="_8">利用不同节点运行不同作业<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>利用不同节点号（<code>SLURM_NODEID</code>）运行不同作业，节点号从0开始：</p>
 <p>脚本<code>test.sh</code>内容：</p>
 <div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="nv">$SLURM_NODEID</span><span class="w"> </span><span class="k">in</span>
 <span class="w">     </span><span class="m">0</span><span class="o">)</span>
@@ -1929,26 +2079,27 @@ rm<span class="w"> </span><span class="nv">$MACHINEFILE</span>
 <span class="w"> </span><span class="k">esac</span>
 </code></pre></div>
 <p>运行： <code>srun -N2 test.sh</code></p>
-<blockquote>
 <p>输出：</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code>dev0 is where I am running I am running on ev1
+<div class="highlight"><pre><span></span><code>cu012
+is where I am running
+I am running on
+cu011
 </code></pre></div>
-<ul>
-<li>利用多核选项控制任务执行：</li>
-</ul>
-<p>采用2个节点（-N2），每节点4颗CPU每颗CPU 2颗CPU核（-B 4-4:2-2），运行作业：</p>
-<p><code>srun -N2 -B 4-4:2-2 a.out</code></p>
-<ul>
-<li>运行GPU作业： 脚本<code>gpu.sh</code>内容：</li>
-</ul>
+<h3 id="_9">利用多核选项控制任务执行<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>采用2个节点（<code>-N2</code>），每节点2颗CPU，每颗CPU 2颗CPU核（<code>-B 2-2:2-2</code>），运行作业：</p>
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>-N2<span class="w"> </span>-p<span class="w"> </span>cpu<span class="w"> </span>-B<span class="w"> </span><span class="m">2</span>-2:2-2<span class="w"> </span>a.out
+</code></pre></div>
+<h3 id="gpu">运行GPU作业<a class="headerlink" href="#gpu" title="Permanent link">&para;</a></h3>
+<p>脚本<code>gpu.sh</code>内容：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-srun<span class="w"> </span>-n1<span class="w"> </span>-p<span class="w"> </span>GPU-V100<span class="w"> </span>--gres<span class="o">=</span>gpu:v100:2<span class="w"> </span>prog1
+srun<span class="w"> </span>-n1<span class="w"> </span>-p<span class="w"> </span>gpu<span class="w"> </span>--gres<span class="o">=</span>gpu:2<span class="w"> </span>prog1
 </code></pre></div>
-<p>-p GPU-V100指定采用GPU队列GPU-V100，--gres=gpu:v100:2指明每个节点使用2块NVIDIA V100 GPU卡。</p>
-<ul>
-<li>排它性独占运行作业：</li>
-</ul>
+<p><code>-p gpu</code> 指定采用GPU队列，<code>--gres=gpu:2</code> 指明每个节点使用 2 块 GPU 卡。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>目前嘉庚智算上的 GPU 均为 NVIDIA A100 80G NVLink 全连接计算卡。</p>
+</div>
+<h3 id="_10">排它性独占运行作业<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>脚本<code>my.sh</code>内容：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 srun<span class="w"> </span>--exclusive<span class="w"> </span>-n4<span class="w"> </span>prog1<span class="w"> </span><span class="p">&amp;</span>
@@ -1957,6 +2108,10 @@ srun<span class="w"> </span>--exclusive<span class="w"> </span>-n1<span class="w
 srun<span class="w"> </span>--exclusive<span class="w"> </span>-n1<span class="w"> </span>prog4<span class="w"> </span><span class="p">&amp;</span>
 <span class="nb">wait</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>利用 <code>--exclusive</code> 开启排他性独占时，默认计费按照 <strong>每个<code>srun</code></strong> 使用其所在节点全部资源进行，即使申请了 1 个 CPU 核或者 1 张 GPU 卡也会按照整个节点（64 个 CPU 核 / 8 张 GPU 卡）来计算。</p>
+</div>
 
 
 

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../images/logo/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -1244,6 +1244,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      申请计算节点资源并远程连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取资源以运行并行应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1656,6 +1680,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      申请计算节点资源并远程连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取资源以运行并行应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1765,26 +1813,27 @@
 <li><code>SLURM_TASKS_PER_NODE</code>：每个节点的任务数。值以,分隔，并与<code>SLURM_NODELIST</code> 顺序一致。如果连续的节点有相同的任务数，那么数后面跟有“(x#)”，其中“#”是重复次数。如： <code>SLURM_TASKS_PER_NODE =2(x3),1</code> 。</li>
 </ul>
 <h2 id="_1">例子<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>获取分配，并打开csh，以便srun可以交互式输入：</li>
-</ul>
-<p><code>salloc -N16 csh</code></p>
-<p>将输出：</p>
-<div class="highlight"><pre><span></span><code>salloc: Granted job allocation 65537
-（在此，将等待用户输入，csh退出后结束） salloc: Relinquishing job
-allocation 65537
+<h3 id="_2">申请计算节点资源并远程连接<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>-p<span class="w"> </span>cpu<span class="w"> </span>-N1<span class="w"> </span>-n6<span class="w"> </span>-q<span class="w"> </span>normal<span class="w"> </span>-t<span class="w"> </span><span class="m">2</span>:00:00
 </code></pre></div>
-<ul>
-<li>获取分配并并行运行应用：</li>
-</ul>
-<p><code>salloc -N5 srun -n10 myprogram</code></p>
-<ul>
-<li>生成三个不同组件的异构作业，每个都是独立节点：</li>
-</ul>
-<p><code>salloc -w node[2-3] : -w node4 : -w node[5-7] bash</code></p>
+<p>则可以在集群 <code>cpu</code> 队列中申请 1 个节点的 6 个核，占用 2 h。</p>
 <p>将输出：</p>
-<div class="highlight"><pre><span></span><code>salloc: job 32294 queued and waiting for resources salloc: job 32294
-has been allocated resources salloc: Granted job allocation 32294
+<div class="highlight"><pre><span></span><code>salloc: Granted job allocation 369188
+salloc: Waiting for resource configuration
+salloc: Nodes cu026 are ready for job
+</code></pre></div>
+<p>随后自动启动一个新的终端，通过 <code>squeue</code> 可以看到在 <code>cu026</code> 节点上创建了一个新的作业任务 <code>369188</code>：</p>
+<div class="highlight"><pre><span></span><code>JOBID  PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+369188       cpu interact ypliucat  R       0:50      1 cu026
+</code></pre></div>
+<p>因此，用户可以通过 <code>ssh cu026</code> 到该节点上交互式地执行相关命令。</p>
+<p>当任务结束后，请在打开的 SSH 连接中输入 <code>exit</code> 退出，并主动取消创建的任务，例如:</p>
+<div class="highlight"><pre><span></span><code>scancel<span class="w"> </span><span class="m">369188</span>
+</code></pre></div>
+<p>以确保不会产生额外的费用。</p>
+<h3 id="_3">获取资源以运行并行应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>例如想要申请5个节点，每个节点申请1个核，并通过 <code>srun</code> 并行地运行 <code>myprogram</code>，则:</p>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>-p<span class="w"> </span>cpu<span class="w"> </span>-N5<span class="w"> </span>srun<span class="w"> </span>-n5<span class="w"> </span>myprogram
 </code></pre></div>
 
 
