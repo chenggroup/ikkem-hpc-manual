@@ -192,10 +192,13 @@ Slurm将在作业脚本中输出以下变量，作业脚本可以使用这些变
 1. 直接采用`sbatch -n1 -o job-%j.log -e job-%j.err yourprog`方式运行
 2. 编写命名为`serial_job.sh`（此脚本名可以按照用户喜好命名）的串行作业脚本，其内容如下：
 
-```bash
+```bash title="serial_job.sh"
 #!/bin/sh
-#An example for serial job.
+#SBATCH -N 1
 #SBATCH -J job_name
+#SBATCH -p [partition]
+#SBATCH -A [account]
+#SBATCH -q [QOS]
 #SBATCH -o job-%j.log
 #SBATCH -e job-%j.err
 
@@ -205,18 +208,22 @@ echo Directory is $PWD
 echo This job runs on the following nodes:
 echo $SLURM_JOB_NODELIST
 
-module load intel/2019.update5
+module load intel/2023.2
 
 echo This job has allocated 1 cpu core.
 
 ./yourprog
 ```
 
-必要时需在脚本文件中利用`module`命令设置所需的环境，如上面的`module load intel/2019.update5`。
+注意请替换队列 (partiton)、账户 (account) 和服务质量 (QOS) 为实际情况。以下不再赘述。
+
+必要时需在脚本文件中利用`module`命令设置所需的环境，如上面的`module load intel/2023.2`。
 
 作业脚本编写完成后，可以按照下面命令提交作业：
 
-> `hmli@login01:~/work$ sbatch -n1 -p serail serial_job.sh`
+```bash
+sbatch serial_job.sh
+```
 
 ## OpenMP共享内存并行作业提交
 
@@ -224,11 +231,15 @@ echo This job has allocated 1 cpu core.
 
 ```bash
 #!/bin/sh
-#An example for serial job.
 #SBATCH -J job_name
+#SBATCH -p [partition]
+#SBATCH -A [account]
+#SBATCH -q [QOS]
 #SBATCH -o job-%j.log
 #SBATCH -e job-%j.err
-#SBATCH -N 1 -n 8
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -c 8
 
 echo Running on hosts
 echo Time is `date`
@@ -242,11 +253,11 @@ export OMP_NUM_THREADS=8
 ./yourprog
 ```
 
-相对于串行作业脚本，主要增加`export OMP_NUM_THREADS=8`和 `#SBATCH -N 1 -n 8`，表示使用一个节点内部的八个核，从而保证是在同一个节点内部，需几个核就设置-n为几。-n后跟的不能超过单节点内CPU核数。
+相对于串行作业脚本，主要增加`export OMP_NUM_THREADS=8`和 `#SBATCH -N 1 -n 1 -c 8`，表示使用一个节点内部的八个核，从而保证是在同一个节点内部，需几个核就设置 `-c` 为几。`-c` 后跟的不能超过单节点内CPU核数。
 
 作业脚本编写完成后，可以按照下面命令提交作业：
 
-`hmli@login01:~/work$ sbatch omp_job.sh`
+`sbatch omp_job.sh`
 
 ## MPI并行作业提交
 
@@ -254,8 +265,10 @@ export OMP_NUM_THREADS=8
 
 ```bash
 #!/bin/sh
-#An example for MPI job.
 #SBATCH -J job_name
+#SBATCH -p [partition]
+#SBATCH -A [account]
+#SBATCH -q [QOS]
 #SBATCH -o job-%j.log
 #SBATCH -e job-%j.err
 #SBATCH -N 1 -n 8
@@ -266,29 +279,32 @@ echo This job runs on the following nodes:
 echo $SLURM_JOB_NODELIST
 echo This job has allocated $SLURM_JOB_CPUS_PER_NODE cpu cores.
 
-module load intelmpi/5.1.3.210
-#module load mpich/3.2/intel/2016.3.210
-#module load openmpi/2.0.0/intel/2016.3.210
-MPIRUN=mpirun #Intel mpi and Open MPI
-#MPIRUN=mpiexec #MPICH
-MPIOPT="-env I_MPI_FABRICS shm:ofa" #Intel MPI 2018
-#MPIOPT="-env I_MPI_FABRICS shm:ofi" #Intel MPI 2019
-#MPIOPT="--mca plm_rsh_agent ssh --mca btl self,openib,sm" #Open MPI
-#MPIOPT="-iface ib0" #MPICH3
-#目前新版的MPI可以自己找寻高速网络配置，可以设置MPIOPT为空，如去掉下行的#
-MPIOPT=
-$MPIRUN $MPIOPT ./yourprog
+module load intel/2023.2
+mpirun ./yourprog
 ```
 
 与串行程序的脚本相比，主要不同之处在于需采用mpirun或mpiexec的命令格式提交并行可执行程序。采用不同MPI提交时，需要打开上述对应的选项。
 
+总共需要使用多少个核，则设置 `-n` 为多少。
+
+需要跨节点并行时，也可以将 `#SBATCH -N <nodes> -n <nprocs>` 替换为:
+
+```
+#SBATCH -N <nodes>
+#SBATCH --ntasks-per-node=<nprocs-per-node>
+```
+
+即定义每个节点使用多少个核，根据申请的资源总量由 Slurm 进行分配。
+
 与串行作业类似，可使用下面方式提交：
 
-`hmli@login01:~/work$ sbatch mpi_job.sh`
+```bash
+sbatch mpi_job.sh
+```
 
 ## GPU作业提交
 
-运行GPU作业，需要提交时利用--gres=gpu等指明需要的GPU资源并用-p指明采用等GPU队列。
+运行GPU作业，需要提交时利用 `--gres=gpu` 等指明需要的GPU资源并用 `-p` 指明采用等GPU队列。
 
 脚本`gpu_job.sh`内容：
 
@@ -296,13 +312,19 @@ $MPIRUN $MPIOPT ./yourprog
 #!/bin/sh
 #An example for gpu job.
 #SBATCH -J job_name
+#SBATCH -p gpu
+#SBATCH -A [account]
+#SBATCH -q [QOS]
 #SBATCH -o job-%j.log
 #SBATCH -e job-%j.err
-#SBATCH -N 1 -n 8 -p GPU-V100 --gres=gpu:v100:2
+#SBATCH -N 1 -n 8 --gres=gpu:2
 ./your-gpu-prog
 ```
 
-上面-p GPU-V100指定采用GPU队列GPU-V100，--gres=gpu:v100:2指明每个节点使用2块NVIDIA V100 GPU卡。
+上面 `-p gpu` 指定采用GPU队列，`--gres=gpu:2` 指明每个节点使用 2 块NVIDIA A100 GPU卡。
+
+!!! tip
+    目前嘉庚智算上的 GPU 均为 NVIDIA A100 80G NVLink 全连接计算卡。
 
 ## 作业获取的节点名及对应CPU核数解析
 

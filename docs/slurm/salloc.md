@@ -96,29 +96,43 @@ command可以是任何是用户想要用的程序，典型的为xterm或包含`s
 
 ## 例子
 
-- 获取分配，并打开csh，以便srun可以交互式输入：
+### 申请计算节点资源并远程连接
 
-  `salloc -N16 csh`
-
-  将输出：
-
-```
-salloc: Granted job allocation 65537
-（在此，将等待用户输入，csh退出后结束） salloc: Relinquishing job
-allocation 65537
+```bash
+salloc -p cpu -N1 -n6 -q normal -t 2:00:00
 ```
 
-- 获取分配并并行运行应用：
+则可以在集群 `cpu` 队列中申请 1 个节点的 6 个核，占用 2 h。
 
-  `salloc -N5 srun -n10 myprogram`
-
-- 生成三个不同组件的异构作业，每个都是独立节点：
-
-  `salloc -w node[2-3] : -w node4 : -w node[5-7] bash`
-
-  将输出：
+将输出：
 
 ```
-salloc: job 32294 queued and waiting for resources salloc: job 32294
-has been allocated resources salloc: Granted job allocation 32294
+salloc: Granted job allocation 369188
+salloc: Waiting for resource configuration
+salloc: Nodes cu026 are ready for job
+```
+
+随后自动启动一个新的终端，通过 `squeue` 可以看到在 `cu026` 节点上创建了一个新的作业任务 `369188`：
+
+```
+JOBID  PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+369188       cpu interact ypliucat  R       0:50      1 cu026
+```
+
+因此，用户可以通过 `ssh cu026` 到该节点上交互式地执行相关命令。
+
+当任务结束后，请在打开的 SSH 连接中输入 `exit` 退出，并主动取消创建的任务，例如:
+
+```bash
+scancel 369188
+```
+
+以确保不会产生额外的费用。
+
+### 获取资源以运行并行应用
+
+例如想要申请5个节点，每个节点申请1个核，并通过 `srun` 并行地运行 `myprogram`，则:
+
+```bash
+salloc -p cpu -N5 srun -n5 myprogram
 ```

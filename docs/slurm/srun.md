@@ -181,87 +181,97 @@ Slurm支持一次申请多个节点，在不同节点上同时启动执行不同
 
 ## 常见例子
 
-- 使用8个CPU核 ( `-n8` ) 运行作业，并在标准输出上显示任务号 (`-l`) ：
+
+### 运行多核并行任务
+
+使用8个CPU核 ( `-n8` ) 运行作业，并在标准输出上显示任务号 (`-l`)
 
 ```bash
-  srun -n8 -l hostname
-  ```
-  
-
-  输出结果：
-
-```
-0: node0
-1: node0
-2: node1
-3: node1
-4: node2
-5: node2
-6: node3
-7: node3
+srun -n8 -l hostname
 ```
 
-- 在脚本中使用 `-r2`  参数使其在第2号（分配的节点号从0开始）开始的两个节点上运行，并采用实时分配模式而不是批处理模式运行：
+输出结果：
 
-  脚本`test.sh`内容：
+```
+3: cu021
+4: cu021
+5: cu021
+6: cu021
+7: cu021
+1: cu021
+0: cu021
+2: cu021
+```
 
-```bash
+### 分配任务在不同进程上
+
+在脚本中使用 `-r2`  参数使其在第2号（分配的节点号从0开始）开始的两个节点上运行，并采用实时分配模式而不是批处理模式运行。
+
+脚本`test.sh`内容：
+
+```bash title="test.sh"
 #!/bin/sh
 echo $SLURM_NODELIST
 srun -lN2 -r2 hostname
 srun -lN2 hostname
 ```
 
-运行： `salloc -N4 test.sh`
+运行： `salloc -N4 -p cpu test.sh`
 
 输出结果：
 
 ```
-dev[7-10]
-0: node9
-1: node10
-0: node7
-1: node8
+cu[011-014]
+1: cu014
+0: cu013
+1: cu012
+0: cu011
 ```
 
-- 在分配的节点上并行运行两个作业步：
+可以看出先启动的任务在 `cu[013-014]` 上运行，即后两个节点。
 
-  脚本`test.sh`内容：
+### 在分配的节点上并行运行两个作业步
 
-```bash
+脚本`test.sh`内容：
+
+```bash title="test.sh"
 #!/bin/bash
-srun -lN2 -n4 -r 2 sleep 60 &
-srun -lN2 -r 0 sleep 60 &
+srun -lN2 -n2 -r 2 sleep 60 &
+srun -lN2 -n2 -r 0 sleep 60 &
 sleep 1
 squeue
 squeue -s
+wait
 ```
 
-运行： `salloc -N4 test.sh`
+运行： `salloc -N4 -p cpu test.sh`
 
 输出结果：
 
 ```
-JOBID PARTITION     NAME     USER  ST      TIME  NODES NODELIST
-65641     batch  test.sh   grondo   R      0:01      4 dev[7-10]
-
-STEPID     PARTITION     USER      TIME NODELIST
-65641.0        batch   grondo      0:01 dev[7-8]
-65641.1        batch   grondo      0:01 dev[9-10]
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+368585       cpu interact ypliucat  R       0:04      4 cu[011-014]
+STEPID     NAME PARTITION     USER      TIME NODELIST
+368585.0    sleep       cpu ypliucat      0:01 cu[011-012]
+368585.1    sleep       cpu ypliucat      0:01 cu[013-014]
+368585.extern   extern       cpu ypliucat      0:04 cu[011-014]
 ```
 
-- 运行MPICH作业：
+可以看出我们分别创建了两个作业步 (Step)，分别运行在后两个和前两个节点上。
 
-  脚本`test.sh`内容：
+### 运行 MPI 作业
 
-```bash
+脚本`test.sh`内容：
+
+```bash title="test.sh"
 #!/bin/sh
 MACHINEFILE="nodes.$SLURM_JOB_ID"
 
-# 生成MPICH所需的包含节点名的machinfile文件
+# 生成 MPI 所需的包含节点名的machinfile文件
+module load intel/2023.2
 srun -l /bin/hostname | sort -n | awk ’{print $2}’ > $MACHINEFILE
 
-# 运行MPICH作业
+# 运行 MPI 作业
 mpirun -np $SLURM_NTASKS -machinefile $MACHINEFILE mpi-app
 
 rm $MACHINEFILE
@@ -269,9 +279,11 @@ rm $MACHINEFILE
 
 采用2个节点（-N2）共4个CPU核（-n4）运行：`salloc -N2 -n4 test.sh`
 
-- 利用不同节点号（`SLURM_NODEID`）运行不同作业，节点号从0开始：
+### 利用不同节点运行不同作业
 
-  脚本`test.sh`内容：
+利用不同节点号（`SLURM_NODEID`）运行不同作业，节点号从0开始：
+
+脚本`test.sh`内容：
 
 ```bash
 case $SLURM_NODEID in
@@ -288,30 +300,40 @@ case $SLURM_NODEID in
 
 运行： `srun -N2 test.sh`
 
-> 输出：
+输出：
 
 ```
-dev0 is where I am running I am running on ev1
+cu012
+is where I am running
+I am running on
+cu011
 ```
 
-- 利用多核选项控制任务执行：
+### 利用多核选项控制任务执行
 
-  采用2个节点（-N2），每节点4颗CPU每颗CPU 2颗CPU核（-B 4-4:2-2），运行作业：
+采用2个节点（`-N2`），每节点2颗CPU，每颗CPU 2颗CPU核（`-B 2-2:2-2`），运行作业：
 
-  `srun -N2 -B 4-4:2-2 a.out`
+```bash
+srun -N2 -p cpu -B 2-2:2-2 a.out
+```
 
-- 运行GPU作业： 脚本`gpu.sh`内容：
+### 运行GPU作业
+
+脚本`gpu.sh`内容：
 
 ```bash
 #!/bin/bash
-srun -n1 -p GPU-V100 --gres=gpu:v100:2 prog1
+srun -n1 -p gpu --gres=gpu:2 prog1
 ```
 
--p GPU-V100指定采用GPU队列GPU-V100，--gres=gpu:v100:2指明每个节点使用2块NVIDIA V100 GPU卡。
+`-p gpu` 指定采用GPU队列，`--gres=gpu:2` 指明每个节点使用 2 块 GPU 卡。
 
-- 排它性独占运行作业：
+!!! tip
+    目前嘉庚智算上的 GPU 均为 NVIDIA A100 80G NVLink 全连接计算卡。
 
-  脚本`my.sh`内容：
+### 排它性独占运行作业
+
+脚本`my.sh`内容：
 
 ```bash
 #!/bin/bash
@@ -321,3 +343,6 @@ srun --exclusive -n1 prog3 &
 srun --exclusive -n1 prog4 &
 wait
 ```
+
+!!! warning "注意"
+    利用 `--exclusive` 开启排他性独占时，默认计费按照 **每个`srun`** 使用其所在节点全部资源进行，即使申请了 1 个 CPU 核或者 1 张 GPU 卡也会按照整个节点（64 个 CPU 核 / 8 张 GPU 卡）来计算。
