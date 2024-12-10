@@ -20,7 +20,7 @@ module load anaconda/2022.5
     source activate base
     ```
 
-2. 然后，创建一个新的虚拟环境。这里我们推荐使用 `-p <path>` 的方式创建在用户目录下，便于精确管理 Conda 环境的路径。例如：
+2. 然后，创建一个新的虚拟环境。这里我们推荐使用 `-p <prefix>` 的方式创建在用户目录下，便于精确管理 Conda 环境的路径。例如：
     ```bash
     conda create -p /public/home/username/conda/envs/playground
     ```
@@ -51,6 +51,22 @@ source activate /public/home/username/conda/envs/playground
 ```
 
 当然，如果你想要加载具有指定名称或者路径前缀的 Conda 环境，请将 `/public/home/username/conda/envs/playground` 替换为你的环境名或路径。
+
+该命令也可以写在 Slurm 提交脚本中，但一般建议先 `module purge` 以避免环境冲突:
+
+```bash
+#!/bin/bash
+#SBATCH ...
+
+# set environment
+set -e
+module purge
+module load anaconda/2022.5
+source activate /public/home/username/conda/envs/playground
+set +e
+
+# ...
+```
 
 ## 注意事项
 
