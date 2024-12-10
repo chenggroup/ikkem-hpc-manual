@@ -1802,7 +1802,7 @@
 </code></pre></div></p>
 </li>
 <li>
-<p>然后，创建一个新的虚拟环境。这里我们推荐使用 <code>-p &lt;path&gt;</code> 的方式创建在用户目录下，便于精确管理 Conda 环境的路径。例如：
+<p>然后，创建一个新的虚拟环境。这里我们推荐使用 <code>-p &lt;prefix&gt;</code> 的方式创建在用户目录下，便于精确管理 Conda 环境的路径。例如：
     <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-p<span class="w"> </span>/public/home/username/conda/envs/playground
 </code></pre></div></p>
 <p>您也可以在这一步骤指定所需的 Python 环境，例如：</p>
@@ -1827,6 +1827,19 @@
 <span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>/public/home/username/conda/envs/playground
 </code></pre></div>
 <p>当然，如果你想要加载具有指定名称或者路径前缀的 Conda 环境，请将 <code>/public/home/username/conda/envs/playground</code> 替换为你的环境名或路径。</p>
+<p>该命令也可以写在 Slurm 提交脚本中，但一般建议先 <code>module purge</code> 以避免环境冲突:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH ...</span>
+
+<span class="c1"># set environment</span>
+<span class="nb">set</span><span class="w"> </span>-e
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>anaconda/2022.5
+<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>/public/home/username/conda/envs/playground
+<span class="nb">set</span><span class="w"> </span>+e
+
+<span class="c1"># ...</span>
+</code></pre></div>
 <h2 id="_4">注意事项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>不建议在 <code>~/.bashrc</code> 中引入 <code>conda init</code> 创建的初始化指令，因为这可能会导致环境冲突和加载问题。具体原因如下：</p>
 <ul>

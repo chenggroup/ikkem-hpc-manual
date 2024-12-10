@@ -1171,7 +1171,7 @@
         <li class="md-nav__item">
   <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
-      TLDR : 作业提交常用参数
+      TLDR: 常用参数选项列表
     </span>
   </a>
   
@@ -1183,6 +1183,21 @@
       主要参数
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="主要参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      格式化字符
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1637,7 +1652,7 @@
         <li class="md-nav__item">
   <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
-      TLDR : 作业提交常用参数
+      TLDR: 常用参数选项列表
     </span>
   </a>
   
@@ -1649,6 +1664,21 @@
       主要参数
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="主要参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      格式化字符
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1690,7 +1720,7 @@
 <p>关于如何在嘉庚智算上提交作业，请参阅<a href="../../usage/quick-start/">快速上手</a>部分的说明。</p>
 <p>关于队列的相关设置和说明，请参阅 <a href="../../introduction/partition/">分区规则和收费标准</a>。</p>
 </div>
-<h2 id="tldr">TLDR : 作业提交常用参数<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<h2 id="tldr">TLDR: 常用参数选项列表<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1721,11 +1751,11 @@
 </tr>
 <tr>
 <td><code>-t</code> 或 <code>--time</code></td>
-<td>作业的最长运行时间，格式为 <code>HH:MM:SS</code>。</td>
+<td>作业的最长运行时间，格式为 <code>MM</code>、<code>MM:SS</code>、<code>HH:MM:SS</code>、<code>D-HH</code>、<code>D-HH:MM</code>或<code>D-HH:MM:SS</code>。</td>
 </tr>
 <tr>
 <td><code>--mem</code></td>
-<td>每个节点分配的内存量，例如 <code>--mem=4G</code> 表示 4GB 内存。</td>
+<td>每个节点分配的内存量，例如 <code>--mem=4G</code> 表示 4 GB 内存。</td>
 </tr>
 <tr>
 <td><code>--gres</code></td>
@@ -1733,7 +1763,7 @@
 </tr>
 <tr>
 <td><code>-p</code> 或 <code>--partition</code></td>
-<td>指定作业提交的分区（队列）。</td>
+<td>指定作业提交的分区（队列）。可选项: <code>cpu</code>, <code>gpu</code>, <code>fat</code>。</td>
 </tr>
 <tr>
 <td><code>-J</code> 或 <code>--job-name</code></td>
@@ -1757,7 +1787,7 @@
 </tr>
 <tr>
 <td><code>-q</code> 或 <code>--qos</code></td>
-<td>指定作业的服务质量（QOS, Quality of Service）。</td>
+<td>指定作业的服务质量（QOS, Quality of Service）。 可选项: <code>normal</code>, <code>long</code>。</td>
 </tr>
 <tr>
 <td><code>-D</code> 或 <code>--chdir</code></td>
@@ -1834,298 +1864,130 @@
 </ul>
 </li>
 <li><code>-d</code>, <code>--dependency=&lt;dependency_list&gt;</code>：满足依赖条件 <code>&lt;dependency_list&gt;</code> 后开始分配。<code>&lt;dependency_list&gt;</code> 可以为 <code>&lt;type:job_id[:job_id][,type:job_id[:job_id]]&gt;</code> 或\<type:job_id\[:job_id\]\[?type:job_id\[:job_id\]\]>。依赖条件如果用,分隔，则各依赖条件都需要满足；如果采用?分隔，那么只要任意条件满足即可。可以为：</li>
-<li>after:job_id[:jobid...]：当指定作业号的作业结束后开始运行。</li>
-<li>afterany:job_id[:jobid...]：当指定作业号的任意作业结束后开始运行。</li>
-<li>aftercorr:job_id[:jobid...]：当相应任务号任务结束后，此作业组中的开始运行。</li>
-<li>afternotok:job_id[:jobid...]：当指定作业号的作业结束时具有异常状态（非零退出码、节点失效、超时等）时。</li>
-<li>afterok:job_id[:jobid...]：当指定的作业正常结束（退出码为0）时开始运行。</li>
-<li>expand:job_id：分配给此作业的资源将扩展给指定作业。</li>
-<li>singleton：等任意通账户的相同作业名的前置作业结束时。</li>
-<li>-D, --chdir=\<path>：在切换到\<path>工作目录后执行命令。</li>
-<li>-e, --error=\<mode>：设定标准错误如何重定向。非交互模式下，默认srun重定向标准错误到与标准输出同样的文件（如指定）。此参数可以指定重定向到不同文件。如果指定的文件已经存在，那么将被覆盖。参见IO重定向。<code>salloc</code>无此选项。</li>
-<li>--epilog=\<executable>：<code>srun特有</code>，作业结束后执行\<executable>程序做相应处理。</li>
-<li>-E, --preserve-env：将环境变量<code>SLURM_NNODES</code>和<code>SLURM_NTASKS</code>传递给可执行文件，而无需通过计算命令行参数。</li>
-<li>--exclusive[=user|mcs]：排他性运行，独占性运行，此节点不允许其他[user]用户或mcs选项的作业共享运行作业。</li>
-<li>--export=\&lt;[ALL,]environment variables|ALL|NONE&gt;：<code>sbatch与srun特有</code>，将环境变量传递给应用程序</li>
-<li>ALL：复制所有提交节点的环境变量，为默认选项。</li>
-<li>NONE：所有环境变量都不被传递，可执行程序必须采用绝对路径。一般用于当提交时使用的集群与运行集群不同时。</li>
-<li>[ALL,]environment variables：复制全部环境变量及特定的环境变量及其值，可以有多个以,分隔的变量。如：“--export=EDITOR,ARG1=test”。</li>
-<li>--export-file=\<filename | fd>：<code>sbatch特有</code>，将特定文件中的变量设置传递到计算节点，这允许在定义环境变量时有特殊字符。</li>
-<li>
-<p>-F, --nodefile=\<node file>：类似--nodelist指定需要运行的节点，但在一个文件中含有节点列表。</p>
-</li>
-<li>
-<p>-G, --gpus=[\<type>:]\<number>：设定使用的GPU类型及数目，如--gpus=v100:2。</p>
-</li>
-<li>
-<p>--gpus-per-node=[\<type>:]\<number>：设定单个节点使用的GPU类型及数目。</p>
-</li>
-<li>
-<p>--gpus-per-socket=[\<type>:]\<number>：设定每个socket需要的GPU类型及数目。</p>
-</li>
-<li>
-<p>--gpus-per-task=[\<type>:]\<number>：设定每个任务需要的GPU类型及数目。</p>
-</li>
-<li>
-<p>--gres=\<list>：设定通用消费资源，可以以,分隔。每个\<list>格式为“name[[:type]:count]”。name是可消费资源；count是资源个数，默认为1；</p>
-</li>
-<li>
-<p>-H, --hold：设定作业将被提交为挂起状态。挂起的作业可以利用scontrol release \<job_id>使其排队运行。</p>
-</li>
-<li>
-<p>-h, --help：显示帮助信息。</p>
-</li>
-<li>
-<p>--hint=\<type>：绑定任务到应用提示：</p>
-</li>
-<li>
-<p>compute_bound：选择设定计算边界应用：采用每个socket的所有CPU核，每颗CPU核一个进程。</p>
-</li>
-<li>memory_bound：选择设定内存边界应用：仅采用每个socket的1颗CPU核，每颗CPU核一个进程。</li>
-<li>multithread：在in-core multi-threading是否采用额外的线程，对通信密集型应用有益。仅当task/affinity插件启用时。</li>
-<li>
-<p>help：显示帮助信息</p>
-</li>
-<li>
-<p>-I, --immediate[=\<seconds>]：<code>salloc与srun特有</code>，在\<seconds>秒内资源未满足的话立即退出。格式可以为“-I60”，但不能之间有空格是“-I 60”。</p>
-</li>
-<li>
-<p>--ignore-pbs：<code>sbatch特有</code>，忽略批处理脚本中的“#PBS”选项。</p>
-</li>
-<li>
-<p>-i, --input=\<mode>：<code>sbatch与srun特有</code>，指定标准输入如何重定向。默认，srun对所有任务重定向标准输入为从终端。参见IO重定向。</p>
-</li>
-<li>
-<p>-J, --job-name=\<jobname>：设定作业名\<jobname>，默认为命令名。</p>
-</li>
-<li>
-<p>--jobid=\<jobid>：<code>srun特有</code>，初始作业步到某个已分配的作业号\<jobid>下的作业下，类似设置了<code>SLURM_JOB_ID</code>环境变量。仅对作业步申请有效。</p>
-</li>
-<li>
-<p>-K, --kill-command[=signal]：<code>salloc特有</code>，设定需要终止时的signal，默认，如没指定，则对于交互式作业为SIGHUP，对于非交互式作业为SIGTERM。格式类似可以为“-K1”，但不能包含空格为“-K 1”。</p>
-</li>
-<li>
-<p>-K,–kill-on-bad-exit[=0|1]：<code>srun特有</code>，设定是否任何一个任务退出码为非0时，是否终止作业步。</p>
-</li>
-<li>
-<p>-k, --no-kill：如果分配的节点失效，那么不会自动终止。</p>
-</li>
-<li>
-<p>-L, --licenses=\<license>：设定使用的\<license>。</p>
-</li>
-<li>
-<p>-l, --label：<code>srun特有</code>，在标注正常输出或标准错误输出的行前面添加作业号。</p>
-</li>
-<li>
-<p>--mem=\<size\[units\]>：设定每个节点的内存大小，后缀可以为[K|M|G|T]，默认为MB。</p>
-</li>
-<li>
-<p>--mem-per-cpu=\<size\[units\]>：设定分配的每颗CPU对应最小内存，后缀可以为[K|M|G|T]，默认为MB。</p>
-</li>
-<li>
-<p>--mem-per-gpu=\<size\[units\]>：设定分配的每颗GPU对应最小内存，后缀可以为[K|M|G|T]，默认为MB。</p>
-</li>
-<li>
-<p>--mincpus=\<n>：设定每个节点最小的逻辑CPU核/处理器。</p>
-</li>
-<li>
-<p>--mpi=\<mpi_type>：<code>srun特有</code>，指定使用的MPI环境，\<mpi_type>可以主要为：</p>
-</li>
-<li>
-<p>list：列出可用的MPI以便选择。</p>
-</li>
-<li>pmi2：启用PMI2支持</li>
-<li>pmix：启用PMIx支持</li>
-<li>
-<p>none：默认选项，多种其它MPI实现有效。</p>
-</li>
-<li>
-<p>--multi-prog：<code>srun特有</code>，让不同任务运行不同的程序及参数，需指定一个配置文件，参见MULTIPLE PROGRAM CONFIGURATION。</p>
-</li>
-<li>
-<p>-N, --nodes=\<minnodes\[-maxnodes\]>：采用特定节点数运行作业，如没指定maxnodes则需特定节点数，注意，这里是节点数，不是CPU核数，实际分配的是节点数×每节点CPU核数。</p>
-</li>
-<li>
-<p>--nice[=adjustment]：设定NICE调整值。负值提高优先级，正值降低优先级。调整范围为：&plusmn;2147483645。</p>
-</li>
-<li>
-<p>-n, --ntasks=\<number>：设定所需要的任务总数。默认是每个节点1个任务，注意是节点，不是CPU核。仅对作业起作用，不对作业步起作用。--cpus-per-task选项可以改变此默认选项。</p>
-</li>
-<li>
-<p>--ntasks-per-core=\<ntasks>：每颗CPU核运行\<ntasks>个任务，需与-n, --ntasks=\<number>配合，并自动绑定\<ntasks>个任务到每个CPU核。仅对作业起作用，不对作业步起作用。</p>
-</li>
-<li>
-<p>--ntasks-per-node=\<ntasks>：每个节点运行\<ntasks>个任务，需与-n, --ntasks=\<number>配合。仅对作业起作用，不对作业步起作用。</p>
-</li>
-<li>
-<p>--ntasks-per-socket=\<ntasks>：每颗CPU运行\<ntasks>个任务，需与-n, --ntasks=\<number>配合，并绑定\<ntasks>个任务到每颗CPU。仅对作业起作用，不对作业步起作用。</p>
-</li>
-<li>
-<p>--no-bell：<code>salloc特有</code>，资源分配时不终端响铃。参见--bell。</p>
-</li>
-<li>
-<p>--no-shell：<code>salloc特有</code>，分配资源后立即退出，而不运行命令。但Slurm作业仍旧被生成，在其激活期间，且保留这些激活的资源。用户会获得一个没有附带进程和任务的作业号，用户可以采用提交srun命令到这些资源。</p>
-</li>
-<li>
-<p>-o, --output=\<mode>：<code>sbatch与srun特有</code>，指定标准输出重定向。在非交互模式中，默认srun收集各任务的标准输出，并发送到吸附的终端上。采用--output可以将其重定向到同一个文件、每个任务一个文件或/dev/null等。参见IO重定向。</p>
-</li>
-<li>
-<p>--open-mode=\<append|truncate>：<code>sbtach与srun特有</code>，对标准输出和标准错误输出采用追加模式还是覆盖模式。</p>
-</li>
-<li>
-<p>-O, --overcommit：采用此选项可以使得每颗CPU运行不止一个任务。</p>
-</li>
-<li>
-<p>--open-mode=\<append|truncate>：标准输出和标准错误输出打开文件的方式：</p>
-</li>
-<li>
-<p>append：追加。</p>
-</li>
-<li>
-<p>truncate：截断覆盖。</p>
-</li>
-<li>
-<p>-p, --partition=\<partition_names>：使用\<partition_names>队列</p>
-</li>
-<li>
-<p>--prolog=\<executable>：<code>srun特有</code>，作业开始运行前执行\<executable>程序，做相应处理。</p>
-</li>
-<li>
-<p>-Q, --quiet：采用安静模式运行，一般信息将不显示，但错误信息仍将被显示。</p>
-</li>
-<li>
-<p>--qos=\<qos>：需要特定的服务质量(QS)。</p>
-</li>
-<li>
-<p>--quit-on-interrupt：<code>srun特有</code>，当SIGINT (Ctrl-C)时立即退出。</p>
-</li>
-<li>
-<p>-r, --relative=\<n>：<code>srun特有</code>，在当前分配的第n节点上运行作业步。该选项可用于分配一些作业步到当前作业占用的节点外的节点，节点号从0开始。-r选项不能与-w或-x同时使用。仅对作业步有效。</p>
-</li>
-<li>
-<p>--reservation=\<name>：从\<name>预留资源分配。</p>
-</li>
-<li>
-<p>–requeue：<code>sbtach特有</code>，当非配的节点失效或被更高级作业抢占资源后，重新运行该作业。相当于重新运行批处理脚本，小心已运行的结果被覆盖等。</p>
-</li>
-<li>
-<p>--no-requeue：任何情况下都不重新运行。</p>
-</li>
-<li>
-<p>-S, --core-spec=\<num>：指定预留的不被作业使用的各节点CPU核数。但也会被记入费用。</p>
-</li>
-<li>
-<p>--signal=\<sig_num>[@\<sig_time>]：设定到其终止时间前信号时间\<sig_time>秒时的信号。由于Slurm事件处理的时间精度，信号有可能比设定时间早60秒。信号可以为10或USER1，信号时间sig_time必须在0到65535之间，如没指定，则默认为60秒。</p>
-</li>
-<li>
-<p>--sockets-per-node=\<sockets>：设定每个节点的CPU颗数。</p>
-</li>
-<li>
-<p>-T, --threads=\<nthreads>：<code>srun特有</code>，限制从srun进程发送到分配节点上的并发线程数。</p>
-</li>
-<li>
-<p>-t, --time=\<time>：作业最大运行总时间\<time>，到时间后将被终止掉。时间\<time>的格式可以为：分钟、分钟:秒、小时:分钟:秒、天-小时、天-小时:分钟、天-小时:分钟:秒</p>
-</li>
-<li>
-<p>--task-epilog=\<executable>：<code>srun特有</code>，任务终止后立即执行\<executable>，对应于作业步分配。</p>
-</li>
-<li>
-<p>--task-prolog=\<executable>：<code>srun特有</code>，任务开始前立即执行\<executable>，对应于作业步分配。</p>
-</li>
-<li>
-<p>--test-only：<code>sbatch与srun特有</code>，测试批处理脚本，并预计将被执行的时间，但并不实际执行脚本。</p>
-</li>
-<li>
-<p>--thread-spec=\<num>：设定指定预留的不被作业使用的各节点线程数。</p>
-</li>
-<li>
-<p>--threads-per-core=\<threads>：每颗CPU核运行\<threads>个线程。</p>
-</li>
-<li>
-<p>--time-min=\<time>：设定作业分配的最小时间，设定后作业的运行时间将使得--time设定的时间不少于--time-min设定的。时间格式为：minutes、minutes:seconds、hours:minutes:seconds、days-hours、days-hours:minutes和days-hours:minutes:seconds。</p>
-</li>
-<li>
-<p>--usage：显示简略帮助信息</p>
-</li>
-<li>
-<p>--tmp=\<size\[units\]>：设定/tmp目录最小磁盘空间，后缀可以为[K|M|G|T]，默认为MB。</p>
-</li>
-<li>
-<p>-u, --usage：显示简要帮助信息。</p>
-</li>
-<li>
-<p>-u, --unbuffered：<code>srun特有</code>，该选项使得输出可以不被缓存立即显示出来。默认应用的标准输出被glibc缓存，除非被刷新(flush)或输出被设定为步缓存。</p>
-</li>
-<li>
-<p>--use-min-nodes：设定如果给了一个节点数范围，分配时，选择较小的数。</p>
-</li>
-<li>
-<p>-V, --version：显示版本信息。</p>
-</li>
-<li>
-<p>-v, --verbose：显示详细信息，多个v会显示更详细的详细。</p>
-</li>
-<li>
-<p>-W, --wait=\<seconds>：设定在第一个任务结束后多久结束全部任务。</p>
-</li>
-<li>
-<p>-w, --nodelist=\<host1,host2,... or filename>：在特定\<host1,host2>节点或filename文件中指定的节点上运行。</p>
-</li>
-<li>
-<p>--wait-all-nodes=\<value>：<code>salloc与sbatch特有</code>，控制当节点准备好时何时运行命令。默认，当分配的资源准备好后<code>salloc</code>命令立即返回。\<value>可以为：</p>
-</li>
-<li>
-<p>0：当分配的资源可以分配时立即执行，比如有节点以重启好。</p>
-</li>
-<li>
-<p>1：只有当分配的所有节点都准备好时才执行</p>
-</li>
-<li>
-<p>-X, --disable-status：<code>srun特有</code>，禁止在srun收到SIGINT (Ctrl-C)时显示任务状态。</p>
-</li>
-<li>
-<p>-x, --exclude=\<host1,host2,... or filename>：在特定\<host1,host2>节点或filename文件中指定的节点之外的节点上运行。</p>
-</li>
+<li><code>after:job_id[:jobid...]</code>：当指定作业号的作业结束后开始运行。</li>
+<li><code>afterany:job_id[:jobid...]</code>：当指定作业号的任意作业结束后开始运行。</li>
+<li><code>aftercorr:job_id[:jobid...]</code>：当相应任务号任务结束后，此作业组中的开始运行。</li>
+<li><code>afternotok:job_id[:jobid...]</code>：当指定作业号的作业结束时具有异常状态（非零退出码、节点失效、超时等）时。</li>
+<li><code>afterok:job_id[:jobid...]</code>：当指定的作业正常结束（退出码为0）时开始运行。</li>
+<li><code>expand:job_id</code>：分配给此作业的资源将扩展给指定作业。</li>
+<li><code>singleton</code>：等任意通账户的相同作业名的前置作业结束时。</li>
+<li><code>-D</code>, <code>--chdir=&lt;path&gt;</code>：在切换到 <code>&lt;path&gt;</code> 工作目录后执行命令。</li>
+<li><code>-e</code>, <code>--error=&lt;mode&gt;</code>：设定标准错误如何重定向。非交互模式下，默认srun重定向标准错误到与标准输出同样的文件（如指定）。此参数可以指定重定向到不同文件。如果指定的文件已经存在，那么将被覆盖。参见IO重定向。<code>salloc</code>无此选项。</li>
+<li><code>--epilog=&lt;executable&gt;</code>：<strong><code>srun</code> 特有</strong>，作业结束后执行 <code>&lt;executable&gt;</code> 程序做相应处理。</li>
+<li><code>-E</code>, <code>--preserve-env</code>：将环境变量 <code>SLURM_NNODES</code> 和 <code>SLURM_NTASKS</code> 传递给可执行文件，而无需通过计算命令行参数。</li>
+<li><code>--exclusive[=user|mcs]</code>：排他性运行，独占性运行，此节点不允许其他 <code>[user]</code> 用户或 <code>mcs</code> 选项的作业共享运行作业。</li>
+<li><code>--export=&lt;[ALL,]environment variables|ALL|NONE&gt;</code>：<strong><code>sbatch</code>与<code>srun</code>特有</strong>，将环境变量传递给应用程序</li>
+<li><code>ALL</code>：复制所有提交节点的环境变量，为默认选项。</li>
+<li><code>NONE</code>：所有环境变量都不被传递，可执行程序必须采用绝对路径。一般用于当提交时使用的集群与运行集群不同时。</li>
+<li><code>[ALL,]environment variables</code>：复制全部环境变量及特定的环境变量及其值，可以有多个以 <code>,</code> 分隔的变量。如：<code>--export=EDITOR,ARG1=test</code>。</li>
+<li><code>--export-file=&lt;filename | fd&gt;</code>：<strong><code>sbatch</code>特有</strong>，将特定文件中的变量设置传递到计算节点，这允许在定义环境变量时包含特殊字符。</li>
+<li><code>-F</code>, <code>--nodefile=&lt;node file&gt;</code>：类似 <code>--nodelist</code> 指定需要运行的节点，但在一个文件中含有节点列表。</li>
+<li><code>-G</code>, <code>--gpus=[&lt;type&gt;:]&lt;number&gt;</code>：设定使用的GPU类型及数目，如--gpus=v100:2。</li>
+<li><code>--gpus-per-node=[&lt;type&gt;:]&lt;number&gt;</code>：设定单个节点使用的GPU类型及数目。</li>
+<li><code>--gpus-per-socket=[&lt;type&gt;:]&lt;number&gt;</code>：设定每个socket需要的GPU类型及数目。</li>
+<li><code>--gpus-per-task=[&lt;type&gt;:]&lt;number&gt;</code>：设定每个进程需要的GPU类型及数目。</li>
+<li><code>--gres=&lt;list&gt;</code>：设定通用消费资源，可以以 <code>,</code> 分隔。每个 <code>&lt;list&gt;</code> 格式为 <code>name[[:type]:count]</code>。<code>name</code> 是可消费资源；<code>count</code> 是资源个数，默认为1。例如需要 1 张 GPU 卡便可以通过 <code>--gres=gpu:1</code> 来指定。</li>
+<li><code>-H</code>, <code>--hold</code>：设定作业将被提交为挂起状态。挂起的作业可以利用 <code>scontrol release &lt;job_id&gt;</code> 使其排队运行。</li>
+<li><code>-h</code>, <code>--help</code>：显示帮助信息。</li>
+<li><code>--hint=&lt;type&gt;</code>：绑定任务到应用提示：</li>
+<li><code>compute_bound</code>：选择设定计算边界应用：采用每个socket的所有CPU核，每颗CPU核一个进程。</li>
+<li><code>memory_bound</code>：选择设定内存边界应用：仅采用每个socket的1颗CPU核，每颗CPU核一个进程。</li>
+<li><code>multithread</code>：在in-core multi-threading是否采用额外的线程，对通信密集型应用有益。仅当task/affinity插件启用时。</li>
+<li><code>help</code>：显示帮助信息</li>
+<li><code>-I</code>, <code>--immediate[=&lt;seconds&gt;]</code>：<strong><code>salloc</code> 与 <code>srun</code> 特有</strong>，在 <code>&lt;seconds&gt;</code> 秒内资源未满足的话立即退出。格式可以为 <code>-I60</code>，但不能之间有空格是 <code>-I 60</code>。</li>
+<li><code>--ignore-pbs</code>：<strong><code>sbatch</code> 特有</strong>，忽略批处理脚本中的 <code>#PBS</code> 选项。</li>
+<li><code>-i</code>, <code>--input=&lt;mode&gt;</code>：<strong><code>sbatch</code> 与 <code>srun</code> 特有</strong>，指定标准输入如何重定向。默认，<code>srun</code> 对所有任务重定向标准输入为从终端。参见IO重定向。</li>
+<li><code>-J</code>, <code>--job-name=&lt;jobname&gt;</code>：设定作业名 <code>&lt;jobname&gt;</code>，默认为命令名或批处理脚本名。</li>
+<li><code>--jobid=&lt;jobid&gt;</code>：<strong><code>srun</code> 特有</strong>，初始作业步到某个已分配的作业号 <code>&lt;jobid&gt;</code> 下的作业下，类似设置了 <code>SLURM_JOB_ID</code> 环境变量。仅对作业步申请有效。</li>
+<li><code>-K</code>, <code>--kill-command[=signal]</code>：<strong><code>salloc</code> 特有</strong>，设定需要终止时的 signal，默认，如没指定，则对于交互式作业为 <code>SIGHUP</code> ，对于非交互式作业为 <code>SIGTERM</code>。格式类似可以为 <code>-K1</code>，但不能包含空格为 <code>-K 1</code>。</li>
+<li><code>-K</code>, <code>–kill-on-bad-exit[=0|1]</code>：<strong><code>srun</code> 特有</strong>，设定是否任何一个任务退出码为非0时，是否终止作业步。</li>
+<li><code>-k</code>, <code>--no-kill</code>：如果分配的节点失效，那么不会自动终止。</li>
+<li><code>-L</code>, <code>--licenses=&lt;license&gt;</code>：设定使用的 <code>&lt;license&gt;</code>。</li>
+<li><code>-l</code>, <code>--label</code>：<strong><code>srun</code> 特有</strong>，在标注正常输出或标准错误输出的行前面添加作业号。</li>
+<li><code>--mem=&lt;size[units]&gt;</code>：设定每个节点的内存大小，后缀可以为 <code>[K|M|G|T]</code> ，默认为MB。</li>
+<li><code>--mem-per-cpu=&lt;size[units]&gt;</code>：设定分配的每颗CPU对应最小内存，后缀可以为 <code>[K|M|G|T]</code>，默认为MB。</li>
+<li><code>--mem-per-gpu=&lt;size[units]&gt;</code>：设定分配的每颗GPU对应最小内存，后缀可以为 <code>[K|M|G|T]</code>，默认为MB。</li>
+<li><code>--mincpus=&lt;n&gt;</code>：设定每个节点最小的逻辑CPU核/处理器。</li>
+<li><code>--mpi=&lt;mpi_type&gt;</code>：<strong><code>srun</code> 特有</strong>，指定使用的MPI环境，<code>&lt;mpi_type&gt;</code> 可为：</li>
+<li><code>list</code>：列出可用的MPI以便选择。</li>
+<li><code>pmi2</code>：启用PMI2支持</li>
+<li><code>pmix</code>：启用PMIx支持</li>
+<li><code>none</code>：默认选项，多种其它MPI实现有效。</li>
+<li><code>--multi-prog</code>：<strong><code>srun</code> 特有</strong>，让不同任务运行不同的程序及参数，需指定一个配置文件，参见MULTIPLE PROGRAM CONFIGURATION。</li>
+<li><code>-N</code>, <code>--nodes=&lt;minnodes[-maxnodes]&gt;</code>：采用特定节点数运行作业，如没指定maxnodes则需特定节点数，注意，这里是节点数，不是CPU核数，实际分配的是节点数×每节点CPU核数。</li>
+<li><code>--nice[=adjustment]</code>：设定NICE调整值。负值提高优先级，正值降低优先级。调整范围为：&plusmn;2147483645。</li>
+<li><code>-n</code>, <code>--ntasks=&lt;number&gt;</code>：设定所需要的任务总数。默认是每个节点1个任务，注意是节点，不是CPU核。仅对作业起作用，不对作业步起作用。<code>--cpus-per-task</code>选项可以改变此默认选项。</li>
+<li><code>--ntasks-per-core=&lt;ntasks&gt;</code>：每个 CPU 核运行 <code>&lt;ntasks&gt;</code> 个任务，需与 <code>-n, --ntasks=&lt;number&gt;</code> 配合，并自动绑定 <code>&lt;ntasks&gt;</code> 个任务到每个 CPU 核。仅对作业起作用，不对作业步起作用。</li>
+<li><code>--ntasks-per-node=&lt;ntasks&gt;</code>：每个节点运行 <code>&lt;ntasks&gt;</code> 个任务，需与 <code>-n, --ntasks=&lt;number&gt;</code> 配合。仅对作业起作用，不对作业步起作用。</li>
+<li><code>--ntasks-per-socket=&lt;ntasks&gt;</code>：每颗 CPU 运行 <code>&lt;ntasks&gt;</code>个任务，需与 <code>-n, --ntasks=&lt;number&gt;</code> 配合，并绑定 <code>&lt;ntasks&gt;</code> 个任务到每颗 CPU。仅对作业起作用，不对作业步起作用。</li>
+<li><code>--no-bell</code>：<strong><code>salloc</code> 特有</strong>，资源分配时不终端响铃。参见--bell。</li>
+<li><code>--no-shell</code>：<strong><code>salloc</code>特有</strong>，分配资源后立即退出，而不运行命令。但Slurm作业仍旧被生成，在其激活期间，且保留这些激活的资源。用户会获得一个没有附带进程和任务的作业号，用户可以采用提交 <code>srun</code> 命令到这些资源。</li>
+<li><code>-o</code>, <code>--output=&lt;mode&gt;</code>：<strong><code>sbatch</code> 与 <code>srun</code> 特有</strong>，指定标准输出重定向。在非交互模式中，默认srun收集各任务的标准输出，并发送到吸附的终端上。采用 <code>--output</code> 可以将其重定向到同一个文件、每个任务一个文件或 <code>/dev/null</code> 等。参见IO重定向。</li>
+<li><code>-O</code>, <code>--overcommit</code>：采用此选项可以使得每颗 CPU 运行不止一个任务。</li>
+<li><code>--open-mode=&lt;append|truncate&gt;</code>：<strong><code>sbtach</code> 与 <code>srun</code> 特有</strong>，对标准输出和标准错误输出采用追加模式还是覆盖模式。</li>
+<li><code>append</code>：追加。</li>
+<li><code>truncate</code>：截断覆盖。</li>
+<li><code>-p</code>, <code>--partition=&lt;partition_names&gt;</code>：使用 <code>`&lt;partition_names&gt;</code> 队列 (分区)。</li>
+<li><code>--prolog=&lt;executable&gt;</code>：<strong><code>srun</code> 特有</strong>，作业开始运行前执行 <code>&lt;executable&gt;</code> 程序，做相应处理。</li>
+<li><code>-Q</code>, <code>--quiet</code>：采用安静模式运行，一般信息将不显示，但错误信息仍将被显示。</li>
+<li><code>-q</code>, <code>--qos=&lt;qos&gt;</code>：需要特定的服务质量(QOS)。</li>
+<li><code>--quit-on-interrupt</code>：<strong><code>srun</code> 特有</strong>，当SIGINT (Ctrl-C)时立即退出。</li>
+<li><code>-r</code>, <code>--relative=&lt;n&gt;</code>：<strong><code>srun</code> 特有</strong>，在当前分配的第n节点上运行作业步。该选项可用于分配一些作业步到当前作业占用的节点外的节点，节点号从0开始。<code>-r</code> 选项不能与 <code>-w</code> 或 <code>-x</code> 同时使用。仅对作业步有效。</li>
+<li><code>--reservation=&lt;name&gt;</code>：从 <code>&lt;name&gt;</code> 预留资源分配。</li>
+<li><code>-–requeue</code>：<strong><code>sbtach</code> 特有</strong>，当非配的节点失效或被更高级作业抢占资源后，重新运行该作业。相当于重新运行批处理脚本，需注意已运行的结果可能被覆盖等。</li>
+<li><code>--no-requeue</code>：任何情况下都不重新运行。</li>
+<li><code>-S</code>, <code>--core-spec=&lt;num&gt;</code>：指定预留的不被作业使用的各节点CPU核数。但也会被记入费用。</li>
+<li><code>--signal=&lt;sig_num&gt;[@&lt;sig_time&gt;]</code>：设定到其终止时间前信号时间 <code>&lt;sig_time&gt;</code> 秒时的信号。由于 Slurm 事件处理的时间精度，信号有可能比设定时间早 60 秒。信号可以为 <code>10</code> 或 <code>USER1</code>，信号时间 <code>sig_time</code> 必须在 0 到 65535 之间，如没指定，则默认为 60 秒。</li>
+<li><code>--sockets-per-node=&lt;sockets&gt;</code>：设定每个节点的 CPU 颗数。</li>
+<li><code>-T</code>, <code>--threads=&lt;nthreads&gt;</code>：<strong><code>srun</code> 特有</strong>，限制从srun进程发送到分配节点上的并发线程数。</li>
+<li><code>-t</code>, <code>--time=&lt;time&gt;</code>：作业最大运行总时间 <code>&lt;time&gt;</code> ，到时间后将被终止掉。时间 <code>&lt;time&gt;</code> 的格式可以为：<code>分钟</code>、<code>分钟:秒</code>、<code>小时:分钟:秒</code>、<code>天-小时</code>、<code>天-小时:分钟</code>、<code>天-小时:分钟:秒</code>。</li>
+<li><code>--task-epilog=&lt;executable&gt;</code>：<strong><code>srun</code> 特有</strong>，任务终止后立即执行 <code>&lt;executable&gt;</code>，对应于作业步分配。</li>
+<li><code>--task-prolog=&lt;executable&gt;</code>：<strong><code>srun</code> 特有</strong>，任务开始前立即执行 <code>&lt;executable&gt;</code>，对应于作业步分配。</li>
+<li><code>--test-only</code>：<strong><code>sbatch</code> 与 <code>srun</code> 特有</strong>，测试批处理脚本，并预计将被执行的时间，但并不实际执行脚本。</li>
+<li><code>--thread-spec=&lt;num&gt;</code>：设定指定预留的不被作业使用的各节点线程数。</li>
+<li><code>--threads-per-core=&lt;threads&gt;</code>：每颗 CPU 核运行 <code>&lt;threads&gt;</code> 个线程。</li>
+<li><code>--time-min=&lt;time&gt;</code>：设定作业分配的最小时间，设定后作业的运行时间将使得 <code>--time</code> 设定的时间不少于 <code>--time-min</code> 设定的。时间格式为：<code>minutes</code>、<code>minutes:seconds</code>、<code>hours:minutes:seconds</code>、<code>days-hours</code>、<code>days-hours:minutes</code> 和 <code>days-hours:minutes:seconds</code>。</li>
+<li><code>--tmp=&lt;size[units]&gt;</code>：设定 <code>/tmp</code> 目录最小磁盘空间，后缀可以为 <code>[K|M|G|T]</code>，默认为MB。</li>
+<li><code>--usage</code>：显示简要帮助信息。</li>
+<li><code>-u</code>, <code>--unbuffered</code>：<code>srun特有</code>，该选项使得输出可以不被缓存立即显示出来。默认应用的标准输出被glibc缓存，除非被刷新(flush)或输出被设定为步缓存。</li>
+<li><code>--use-min-nodes</code>：设定如果给了一个节点数范围，分配时，选择较小的数。</li>
+<li><code>-V</code>, <code>--version</code>：显示版本信息。</li>
+<li><code>-v</code>, <code>--verbose</code>：显示详细信息，多个v会显示更详细的详细。</li>
+<li><code>-W</code>, <code>--wait=&lt;seconds&gt;</code>：设定在第一个任务结束后多久结束全部任务。</li>
+<li><code>-w</code>, <code>--nodelist=&lt;host1,host2,... or filename&gt;</code>：在特定 <code>&lt;host1,host2&gt;</code> 节点或 <code>filename</code> 文件中指定的节点上运行。</li>
+<li><code>--wait-all-nodes=&lt;value&gt;</code>：<strong><code>salloc</code> 与 <code>sbatch</code> 特有</strong>，控制当节点准备好时何时运行命令。默认，当分配的资源准备好后 <code>salloc</code> 命令立即返回。<code>&lt;value&gt;</code>可以为：</li>
+<li>0：当分配的资源可以分配时立即执行，比如有节点以重启好。</li>
+<li>1：只有当分配的所有节点都准备好时才执行</li>
+<li><code>-X</code>, <code>--disable-status</code>：<strong><code>srun</code> 特有</strong>，禁止在srun收到SIGINT (Ctrl-C)时显示任务状态。</li>
+<li><code>-x</code>, <code>--exclude=&lt;host1,host2,... or filename&gt;</code>：在特定 <code>&lt;host1,host2&gt;</code> 节点或 <code>filename</code> 文件中指定的节点之外的节点上运行。</li>
 </ul>
+<h3 id="_3">格式化字符<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>srun允许生成采用格式化字符命名的上述IO文件，如可以结合作业号、作业步、节点或任务等。</p>
+<ul>
+<li><code>\\</code>：不处理任何代替符。</li>
+<li><code>%%</code>：字符“%”。</li>
+<li><code>%A</code>：作业组的主作业分配号。</li>
+<li><code>%a</code>：作业组ID号。</li>
+<li><code>%J</code>：运行作业的 作业号.步号（如128.0）。</li>
+<li><code>%j</code>：运行作业的 作业号</li>
+<li><code>%s</code>：运行作业的 作业步号。</li>
+<li><code>%N</code>：短格式节点名，每个节点将生成的不同的IO文件。</li>
+<li><code>%n</code>：当前作业相关的节点标记（如“0”是运行作业的第一个节点），每个节点将生成的不同的IO文件。</li>
+<li><code>%t</code>：与当前作业相关的任务标记(rank)，每个rank将生成一个不同的IO文件。</li>
+<li><code>%u</code>：用户名。</li>
+<li><code>%x</code>: 作业名。</li>
+</ul>
+<p>在 <code>%</code> 与格式化标记符之间的数字可以用于生成前导零，如：
+- <code>job%J.out</code>：<code>job128.0.out</code>。
+- <code>job%4j.out</code>：<code>job0128.out</code>。
+- <code>job%j-%2t.out</code>：<code>job128-00.out</code>、<code>job128-01.out</code>、...。</p>
 <h2 id="io">IO重定向<a class="headerlink" href="#io" title="Permanent link">&para;</a></h2>
-<p>默认标准输出文件和标准出错文件将从所有任务中被重定向到<code>sbatch和srun</code> <code>（salloc不存在IO重定向）</code>的标准输出文件和标准出错文件，标准输入文件从srun的标准输输入文件重定向到所有任务。如果标准输入仅仅是几个任务需要，建议采用读文件方式而不是重定向方式，以免输入错误数据。</p>
-<p>以上行为可以通过--output、--error和--input(-o、-e、-i)等选项改变，有效的格式为：</p>
-<ul>
-<li>
-<p>all：标准输出和标准出错从所有任务定向到srun，标准输入文件从srun的标准输输入文件重定向到所有任务（默认）。</p>
-</li>
-<li>
-<p>none：标准输出和标准出错不从任何任务定向到srun，标准输入文件不从srun定向到任何任务。</p>
-</li>
-<li>
-<p>taskid：标准输出和/或标准出错仅从任务号为taskid的任务定向到srun，标准输入文件仅从srun定向到任务号为taskid任务。</p>
-</li>
-<li>
-<p>filename: srun将所有任务的标准输出和标准出错重定向到filename文件，标准输入文件将从filename文件重定向到全部任务。</p>
-</li>
-<li>
-<p>格式化字符：srun允许生成采用格式化字符命名的上述IO文件，如可以结合作业号、作业步、节点或任务等。</p>
-</li>
-<li>
-<p>\：不处理任何代替符。</p>
-</li>
-<li>\%%：字符“%”。</li>
-<li>\%A：作业组的主作业分配号。</li>
-<li>\%a：作业组ID号。</li>
-<li>\%J：运行作业的作业号.步号（如128.0）。</li>
-<li>\%j：运行作业的作业号</li>
-<li>\%s：运行作业的作业步号。</li>
-<li>\%N：短格式节点名，每个节点将生成的不同的IO文件。</li>
-<li>\%n：当前作业相关的节点标记（如“0”是运行作业的第一个节点），每个节点将生成的不同的IO文件。</li>
-<li>\%t：与当前作业相关的任务标记(rank)，每个rank将生成一个不同的IO文件。</li>
-<li>\%u：用户名。</li>
-</ul>
-<p>在%与格式化标记符之间的数字可以用于生成前导零，如：</p>
-<ul>
-<li>job%J.out：job128.0.out。</li>
-<li>job%4j.out：job0128.out。</li>
-<li>job%j-%2t.out：job128-00.out、job128-01.out、...。</li>
-</ul>
+<p>默认标准输出文件和标准出错文件将从所有任务中被重定向到 <code>sbatch</code> 和 <code>srun</code>（ <code>salloc</code> 不存在IO重定向）的标准输出文件和标准出错文件，标准输入文件从 srun 的标准输输入文件重定向到所有任务。如果标准输入仅仅是几个任务需要，建议采用读文件方式而不是重定向方式，以免输入错误数据。</p>
+<p>以上行为可以通过 <code>--output</code>、<code>--error</code>和 <code>--input</code> (<code>-o</code>、<code>-e</code>、<code>-i</code>)等选项改变，有效的格式为：
+- <code>all</code>：标准输出和标准出错从所有任务定向到srun，标准输入文件从srun的标准输输入文件重定向到所有任务（默认）。
+- <code>none</code>：标准输出和标准出错不从任何任务定向到srun，标准输入文件不从srun定向到任何任务。
+- <code>taskid</code>：标准输出和/或标准出错仅从任务号为taskid的任务定向到srun，标准输入文件仅从srun定向到任务号为taskid任务。
+- <code>filename</code>: srun将所有任务的标准输出和标准出错重定向到filename文件，标准输入文件将从filename文件重定向到全部任务。</p>
 
 
 
